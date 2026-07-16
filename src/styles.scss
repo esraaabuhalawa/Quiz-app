@@ -1,2 +1,89 @@
 /* You can add global styles to this file, and also import other style files */
- @import 'primeflex/primeflex.css'
+@use "./assets/fonts.scss";
+
+@import 'primeflex/primeflex.css';
+@import "primeicons/primeicons.css";
+
+/* Make Html Color Transition smooth */
+html {
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* ========================= */
+/* Light Theme (default) */
+/* ========================= */
+:root {
+  /* Fonts */
+  --font-en: "Poppins", sans-serif;
+  --font-ar: "Tajawal", "Cairo", sans-serif;
+  --font-poppins-family: "Poppins", sans-serif;
+  --font-inter-family: "Inter", sans-serif;
+
+  /* Colors */
+  --primary-color: #FFEDDF;
+  --secondary-color: #0D1321;
+  --ultra-color: #C5D86D;
+  --text-secondary-color: #B0B0B0;
+  --white-color: #ffffff;
+  --login-red-color: #EB5148;
+  --icon-color: #374151;
+
+  /* Surfaces */
+  --surface-color: #FFFFFF;
+  --surface-hover: #F3F4F6;
+  --surface-border: #E5E7EB;
+
+  /* Text */
+  --text-primary-color: #152C5B;
+
+  /* States */
+  --success-color: #22C55E;
+  --warning-color: #EAB308;
+  --info-color: #3B82F6;
+
+  /* Card overlays */
+  --image-overlay: rgba(0, 0, 0, 0.35);
+  --image-overlay-hover: rgba(0, 0, 0, 0.6);
+
+  /* Badge */
+  --price-badge: #FF498B;
+
+  --input-bg-color: #ffffff;
+  --input-color: #111827;
+  --input-border-color: #d1d5db;
+  --input-placeholder-color: #6b7280;
+
+  --hero-border: #E5E5E5;
+
+  --date-icon-filter: none;
+
+  --input-bg: #FFFFFF;
+  --input-border: #D1D5DB;
+  --input-text: #152C5B;
+
+  --decrement-bg: #E74C3C;
+  --increment-bg: #1ABC9C;
+}
+
+ body{
+  margin:0;
+  padding: 0;
+ }
+html[lang="en"] {
+  --font-base: var(--font-en);
+}
+
+html[lang="ar"] {
+  --font-base: var(--font-ar);
+}
+
+button,.p-button {
+  cursor: pointer;
+}
+
+body,
+h1,
+h2,
+h3 {
+  font-family: var(--font-base);
+}

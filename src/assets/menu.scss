@@ -1,0 +1,26 @@
+:host ::ng-deep .ad-actions-menu {
+  min-width: 9rem;
+  border-radius: 12px;
+  border: 1px solid #f3f4f6;
+  box-shadow:
+    0 10px 15px -3px rgb(0 0 0 / 0.1),
+    0 4px 6px -4px rgb(0 0 0 / 0.1);
+  overflow: hidden;
+}
+
+:host ::ng-deep .p-menu {
+  background: #f9fafb !important;
+}
+
+::ng-deep .ad-actions-menu .p-menu-item-link {
+  padding: 0.75rem 1rem;
+  color: var(--primary-color) !important;
+}
+
+::ng-deep .ad-actions-menu .p-menu-item-link:hover {
+  background: #e9ebeef2 !important;
+}
+
+::ng-deep .ad-actions-menu .p-menu-item-icon {
+  color: #1e40af !important;
+}

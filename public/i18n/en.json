@@ -1,0 +1,94 @@
+{
+  "auth": {
+    "access_denied": "Access Denied",
+    "login_as_user": "Please sign in with a user account to access this page.",
+    "user_only": "This page is available to users only.",
+    "login_success_message": "Logged in successfully!",
+    "login_success_summary": "Success",
+    "login": {
+      "title": "Sign In",
+      "description": "Don't have an account? Register now.",
+      "sub_text": "You can",
+      "register": "Create a new account!",
+      "email_label": "Email Address",
+      "email_placeholder": "Email Address",
+      "email_required": "Email is required",
+      "email_invalid": "Please enter a valid email address",
+      "password_label": "Password",
+      "password_required": "Password is required",
+      "password_pattern": "Password must contain at least one uppercase letter, one lowercase letter, one special character, and be at least 6 characters long",
+      "forgot_password": "Forgot Password?",
+      "button_login": "Sign In",
+      "or_continue": "Or continue with",
+      "google_signin": "Sign in with Google",
+      "header_title": "Sign In",
+      "header_desc": "Unique homes for unique people."
+    },
+    "forgot": {
+      "title": "Forgot Password",
+      "description": "Don't worry, it happens. Enter your email address to reset your password.",
+      "link_text": "Sign in here!",
+      "button": "Send Email",
+      "header_title": "Forgot Password",
+      "header_subtitle": "Unique homes for unique people."
+    },
+    "reset": {
+      "title": "Reset Password",
+      "description": "We've sent a verification code to your email. Please check your inbox and enter the code to continue.",
+      "sign_in": "Sign In",
+      "email_label": "Email Address",
+      "email_placeholder": "Type here...",
+      "email_required": "Email is required",
+      "email_invalid": "Please enter a valid email address",
+      "otp_label": "Verification Code",
+      "otp_required": "Verification code is required",
+      "password_label": "Password",
+      "password_required": "Password is required",
+      "password_pattern": "Password must contain at least one uppercase letter, one lowercase letter, one special character, and be at least 6 characters long",
+      "confirm_password_label": "Confirm Password",
+      "confirm_password_required": "Please confirm your password",
+      "passwords_do_not_match": "Passwords do not match",
+      "reset_button": "Reset Password",
+      "image_alt": "Reset Password",
+      "old_password_label": "Current Password",
+      "new_password_label": "New Password"
+    },
+    "change_password": {
+      "title": "Change Password",
+      "description": "Update your password to keep your account secure. Enter your current password and choose a new one.",
+      "change_button": "Change Password"
+    },
+    "register": {
+      "title": "Create Account"
+    }
+  },
+  "account": {
+    "profile": "Profile",
+    "dashboard": "Dashboard",
+    "wishlist": "Wishlist",
+    "change_password": "Change Password",
+    "logout": "Logout"
+  },
+  "not_found": {
+    "title": "Page Not Found",
+    "description": "Sorry, the page you are looking for doesn't exist or has been moved.",
+    "button": "Back to Dashboard"
+  },
+  "user_profile": {
+    "title": "Profile",
+    "country": "Country",
+    "phone_number": "Phone Number",
+    "role": "Role",
+    "status": "Status"
+  },
+  "errors": {
+    "required_title": "Required Information",
+    "sender_name_required": "Please enter the sender's name",
+    "card_error_prefix": "Card Error",
+    "payment_failed_title": "Payment Failed",
+    "sorry_title": "Sorry!",
+    "ok": "OK",
+    "payment_error_title": "Payment Error",
+    "stripe_not_initialized": "Stripe has not been initialized properly. Please refresh the page or try again later."
+  }
+}

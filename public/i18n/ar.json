@@ -1,0 +1,94 @@
+{
+  "auth": {
+    "access_denied": "تم رفض الوصول",
+    "login_as_user": "يرجى تسجيل الدخول باستخدام حساب مستخدم للوصول إلى هذه الصفحة.",
+    "user_only": "هذه الصفحة متاحة للمستخدمين فقط.",
+    "login_success_message": "تم تسجيل الدخول بنجاح!",
+    "login_success_summary": "نجاح",
+    "login": {
+      "title": "تسجيل الدخول",
+      "description": "إذا لم يكن لديك حساب قم بالتسجيل.",
+      "sub_text": "يمكنك",
+      "register": "إنشاء حساب جديد!",
+      "email_label": "البريد الإلكتروني",
+      "email_placeholder": "البريد الإلكتروني",
+      "email_required": "البريد الإلكتروني مطلوب",
+      "email_invalid": "صيغة البريد غير صحيحة",
+      "password_label": "كلمة المرور",
+      "password_required": "كلمة المرور مطلوبة",
+      "password_pattern": "كلمة المرور يجب أن تحتوي على حرف كبير وصغير ورمز خاص ولا تقل عن 6 أحرف",
+      "forgot_password": "نسيت كلمة المرور؟",
+      "button_login": "تسجيل الدخول",
+      "or_continue": "أو المتابعة باستخدام",
+      "google_signin": "تسجيل الدخول بجوجل",
+      "header_title": "تسجيل الدخول",
+      "header_desc": "منازل فريدة مثل أصحابها."
+    },
+    "forgot": {
+      "title": "نسيت كلمة المرور",
+      "description": "لا تقلق، يحدث ذلك. أدخل بريدك الإلكتروني لإعادة تعيين كلمة المرور.",
+      "link_text": "تسجيل الدخول هنا!",
+      "button": "إرسال البريد",
+      "header_title": "نسيت كلمة المرور",
+      "header_subtitle": "منازل فريدة مثل أصحابها."
+    },
+    "reset": {
+      "title": "إعادة تعيين كلمة المرور",
+      "description": "لقد أرسلنا رمز تحقق إلى بريدك الإلكتروني. من فضلك تحقق من بريدك الوارد وأدخل الرمز للمتابعة.",
+      "sign_in": "تسجيل الدخول",
+      "email_label": "البريد الإلكتروني",
+      "email_placeholder": "اكتب هنا...",
+      "email_required": "البريد الإلكتروني مطلوب",
+      "email_invalid": "صيغة البريد الإلكتروني غير صحيحة",
+      "otp_label": "رمز التحقق",
+      "otp_required": "رمز التحقق مطلوب",
+      "password_label": "كلمة المرور",
+      "password_required": "كلمة المرور مطلوبة",
+      "password_pattern": "يجب أن تحتوي كلمة المرور على حرف كبير وحرف صغير ورمز خاص وألا تقل عن 6 أحرف",
+      "confirm_password_label": "تأكيد كلمة المرور",
+      "confirm_password_required": "تأكيد كلمة المرور مطلوب",
+      "passwords_do_not_match": "كلمتا المرور غير متطابقتين",
+      "reset_button": "إعادة التعيين",
+      "image_alt": "إعادة تعيين كلمة المرور",
+      "old_password_label": "كلمة المرور القديمة",
+      "new_password_label": "كلمة المرور الجديدة"
+    },
+    "change_password": {
+      "title": "تغيير كلمة المرور",
+      "description": "قم بتحديث كلمة المرور للحفاظ على أمان حسابك. أدخل كلمة المرور الحالية واختر كلمة مرور جديدة.",
+      "change_button": "تغيير"
+    },
+    "register": {
+      "title": "إنشاء حساب"
+    }
+  },
+  "account": {
+    "profile": "الملف الشخصي",
+    "dashboard": "لوحة التحكم",
+    "wishlist": "المفضلة",
+    "change_password": "تغيير كلمة المرور",
+    "logout": "تسجيل الخروج"
+  },
+  "not_found": {
+    "title": "الصفحة غير موجودة",
+    "description": "عذرًا، الصفحة التي تبحث عنها غير موجودة أو تم نقلها إلى موقع آخر.",
+    "button": "العودة إلى لوحة التحكم"
+  },
+  "user_profile": {
+    "title": "الملف الشخصي",
+    "country": "الدولة",
+    "phone_number": "رقم الهاتف",
+    "role": "الدور",
+    "status": "الحالة"
+  },
+  "errors": {
+    "required_title": "بيانات مطلوبة",
+    "sender_name_required": "من فضلك أدخل اسم المُرسِل",
+    "card_error_prefix": "خطأ في البطاقة",
+    "payment_failed_title": "فشلت عملية الدفع",
+    "sorry_title": "آسفين !",
+    "ok": "حسنًا",
+    "payment_error_title": "خطأ في الدفع",
+    "stripe_not_initialized": "لم يتم تهيئة Stripe بشكل صحيح. برجاء تحديث الصفحة أو المحاولة لاحقًا."
+  }
+}

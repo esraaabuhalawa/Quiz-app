@@ -1,0 +1,37 @@
+<div class="not-found flex align-items-center justify-content-center">
+  <div class="not-found__container text-center">
+
+    <!-- Decorative Element -->
+    <div class="not-found__illustration flex justify-content-center">
+      <div class="not-found__circle">
+        <div class="not-found__question-mark">
+          ?
+        </div>
+      </div>
+    </div>
+
+    <!-- Error Code -->
+    <h1 class="not-found__code">
+      404
+    </h1>
+
+    <!-- Title -->
+    <h2 class="not-found__title">
+      {{ 'NOT_FOUND.TITLE' | translate }}
+    </h2>
+
+    <!-- Description -->
+    <p class="not-found__description">
+      {{ 'NOT_FOUND.DESCRIPTION' | translate }}
+    </p>
+
+    <!-- Action -->
+    <div class="flex justify-content-center mt-5">
+      <button
+        routerLink="/dashboard"
+        > {{'NOT_FOUND.BUTTON' | translate}}
+      </button>
+    </div>
+
+  </div>
+</div>
