@@ -1,0 +1,42 @@
+<p-select
+  [options]="languages()"
+  [ngModel]="selectedLanguage()"
+  (onChange)="changeLanguage($event.value)"
+  optionLabel="label"
+  [showClear]="false"
+  styleClass="lang-switcher"
+>
+  <ng-template #selectedItem let-selectedOption>
+    <div class="lang-option">
+      <img
+        [src]="selectedOption.value === 'en'
+          ? languages()[1].flag
+          : languages()[0].flag"
+        class="flag-icon"
+      />
+
+      <span
+        class="hidden md:inline"
+        [style.font-family]="selectedOption.value === 'en'
+          ? languages()[1].font
+          : languages()[0].font"
+      >
+        {{
+          selectedOption.value === 'en'
+            ? languages()[1].label
+            : languages()[0].label
+        }}
+      </span>
+    </div>
+  </ng-template>
+
+  <ng-template #item let-option>
+    <div class="lang-option">
+      <img [src]="option.flag" class="flag-icon" />
+
+      <span class="hidden md:inline" [style.font-family]="option.font">
+        {{ option.label }}
+      </span>
+    </div>
+  </ng-template>
+</p-select>

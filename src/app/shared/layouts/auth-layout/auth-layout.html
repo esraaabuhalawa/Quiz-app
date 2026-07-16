@@ -1,0 +1,37 @@
+<div class="auth-layout">
+  <!-- Left side (Form) -->
+  <div class="auth-layout__form">
+    <div class="auth-layout__logo">
+      <a routerLink="/website">
+        <img src="/images/Logo-white.svg" alt="Logo" />
+      </a>
+
+      <h1 class="text-3xl font-medium mb-3 capitalize auth-title">
+        {{ title() }}
+      </h1>
+
+      @if (iconsForLogin().length) {
+      <div class="flex flex-column gap-2 mb-4">
+        @for (item of iconsForLogin(); track item.label) {
+        <a [routerLink]="item.link" pButton
+          class="p-button-outlined w-full flex align-items-center justify-content-center gap-2 no-underline">
+          <i [class]="item.icon"></i>
+          <span>{{ item.label }}</span>
+        </a>
+        }
+      </div>
+      }
+    </div>
+
+    <div class="auth-layout__content">
+      <div class="auth-layout__form-wrapper">
+        <ng-content select="[auth-form]"></ng-content>
+      </div>
+    </div>
+  </div>
+
+  <!-- Right side (Image) -->
+  <div class="auth-layout__image">
+    <img src="/images/Login-Image.png" alt="login-image">
+  </div>
+</div>

@@ -1,0 +1,43 @@
+<div class="mb-6">
+  <label class="text-primary font-normal mb-2 block">
+    {{ label | translate }}
+  </label>
+
+  <p-iconfield iconPosition="left" class="w-full">
+    @if (icon) {
+      <p-inputicon [class]="icon"></p-inputicon>
+    }
+
+    @if (type === 'password') {
+      <p-password
+        [formControl]="$any(control)"
+        [toggleMask]="true"
+        [feedback]="false"
+        [placeholder]="placeholder | translate"
+        [autocomplete]="autocomplete"
+        styleClass="w-full"
+        inputStyleClass="w-full">
+      </p-password>
+    } @else {
+      <input
+        pInputText
+        class="w-full"
+        [type]="type"
+        [formControl]="$any(control)"
+        [placeholder]="placeholder | translate"
+        [autocomplete]="autocomplete" />
+    }
+  </p-iconfield>
+
+  @if (showError && firstError) {
+    <small class="text-login-red">
+      {{ firstError | translate }}
+    </small>
+  }
+
+  @if (customError) {
+    <small class="text-login-red">
+      {{ customErrorMessage | translate }}
+    </small>
+  }
+</div>

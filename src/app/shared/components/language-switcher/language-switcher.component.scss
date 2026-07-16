@@ -1,0 +1,74 @@
+// :host ::ng-deep {
+//   .lang-switcher {
+//     min-width: 130px;
+
+//     .p-select-label {
+//       padding: 0.4rem 0.75rem;
+//     }
+//   }
+
+//   .p-popover {
+//     inset-inline-start: 465px;
+//   }
+// }
+
+// .lang-option {
+//   display: flex;
+//   align-items: center;
+//   gap: 0.6rem;
+// }
+
+// .flag-icon {
+//   width: 24px;
+//   height: 16px;
+//   object-fit: cover;
+//   border-radius: 2px;
+//   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+// }
+
+.lang-option {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+
+.flag-icon {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .lang-switcher {
+    width: 50px !important;
+  }
+
+  :host ::ng-deep .lang-switcher .p-select-label {
+    padding-inline: .5rem;
+    justify-content: center;
+  }
+
+  :host ::ng-deep .lang-switcher .p-select-dropdown {
+    display: none;
+  }
+  .lang-option {
+    margin-left: 0.5rem;
+  }
+}
+
+/* Desktop */
+@media (min-width: 768px) {
+  .lang-switcher {
+    min-width: 130px;
+  }
+}
+
+// @media (max-width: 768px) {
+//   :host ::ng-deep {
+//     .lang-switcher {
+//       min-width: 30px;
+//     }
+//   }
+// }

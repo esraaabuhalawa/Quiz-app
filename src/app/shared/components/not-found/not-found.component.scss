@@ -1,0 +1,62 @@
+.not-found {
+  min-height: 100vh;
+  padding: 1.5rem;
+  background-color: var(--surface-ground);
+
+  &__container {
+    max-width: 34rem;
+    width: 100%;
+  }
+
+  &__illustration {
+    margin-bottom: 3rem;
+  }
+
+  &__circle {
+    position: relative;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--primary-color) 12%, transparent);
+  }
+
+  &__question-mark {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--primary-color);
+  }
+
+  &__code {
+    margin: 0;
+    font-size: clamp(5rem, 12vw, 8rem);
+    font-weight: 700;
+    color: var(--primary-color);
+    line-height: 1;
+  }
+
+  &__title {
+    margin: 1rem 0;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-color);
+  }
+
+  &__description {
+    margin: 0 auto;
+    max-width: 28rem;
+    line-height: 1.7;
+    color: var(--text-color-secondary);
+  }
+
+  :host ::ng-deep .p-button {
+    border-radius: 0.75rem;
+    padding: 0.9rem 2rem;
+    font-weight: 600;
+  }
+}

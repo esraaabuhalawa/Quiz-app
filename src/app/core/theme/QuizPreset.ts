@@ -4,59 +4,75 @@ import Aura from '@primeuix/themes/aura';
 export const QuizPreset = definePreset(Aura, {
   semantic: {
     primary: {
-      50: '#eef1fc',
-      100: '#d9def7',
-      200: '#b6c1f2',
-      300: '#8397ec',
-      400: '#4f6ae3',
-      500: '#3252df',
-      600: '#1f3fc9',
-      700: '#1c35a3',
-      800: '#182b7e',
-      900: '#152463',
-      950: '#121c47',
+      50: '#fbfdf2',
+      100: '#f4f8dd',
+      200: '#edf3c7',
+      300: '#e2eba8',
+      400: '#d5e28a',
+      500: '#C5D86D',
+      600: '#afc45c',
+      700: '#93a34a',
+      800: '#78843b',
+      900: '#5f692f',
+      950: '#434b21',
     },
+
     colorScheme: {
       light: {
         primary: {
-          color: '#3252df',
-          // inverseColor: '#ffffff',
-          hoverColor: '#1f3fc9',
-          activeColor: '#1c35a3',
+          color: '#C5D86D',
+          hoverColor: '#afc45c',
+          activeColor: '#93a34a',
         },
+
         highlight: {
-          background: '#3252df',
-          focusBackground: '#1f3fc9',
+          background: '#C5D86D',
+          focusBackground: '#afc45c',
+          color: '#0D1321',
+          focusColor: '#0D1321',
+        },
+
+        surface: {
+          0: '#ffffff',
+          50: '#FFEDDF',
+        },
+      },
+
+      dark: {
+        primary: {
+          color: '#d5e28a',
+          hoverColor: '#e2eba8',
+          activeColor: '#edf3c7',
+        },
+
+        highlight: {
+          background: 'rgba(197,216,109,.18)',
+          focusBackground: 'rgba(197,216,109,.28)',
           color: '#ffffff',
           focusColor: '#ffffff',
         },
       },
-      dark: {
-        primary: {
-          color: '#8397ec',
-          // inverseColor: '#152463',
-          hoverColor: '#a6b6f2',
-          activeColor: '#b6c1f2',
-        },
-        highlight: {
-          background: 'rgba(131, 151, 236, 0.16)',
-          focusBackground: 'rgba(131, 151, 236, 0.24)',
-          color: 'rgba(255,255,255,.87)',
-          focusColor: 'rgba(255,255,255,.87)',
-        },
-      },
     },
   },
+
   components: {
     inputtext: {
       root: {
-        focusBorderColor: '#1f3fc9',
-        hoverBorderColor: '#1f3fc9',
-        invalidBorderColor: '#e24c4c',
-        background: '#F5F6F8',
+        background: '#FFEDDF',
         borderColor: 'transparent',
 
-        borderRadius: '4px',
+        focusBorderColor: '#C5D86D',
+        hoverBorderColor: '#C5D86D',
+        invalidBorderColor: '#ef4444',
+
+        color: '#0D1321',
+        borderRadius: '6px',
+      },
+    },
+
+    button: {
+      root: {
+        borderRadius: '6px',
       },
     },
   },
