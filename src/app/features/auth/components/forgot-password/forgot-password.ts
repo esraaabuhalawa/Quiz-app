@@ -1,6 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { MessageService } from 'primeng/api';
 import {
@@ -20,7 +20,8 @@ import { FormField } from '../../../../shared/components/auth/form-field/form-fi
     TranslatePipe,
     AuthLayout,
     FormField,
-  ],
+    RouterLink
+],
   templateUrl: './forgot-password.html',
   styleUrl: './forgot-password.scss',
 })

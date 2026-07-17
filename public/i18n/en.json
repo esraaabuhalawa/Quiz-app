@@ -22,7 +22,9 @@
       "or_continue": "Or continue with",
       "google_signin": "Sign in with Google",
       "header_title": "Sign In",
-      "header_desc": "Unique homes for unique people."
+      "header_desc": "Unique homes for unique people.",
+      "login_title": "Login",
+      "click_here": "Click Here"
     },
     "forgot": {
       "title": "Forgot Password",
