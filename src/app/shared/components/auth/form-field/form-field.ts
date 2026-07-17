@@ -25,7 +25,7 @@ export class FormField {
   @Input() label = '';
   @Input() placeholder = '';
   @Input() type: 'text' | 'email' | 'password' = 'text';
-
+  @Input() readonly:boolean = false
   @Input() errorMessages: Record<string, string> = {};
 
   @Input() customError = false;

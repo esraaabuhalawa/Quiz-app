@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
@@ -9,7 +9,7 @@ import {
   Validators,
   ReactiveFormsModule
 } from '@angular/forms';
-import { TranslatePipe } from '@ngx-translate/core';
+import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { AuthLayout } from '../../../../shared/layouts/auth-layout/auth-layout';
 import { FormField } from '../../../../shared/components/auth/form-field/form-field';
 @Component({
@@ -20,7 +20,7 @@ import { FormField } from '../../../../shared/components/auth/form-field/form-fi
     TranslatePipe,
     AuthLayout,
     FormField,
-    ],
+  ],
   templateUrl: './forgot-password.html',
   styleUrl: './forgot-password.scss',
 })
@@ -29,8 +29,10 @@ export class ForgotPassword {
   private readonly authservice = inject(AuthService);
   private readonly router = inject(Router);
   private readonly fb = inject(FormBuilder);
+  private translate = inject(TranslateService);
+
   forgotForm!: FormGroup;
-  isLoading: boolean = false;
+  loading = signal(false);
 
   constructor() {
     this.formInit();
@@ -48,30 +50,30 @@ export class ForgotPassword {
       return;
     }
 
-    this.isLoading = true;
+    this.loading.set(true)
 
     const email = this.forgotForm.value.email;
 
     this.authservice.forgotPassword(email).subscribe({
       next: (res) => {
         localStorage.setItem('userEmail', email);
-        this.router.navigate(['/auth/reset-password']);
-        this.isLoading = false;
+        this.router.navigate(['/reset-password']);
+        this.loading.set(false)
 
         this.messageService.add({
           severity: 'success',
-          summary: 'Success',
-          detail: 'Reset link sent successfully'
+          summary: this.translate.instant('common.success'),
+          detail: res.message || this.translate.instant('auth.forgot.default_success')
         });
       },
 
       error: (err) => {
-        this.isLoading = false;
+        this.loading.set(false)
 
         this.messageService.add({
           severity: 'error',
-          summary: 'Error',
-          detail: err.error?.message || 'Something went wrong'
+          summary: this.translate.instant('common.error'),
+          detail: err.error?.message || this.translate.instant('auth.forgot.error')
         });
       }
     });

@@ -1,7 +1,6 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { ButtonModule } from 'primeng/button';
 import { ReactiveFormsModule, FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { matchPasswordValidator } from '../../../../shared/validators/confirm-password-validator';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
 import { MessageService } from 'primeng/api';
@@ -38,7 +37,7 @@ export class ResetPassword implements OnInit {
     this.resetForm = this.fb.group(
       {
         email: [this.userEmail, [Validators.required, Validators.email]],
-        seed: ['', [Validators.required]],
+        otp: ['', [Validators.required]],
         password: [
           '',
           [
@@ -48,9 +47,7 @@ export class ResetPassword implements OnInit {
             ),
           ],
         ],
-        confirmPassword: ['', [Validators.required]],
       },
-      { validators: matchPasswordValidator('password', 'confirmPassword') },
     );
   }
 
@@ -66,24 +63,25 @@ export class ResetPassword implements OnInit {
         this.loading.set(false);
         this.messageService.add({
           severity: 'success',
-          summary: this.translate.instant('COMMON.SUCCESS'),
-          detail: res.message,
+          summary: this.translate.instant('common.success'),
+          detail: res.message || this.translate.instant('auth.reset.default_success')
         });
       },
       error: (err) => {
         this.loading.set(false);
         this.messageService.add({
           severity: 'error',
-          summary: this.translate.instant('COMMON.ERROR'),
-          detail: err.error?.message ?? this.translate.instant('COMMON.SOMETHING_WENT_WRONG'),
+          summary: this.translate.instant('common.error'),
+          detail: err.error?.message || this.translate.instant('auth.reset.error')
         });
       },
       complete: () => {
         localStorage.removeItem('userEmail');
-        this.router.navigate(['/auth/login']);
+        this.router.navigate(['/login']);
       },
     });
   }
+
   get form() {
     return this.resetForm.controls;
   }

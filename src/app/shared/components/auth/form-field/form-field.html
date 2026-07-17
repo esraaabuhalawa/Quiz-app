@@ -13,7 +13,7 @@
       inputStyleClass="w-full">
     </p-password>
     } @else {
-    <input pInputText class="form-field__text w-full" [type]="type" [formControl]="$any(control)"
+    <input pInputText [readOnly]="readonly" class="form-field__text w-full" [type]="type" [formControl]="$any(control)"
       [placeholder]="placeholder | translate" [autocomplete]="autocomplete" />
     }
   </p-iconfield>
