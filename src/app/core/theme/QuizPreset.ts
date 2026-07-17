@@ -9,7 +9,7 @@ export const QuizPreset = definePreset(Aura, {
       200: '#edf3c7',
       300: '#e2eba8',
       400: '#d5e28a',
-      500: '#C5D86D',
+      500: '#FFEDDF',
       600: '#afc45c',
       700: '#93a34a',
       800: '#78843b',
@@ -20,7 +20,7 @@ export const QuizPreset = definePreset(Aura, {
     colorScheme: {
       light: {
         primary: {
-          color: '#C5D86D',
+          color: '#FFEDDF',
           hoverColor: '#afc45c',
           activeColor: '#93a34a',
         },

@@ -11,10 +11,10 @@
       </h1>
 
       @if (iconsForLogin().length) {
-      <div class="flex flex-column gap-2 mb-4">
+      <div class="flex flex-row justify-content-start gap-4 mb-4">
         @for (item of iconsForLogin(); track item.label) {
-        <a [routerLink]="item.link" pButton
-          class="p-button-outlined w-full flex align-items-center justify-content-center gap-2 no-underline">
+        <a [routerLink]="item.link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
+          class="auth-layout__icon-wrapper flex flex-column align-items-center justify-content-center gap-2 no-underline">
           <i [class]="item.icon"></i>
           <span>{{ item.label }}</span>
         </a>

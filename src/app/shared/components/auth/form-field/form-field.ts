@@ -16,6 +16,7 @@ import { InputIconModule } from 'primeng/inputicon';
     PasswordModule,
     TranslatePipe
   ],
+   styleUrl: './form-field.scss',
   templateUrl: './form-field.html',
 })
 export class FormField {

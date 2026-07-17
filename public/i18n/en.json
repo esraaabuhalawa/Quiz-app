@@ -37,7 +37,7 @@
       "description": "We've sent a verification code to your email. Please check your inbox and enter the code to continue.",
       "sign_in": "Sign In",
       "email_label": "Email Address",
-      "email_placeholder": "Type here...",
+      "email_placeholder": "Type your email",
       "email_required": "Email is required",
       "email_invalid": "Please enter a valid email address",
       "otp_label": "Verification Code",
@@ -48,10 +48,13 @@
       "confirm_password_label": "Confirm Password",
       "confirm_password_required": "Please confirm your password",
       "passwords_do_not_match": "Passwords do not match",
-      "reset_button": "Reset Password",
+      "reset_button": "Reset",
       "image_alt": "Reset Password",
       "old_password_label": "Current Password",
-      "new_password_label": "New Password"
+      "new_password_label": "New Password",
+      "otp_placeholder": "Choose your otp",
+      "pasword_placeholder": "Type your password",
+      "confirm_password_placeholder": "Type your confirm password"
     },
     "change_password": {
       "title": "Change Password",

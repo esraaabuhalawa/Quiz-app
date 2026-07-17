@@ -37,7 +37,7 @@
       "description": "لقد أرسلنا رمز تحقق إلى بريدك الإلكتروني. من فضلك تحقق من بريدك الوارد وأدخل الرمز للمتابعة.",
       "sign_in": "تسجيل الدخول",
       "email_label": "البريد الإلكتروني",
-      "email_placeholder": "اكتب هنا...",
+      "email_placeholder": "اكتب بريدك الإلكتروني",
       "email_required": "البريد الإلكتروني مطلوب",
       "email_invalid": "صيغة البريد الإلكتروني غير صحيحة",
       "otp_label": "رمز التحقق",
@@ -51,7 +51,10 @@
       "reset_button": "إعادة التعيين",
       "image_alt": "إعادة تعيين كلمة المرور",
       "old_password_label": "كلمة المرور القديمة",
-      "new_password_label": "كلمة المرور الجديدة"
+      "new_password_label": "كلمة المرور الجديدة",
+      "otp_placeholder": "اختر كلمة المرور الخاصة بك",
+      "pasword_placeholder": "اكتب كلمة المرور الخاصة بك",
+      "confirm_password_placeholder": "اكتب تأكيد كلمة المرور الخاصة بك"
     },
     "change_password": {
       "title": "تغيير كلمة المرور",

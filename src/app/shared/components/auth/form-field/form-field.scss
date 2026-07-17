@@ -1,0 +1,83 @@
+.form-field {
+  margin-bottom: 1.5rem;
+
+  &__label {
+    display: block;
+    margin-bottom: .5rem;
+    font-weight: 400;
+    color: #fff !important;
+  }
+
+  &__error {
+    display: block;
+    margin-top: .375rem;
+    color: red;
+    font-size: .875rem;
+  }
+
+  &__input--error {
+
+    .p-inputicon,
+    .p-password-toggle-mask-icon {
+      color: red;
+    }
+  }
+}
+
+:host ::ng-deep {
+
+  .p-iconfield .p-inputtext:not(:first-child),
+  .p-iconfield .p-inputwrapper:not(:first-child) .p-inputtext {
+    height: 50px;
+    padding-inline: 50px
+  }
+
+  .p-iconfield .p-inputicon {
+    color: #fff;
+    font-size: 25px;
+    transform: translateY(-19%);
+  }
+
+  .p-password .p-password-toggle-mask-icon {
+    color: #fff;
+    font-size: 1.5rem;
+  }
+
+  /* Text inputs */
+  .form-field__text,
+  .p-inputtext,
+  .p-password-input {
+    width: 100%;
+    background: #000;
+    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 6px;
+
+    &::placeholder {
+      color: #9ca3af; // Gray placeholder
+      opacity: 1;
+    }
+
+    &:focus {
+      border-color: #fff;
+      box-shadow: none;
+      outline: none;
+    }
+  }
+
+  /* Password wrapper */
+  .form-field__password {
+    width: 100%;
+  }
+
+  .form-field__password .p-password-input {
+    width: 100%;
+    height: 50px;
+  }
+
+  /* Icons */
+  .p-inputicon,
+  .p-password-toggle-mask-icon {
+    color: #9ca3af;
+  }
+}

@@ -1,6 +1,7 @@
 .auth-layout {
   display: flex;
   min-height: 100vh;
+  padding: 35px;
   justify-content: center;
   background-color: black;
   &__form {
@@ -13,7 +14,6 @@
 
   &__logo {
     padding: 28px 48px;
-    // margin-bottom: 2rem;
   }
 
   &__content {
@@ -24,23 +24,47 @@
 
   &__form-wrapper {
     width: 85%;
-   // max-width: 32rem;
-    padding-top: 2rem;
-    // margin-top: 2rem;
+    padding-top: 1rem;
   }
-
+  &__icon-wrapper{
+    width: 170px;
+    height: 120px;
+    border-radius: 10px;
+    background-color: #333;
+    color: var(--surface-color);
+    i{
+      font-size: 62.5px;
+    }
+    span{
+      font-size: 16px;
+      font-weight: 700;
+    }
+    &.active{
+        border: 2px solid var(--ultra-color);
+        i{
+          color: var(--ultra-color);
+        }
+    }
+  }
   &__image {
     display: none;
 
     @media (min-width: 768px) {
       display: flex;
+      background-color: var(--primary-color);
       width: 50%;
       align-items: center;
       justify-content: center;
+      border-radius: 20px;
     }
   }
 }
 
 .auth-title {
-  color: var(--primary-color);
+  color: var(--ultra-color);
+  margin-top: 50px;
+  margin-bottom: 35px;
+  font-weight: 700;
+  font-size: 1.5625rem;
 }
+
