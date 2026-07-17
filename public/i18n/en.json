@@ -22,7 +22,9 @@
       "or_continue": "Or continue with",
       "google_signin": "Sign in with Google",
       "header_title": "Sign In",
-      "header_desc": "Unique homes for unique people."
+      "header_desc": "Unique homes for unique people.",
+      "login_title": "Login",
+      "click_here": "Click Here"
     },
     "forgot": {
       "title": "Forgot Password",
@@ -30,7 +32,6 @@
       "link_text": "Sign in here!",
       "button": "Send Email",
       "header_title": "Forgot Password",
-      "header_subtitle": "Unique homes for unique people.",
       "success": "Reset code sent successfully.",
       "default_success": "Reset code sent successfully.",
       "error": "Something went wrong while sending the reset code."
@@ -89,16 +90,6 @@
     "phone_number": "Phone Number",
     "role": "Role",
     "status": "Status"
-  },
-  "errors": {
-    "required_title": "Required Information",
-    "sender_name_required": "Please enter the sender's name",
-    "card_error_prefix": "Card Error",
-    "payment_failed_title": "Payment Failed",
-    "sorry_title": "Sorry!",
-    "ok": "OK",
-    "payment_error_title": "Payment Error",
-    "stripe_not_initialized": "Stripe has not been initialized properly. Please refresh the page or try again later."
   },
   "common": {
     "success": "Success",

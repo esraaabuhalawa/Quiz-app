@@ -4,14 +4,15 @@
   &__label {
     display: block;
     margin-bottom: .5rem;
-    font-weight: 400;
-    color: #fff !important;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--surface-color) !important;
   }
 
   &__error {
     display: block;
     margin-top: .375rem;
-    color: red;
+    color: rgba(208, 38, 38, 0.999);
     font-size: .875rem;
   }
 
@@ -19,7 +20,7 @@
 
     .p-inputicon,
     .p-password-toggle-mask-icon {
-      color: red;
+      color: rgba(208, 38, 38, 0.999);
     }
   }
 }
@@ -33,13 +34,13 @@
   }
 
   .p-iconfield .p-inputicon {
-    color: #fff;
+    color: var(--surface-color);
     font-size: 25px;
     transform: translateY(-19%);
   }
 
   .p-password .p-password-toggle-mask-icon {
-    color: #fff;
+    color: var(--surface-color);
     font-size: 1.5rem;
   }
 
@@ -48,18 +49,18 @@
   .p-inputtext,
   .p-password-input {
     width: 100%;
-    background: #000;
-    color: #fff;
-    border: 3px solid #fff;
+    background: var(--dark-color);
+    color: var(--surface-color);
+    border: 3px solid var(--surface-color);
     border-radius: 6px;
 
     &::placeholder {
-      color: #9ca3af; // Gray placeholder
+      color: #9ca3af;
       opacity: 1;
     }
 
     &:focus {
-      border-color: #fff;
+      border-color: var(--surface-color);
       box-shadow: none;
       outline: none;
     }

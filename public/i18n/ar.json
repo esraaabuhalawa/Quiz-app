@@ -22,7 +22,9 @@
       "or_continue": "أو المتابعة باستخدام",
       "google_signin": "تسجيل الدخول بجوجل",
       "header_title": "تسجيل الدخول",
-      "header_desc": "منازل فريدة مثل أصحابها."
+      "header_desc": "منازل فريدة مثل أصحابها.",
+      "login_title": "تسجيل الدخول",
+      "click_here": "انقر هنا"
     },
     "forgot": {
       "title": "نسيت كلمة المرور",
@@ -30,7 +32,6 @@
       "link_text": "تسجيل الدخول هنا!",
       "button": "إرسال البريد",
       "header_title": "نسيت كلمة المرور",
-      "header_subtitle": "منازل فريدة مثل أصحابها.",
       "success": "تم إرسال رمز إعادة تعيين كلمة المرور بنجاح.",
       "default_success": "تم إرسال رمز إعادة تعيين كلمة المرور بنجاح.",
       "error": "حدث خطأ أثناء إرسال رمز إعادة تعيين كلمة المرور."
@@ -89,16 +90,6 @@
     "phone_number": "رقم الهاتف",
     "role": "الدور",
     "status": "الحالة"
-  },
-  "errors": {
-    "required_title": "بيانات مطلوبة",
-    "sender_name_required": "من فضلك أدخل اسم المُرسِل",
-    "card_error_prefix": "خطأ في البطاقة",
-    "payment_failed_title": "فشلت عملية الدفع",
-    "sorry_title": "آسفين !",
-    "ok": "حسنًا",
-    "payment_error_title": "خطأ في الدفع",
-    "stripe_not_initialized": "لم يتم تهيئة Stripe بشكل صحيح. برجاء تحديث الصفحة أو المحاولة لاحقًا."
   },
   "common": {
     "success": "نجاح",

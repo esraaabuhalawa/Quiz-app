@@ -27,7 +27,7 @@ html {
   --white-color: #ffffff;
   --login-red-color: #EB5148;
   --icon-color: #374151;
-
+  --dark-color: #000;
   /* Surfaces */
   --surface-color: #FFFFFF;
   --surface-hover: #F3F4F6;
@@ -93,7 +93,7 @@ h3 {
 .form-btn.p-button {
   width: fit-content;
   background: var(--surface-color);
-  color: #000;
+  color: var(--dark-color);
   border-color: var(--surface-color);
   font-weight: 700;
   font-size: 16px;
@@ -103,7 +103,7 @@ h3 {
 
 .form-btn .p-button-icon {
   color: var(--surface-color);
-  background-color: #000;
+  background-color: var(--dark-color);
   border-radius: 50%;
   width: 24px;
   height: 24px;
