@@ -30,7 +30,10 @@
       "link_text": "Sign in here!",
       "button": "Send Email",
       "header_title": "Forgot Password",
-      "header_subtitle": "Unique homes for unique people."
+      "header_subtitle": "Unique homes for unique people.",
+      "success": "Reset code sent successfully.",
+      "default_success": "Reset code sent successfully.",
+      "error": "Something went wrong while sending the reset code."
     },
     "reset": {
       "title": "Reset Password",
@@ -54,7 +57,10 @@
       "new_password_label": "New Password",
       "otp_placeholder": "Choose your otp",
       "pasword_placeholder": "Type your password",
-      "confirm_password_placeholder": "Type your confirm password"
+      "confirm_password_placeholder": "Type your confirm password",
+      "success": "Password reset successfully.",
+      "default_success": "Password reset successfully.",
+      "error": "Something went wrong while resetting your password."
     },
     "change_password": {
       "title": "Change Password",
@@ -93,5 +99,9 @@
     "ok": "OK",
     "payment_error_title": "Payment Error",
     "stripe_not_initialized": "Stripe has not been initialized properly. Please refresh the page or try again later."
+  },
+  "common": {
+    "success": "Success",
+    "error": "Error"
   }
 }
