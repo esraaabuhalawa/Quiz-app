@@ -1,20 +1,20 @@
-@if (currentUser$ | async; as user) {
+<!-- @if (currentUser$ | async; as user) { -->
 
 <!-- Trigger -->
 <div class="flex items-center gap-3 cursor-pointer p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-surface-hover" (click)="op.toggle($event)">
   <!-- Avatar -->
-  @if (user.profileImage) {
+  <!-- @if (user.profileImage) {
   <img [src]="user.profileImage" class="w-5 h-5 md:w-10 md:h-10 rounded-full object-cover" (error)="onImageError($event)" />
   } @else {
   <div class="w-5 h-5 md:w-10 md:h-10 text-[13px] md:text-base rounded-full bg-blue-600 text-white flex items-center justify-center font-semibold">
     {{ user.userName.slice(0, 2).toUpperCase() }}
   </div>
-  }
+  } -->
 
   <!-- Name -->
-  <div class="flex flex-col">
+  <!-- <div class="flex flex-col">
     <span class="text-sm md:font-medium">{{ user.userName }}</span>
-  </div>
+  </div> -->
 
   <i class="pi pi-angle-down ml-2"></i>
 </div>
@@ -23,7 +23,7 @@
 <p-popover #op [style]="{ width: '250px' }" class="p-0">
 
   <!-- Header -->
-  <div class="p-3 border-b dark:border-surface-border flex items-center gap-3">
+  <!-- <div class="p-3 border-b dark:border-surface-border flex items-center gap-3">
     @if (user.profileImage) {
     <img [src]="user.profileImage" (error)="onImageError($event)" class="w-5 h-5 md:w-10 md:h-10 rounded-full object-cover" />
     } @else {
@@ -36,7 +36,7 @@
       <div class="font-semibold">{{ user.userName }}</div>
       <div class="text-xs text-gray-500 dark:text-text-secondary break-all">{{ user.email }}</div>
     </div>
-  </div>
+  </div> -->
 
   <!-- Menu -->
   <div class="p-2 flex flex-col gap-1">
@@ -44,13 +44,6 @@
       <i class="pi pi-user"></i>
       {{ 'ACCOUNT.PROFILE' | translate }}
     </a>
-
-    @if (isAdmin) {
-    <a routerLink="/dashboard" class="flex items-center gap-2 p-2 rounded hover:bg-gray-100 dark:hover:bg-surface-hover text-sm">
-      <i class="pi pi-th-large"></i>
-      {{ 'ACCOUNT.DASHBOARD' | translate }}
-    </a>
-    }
 
     <a routerLink="/favorites" class="flex items-center gap-2 p-2 rounded hover:bg-gray-100 dark:hover:bg-surface-hover text-sm">
       <i class="pi pi-heart"></i>
@@ -64,17 +57,17 @@
 
     <hr class="my-2 dark:border-surface-border" />
 
-    <button (click)="logout()"
+    <button
       class="flex items-center gap-2 p-2 cursor-pointer rounded hover:bg-red-50 dark:hover:bg-login-red/10 text-red-600 dark:text-login-red text-sm w-full text-left">
       <i class="pi pi-sign-out"></i>
       {{ 'ACCOUNT.LOGOUT' | translate }}
-    </button>
+    </button> <!--(click)="logout()"-->
   </div>
 </p-popover>
 
-} @else {
+<!-- } @else { -->
 <!-- Skeleton placeholder -->
-<div class="flex items-center gap-2 sm:gap-3 p-2">
+<!-- <div class="flex items-center gap-2 sm:gap-3 p-2">
   <div class="w-8 h-8 sm:w-10 sm:h-10">
     <p-skeleton shape="circle" width="100%" height="100%" />
   </div>
@@ -89,4 +82,4 @@
     </div>
   </div>
 </div>
-}
+} -->
