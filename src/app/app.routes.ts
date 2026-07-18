@@ -10,7 +10,7 @@ export const routes: Routes = [
     loadChildren: () => import('./features/auth/auth.routes').then((r) => r.Auth_ROUTES),
   },
   {
-    path: '',
+    path: 'dashboard',
     loadChildren: () =>
       import('./features/dashboard/dashboard.routes').then((r) => r.DASHBOARD_ROUTES),
   },

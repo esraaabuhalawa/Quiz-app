@@ -5,6 +5,11 @@ import { RoleEnum } from '../../core/enum/role.enum';
 
 export const DASHBOARD_ROUTES: Routes = [
   {
+    path: '',
+    redirectTo: 'instructor',
+    pathMatch: 'full',
+  },
+  {
     path: 'instructor',
     canActivate: [authGuard, roleGuard([RoleEnum.Instructor])],
     loadChildren: () => import('./instructor/instructor.routes').then((r) => r.INSTRUCTOR_ROUTES),

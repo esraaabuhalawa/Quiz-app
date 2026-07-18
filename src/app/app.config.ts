@@ -25,7 +25,7 @@ export const appConfig: ApplicationConfig = {
     provideBrowserGlobalErrorListeners(),
     provideRouter(
       routes,
-      withHashLocation(),
+      // withHashLocation(),
       withInMemoryScrolling({ scrollPositionRestoration: 'top' }),
     ),
 
