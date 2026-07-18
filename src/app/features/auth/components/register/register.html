@@ -2,7 +2,11 @@
   [title]="'auth.register.title' | translate"
   [iconsForLogin]="[
     { icon: 'pi pi-user', label: ('auth.register.signin_tab' | translate), link: '/auth/login' },
-    { icon: 'pi pi-user-plus', label: ('auth.register.signup_tab' | translate), link: '/auth/register' },
+    {
+      icon: 'pi pi-user-plus',
+      label: ('auth.register.signup_tab' | translate),
+      link: '/auth/register',
+    },
   ]"
 >
   <div auth-form>
@@ -72,7 +76,7 @@
       <div class="field col-12">
         <app-form-field
           type="password"
-          icon="pi pi-lock"
+          icon="pi pi-key"
           [control]="signupForm.get('password')"
           [label]="'auth.register.password_label' | translate"
           [placeholder]="'auth.register.password_placeholder' | translate"
@@ -84,14 +88,14 @@
       </div>
 
       <!-- Submit Button -->
-      <div class="col-12 mt-3 mb-3">
+      <div>
         <p-button
           type="submit"
-          label="{{ 'auth.register.submit_btn' | translate }}"
+          [label]="'auth.register.submit_btn' | translate"
           icon="pi pi-check"
           iconPos="right"
-          class="signup-btn"
           [loading]="isLoading()"
+          styleClass="form-btn"
         >
         </p-button>
       </div>
