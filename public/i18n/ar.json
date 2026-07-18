@@ -64,10 +64,26 @@
       "error": "حدث خطأ أثناء إعادة تعيين كلمة المرور."
     },
     "change_password": {
-      "title": "تغيير كلمة المرور",
-      "description": "قم بتحديث كلمة المرور للحفاظ على أمان حسابك. أدخل كلمة المرور الحالية واختر كلمة مرور جديدة.",
-      "change_button": "تغيير"
-    },
+     "title": "تغيير كلمة المرور",
+  "description": "قم بتحديث كلمة المرور للحفاظ على أمان حسابك. أدخل كلمة المرور الحالية واختر كلمة مرور جديدة.",
+
+  "old_password_label": "كلمة المرور الحالية",
+  "old_password_placeholder": "أدخل كلمة المرور الحالية",
+  "old_password_required": "كلمة المرور الحالية مطلوبة",
+
+  "new_password_label": "كلمة المرور الجديدة",
+  "new_password_placeholder": "أدخل كلمة المرور الجديدة",
+  "new_password_required": "كلمة المرور الجديدة مطلوبة",
+
+  "confirm_password_label": "تأكيد كلمة المرور",
+  "confirm_password_placeholder": "أعد إدخال كلمة المرور الجديدة",
+  "confirm_password_required": "تأكيد كلمة المرور مطلوب",
+
+  "password_pattern": "يجب أن تحتوي كلمة المرور على حرف كبير وحرف صغير ورقم ورمز خاص، وألا تقل عن 6 أحرف",
+  "passwords_do_not_match": "كلمتا المرور غير متطابقتين",
+
+  "change_button": "تغيير كلمة المرور"
+ },
     "register": {
       "title": "أنشئ حسابك وابدأ استخدام QuizWiz!",
       "signin_tab": "تسجيل الدخول",

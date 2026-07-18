@@ -103,9 +103,9 @@ export class AuthService {
     return this.http.post<IForgotResponse>('auth/forgot-password', { email });
   }
 
-  // changePassword(data: IChangePassword): Observable<IChangePasswordResponse> {
-  //   return this.http.post<IChangePasswordResponse>('portal/users/change-password', data);
-  // }
+   changePassword(data: IChangePassword): Observable<IChangePasswordResponse> {
+     return this.http.post<IChangePasswordResponse>('portal/users/change-password', data);
+   }
 
   register(data: IRegister): Observable<IRegisterResponse> {
     return this.http.post<IRegisterResponse>('auth/register', data);
