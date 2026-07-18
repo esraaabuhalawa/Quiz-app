@@ -3,9 +3,9 @@
 }
 
 div[auth-form] {
-  max-width: 590px !important; 
+  max-width: 590px !important;
   width: 100%;
-  margin: 0 auto; 
+ // margin: 0 auto;
 }
 
 .field {
@@ -38,8 +38,8 @@ div[auth-form] {
 
 .p-inputicon-left input {
   width: 100% !important;
-  background-color: #000000 !important; 
-  border: 3px solid #ffffff !important; 
+  background-color: #000000 !important;
+  border: 3px solid #ffffff !important;
   color: #ffffff !important;
   border-radius: 8px !important;
   height: 52px !important;
@@ -83,10 +83,10 @@ div[auth-form] {
   background: #000000 !important;
   border: 3px solid #ffffff !important;
   border-radius: 8px !important;
-  height: 52px !important; 
+  height: 52px !important;
   align-items: center !important;
   box-shadow: none !important;
-  padding-left: 3.5rem !important; 
+  padding-left: 3.5rem !important;
   position: relative !important;
   transition: all 0.2s ease-in-out !important;
 }
@@ -130,8 +130,8 @@ div[auth-form] {
 }
 
 ::ng-deep body .p-select-overlay {
-  background-color: #141a27 !important; 
-  border: 2px solid #334155 !important; 
+  background-color: #141a27 !important;
+  border: 2px solid #334155 !important;
   border-radius: 8px !important;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6) !important;
   padding: 0.3rem !important;
@@ -147,7 +147,7 @@ div[auth-form] {
 }
 
 ::ng-deep body .p-select-overlay .p-select-option {
-  color: #e2e8f0 !important; 
+  color: #e2e8f0 !important;
   background-color: transparent !important;
   background: transparent !important;
   padding: 0.75rem 1rem !important;
@@ -157,55 +157,55 @@ div[auth-form] {
 }
 
 ::ng-deep body .p-select-overlay .p-select-option:not(.p-select-option-selected):hover {
-  background-color: #1e293b !important; 
-  color: var(--ultra-color) !important; 
+  background-color: #1e293b !important;
+  color: var(--ultra-color) !important;
 }
 
 
 ::ng-deep body .p-select-overlay .p-select-option.p-select-option-selected {
-  background-color: var(--ultra-color) !important; 
-  color: #0f172a !important; 
+  background-color: var(--ultra-color) !important;
+  color: #0f172a !important;
   font-weight: 700 !important;
 }
 
 ::ng-deep p-button.signup-btn {
   display: block !important;
-  width: 150px !important;  
-  height: 50px !important; 
-  opacity: 1 !important;    
+  width: 150px !important;
+  height: 50px !important;
+  opacity: 1 !important;
 }
 
 ::ng-deep p-button.signup-btn .p-button {
   width: 100% !important;
   height: 100% !important;
-  background-color: #ffffff !important; 
-  color: #000000 !important; 
+  background-color: #ffffff !important;
+  color: #000000 !important;
   border: none !important;
-  border-radius: 10px !important; 
-  font-weight: 900 !important; 
+  border-radius: 10px !important;
+  font-weight: 900 !important;
   font-size: 1.1rem !important;
   display: flex !important;
   justify-content: center !important;
   align-items: center !important;
-  gap: 8px !important; 
+  gap: 8px !important;
   padding: 0 1.2rem !important;
 }
 
 ::ng-deep p-button.signup-btn .p-button .p-button-icon {
-  color: #ffffff !important; 
-  background-color: #000000 !important; 
-  font-size: 0.7rem !important; 
+  color: #ffffff !important;
+  background-color: #000000 !important;
+  font-size: 0.7rem !important;
   padding: 4px !important;
-  border-radius: 50% !important; 
+  border-radius: 50% !important;
   width: 18px !important;
   height: 18px !important;
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  order: 2 !important; 
+  order: 2 !important;
 }
 
 ::ng-deep p-button.signup-btn .p-button .p-button-label {
-  order: 1 !important; 
+  order: 1 !important;
   flex: none !important;
 }
