@@ -70,7 +70,7 @@ export class Register {
           summary: 'Account Created',
           detail: res.message,
         });
-        this.router.navigate(['/login']);
+        this.router.navigate(['/auth/login']);
       },
       error: (err) => {
         this.messageService.add({
@@ -84,6 +84,6 @@ export class Register {
   }
 
   navigateToLogin(): void {
-    this.router.navigate(['/login']);
+    this.router.navigate(['/auth/login']);
   }
 }

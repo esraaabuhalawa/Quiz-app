@@ -77,7 +77,7 @@ export class ChangePassword {
             detail: res.message,
           });
 
-          this.router.navigate(['/login']);
+          this.router.navigate(['/auth/login']);
         },
         error: (err) => {
           this.loading.set(false);

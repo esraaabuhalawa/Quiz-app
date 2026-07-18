@@ -58,7 +58,7 @@ export class ForgotPassword {
     this.authservice.forgotPassword(email).subscribe({
       next: (res) => {
         localStorage.setItem('userEmail', email);
-        this.router.navigate(['/reset-password']);
+        this.router.navigate(['/auth/reset-password']);
         this.loading.set(false)
 
         this.messageService.add({

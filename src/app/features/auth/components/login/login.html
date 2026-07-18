@@ -1,8 +1,8 @@
 <app-auth-layout
   [title]="'auth.login.title' | translate"
   [iconsForLogin]="[
-    { icon: 'pi pi-user', label: 'Sign in', link: '/login' },
-    { icon: 'pi pi-user-plus', label: 'Sign Up', link: '/register' },
+    { icon: 'pi pi-user', label: 'Sign in', link: '/auth/login' },
+    { icon: 'pi pi-user-plus', label: 'Sign Up', link: '/auth/register' },
   ]"
 >
   <div class="h-full" auth-form class="login-container">
@@ -40,7 +40,7 @@
         >
         </p-button>
         <p>
-          Forgot password? <a class="forget-link" [routerLink]="['/forgot-password']">click here</a>
+          Forgot password? <a class="forget-link" [routerLink]="['/auth/forgot-password']">click here</a>
         </p>
       </div>
     </form>

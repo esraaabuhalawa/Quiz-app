@@ -60,7 +60,7 @@ export class ResetPassword implements OnInit {
       return;
     }
     this.loading.set(true);
-    
+
     this.authService.onResetPass({
       email: this.resetForm.value.email,
       otp: this.resetForm.value.otp,
@@ -83,7 +83,7 @@ export class ResetPassword implements OnInit {
       },
       complete: () => {
         localStorage.removeItem('userEmail');
-        this.router.navigate(['/login']);
+        this.router.navigate(['/auth/login']);
       },
     });
   }
