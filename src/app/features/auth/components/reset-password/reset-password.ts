@@ -7,6 +7,7 @@ import { MessageService } from 'primeng/api';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { AuthLayout } from '../../../../shared/layouts/auth-layout/auth-layout';
 import { FormField } from '../../../../shared/components/auth/form-field/form-field';
+import { matchPasswordValidator } from '../../../../shared/validators/confirm-password-validator';
 
 @Component({
   standalone: true,
@@ -47,7 +48,9 @@ export class ResetPassword implements OnInit {
             ),
           ],
         ],
+         confirmPassword: ['', [Validators.required]],
       },
+      { validators: matchPasswordValidator('password', 'confirmPassword') },
     );
   }
 
@@ -57,8 +60,11 @@ export class ResetPassword implements OnInit {
       return;
     }
     this.loading.set(true);
-    console.log(this.resetForm.value);
-    this.authService.onResetPass(this.resetForm.value).subscribe({
+    
+    this.authService.onResetPass({
+      email: this.resetForm.value.email,
+      otp: this.resetForm.value.otp,
+      password: this.resetForm.value.password}).subscribe({
       next: (res) => {
         this.loading.set(false);
         this.messageService.add({

@@ -6,6 +6,9 @@ import { BehaviorSubject, Observable, tap } from 'rxjs';
 import {
   IResetResponse,
   IReset,
+  IChangePassword,
+  IRegister,
+  IRegisterResponse,
   IForgotResponse,
   ILoginRequest,
   LoginResponse,
@@ -13,6 +16,10 @@ import {
 import { ApiResponse } from '../../../core/interfaces/api-response.model';
 import { TokenService } from './token.service';
 import { AuthStoreService } from './auth-store.service';
+  ILogin,
+  ILoginResponse,
+} from '../interfaces/auth';
+import { environment } from '../../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -25,9 +32,9 @@ export class AuthService {
   // private currentUserSubject = new BehaviorSubject<ICurrentUser | null>(null);
   // currentUser$ = this.currentUserSubject.asObservable();
 
-  // onLogin(data: ILogin): Observable<ILoginResponse> {
-  //   return this.http.post<ILoginResponse>('portal/users/Login', data)
-  // }
+  onLogin(data: ILogin): Observable<ILoginResponse> {
+    return this.http.post<ILoginResponse>('portal/users/Login', data);
+  }
 
   // getProfile() {
   //   let token = localStorage.getItem('HMSToken');
@@ -115,11 +122,11 @@ export class AuthService {
     return this.http.post<IForgotResponse>('auth/forgot-password', { email });
   }
 
-  // changePassword(data: IChangePassword): Observable<IChangePasswordResponse> {
-  //   return this.http.post<IChangePasswordResponse>('portal/users/change-password', data);
-  // }
+   changePassword(data: IChangePassword): Observable<IResetResponse> {
+     return this.http.post<IResetResponse>('auth/change-password', data);
+   }
 
-  // register(data: FormData): Observable<ICurrentUserResponse> {
-  //   return this.http.post<ICurrentUserResponse>('admin/users', data);
-  // }
+  register(data: IRegister): Observable<IRegisterResponse> {
+    return this.http.post<IRegisterResponse>('auth/register', data);
+  }
 }
