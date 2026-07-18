@@ -7,7 +7,6 @@ import {
   IResetResponse,
   IReset,
   IChangePassword,
-  IChangePasswordResponse,
   IRegister,
   IRegisterResponse,
   IForgotResponse,
@@ -103,8 +102,8 @@ export class AuthService {
     return this.http.post<IForgotResponse>('auth/forgot-password', { email });
   }
 
-   changePassword(data: IChangePassword): Observable<IChangePasswordResponse> {
-     return this.http.post<IChangePasswordResponse>('portal/users/change-password', data);
+   changePassword(data: IChangePassword): Observable<IResetResponse> {
+     return this.http.post<IResetResponse>('auth/change-password', data);
    }
 
   register(data: IRegister): Observable<IRegisterResponse> {

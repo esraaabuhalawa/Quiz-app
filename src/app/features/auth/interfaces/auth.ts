@@ -67,14 +67,14 @@ export interface IResetResponse {
   timestamp: string;
 }
 
-export interface IChangePasswordData {
-  _id: string;
-  first_name: string;
-  last_name: string;
-  email: string;
-  status: string;
-  role: string;
-}
+// export interface IChangePasswordData {
+//   _id: string;
+//   first_name: string;
+//   last_name: string;
+//   email: string;
+//   status: string;
+//   role: string;
+// }
 
 // ====== API Response Types ======
 
@@ -84,4 +84,4 @@ export type IResetResponseAPI = IApiResponse<null>;
 
 export type IRegisterResponse = IApiResponse<IRegisterData>;
 
-export type IChangePasswordResponse = IApiResponse<IChangePasswordData>;
+//export type IChangePasswordResponse = IApiResponse<IChangePasswordData>;
