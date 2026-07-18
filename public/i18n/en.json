@@ -65,8 +65,24 @@
     },
     "change_password": {
       "title": "Change Password",
-      "description": "Update your password to keep your account secure. Enter your current password and choose a new one.",
-      "change_button": "Change Password"
+  "description": "Update your password to keep your account secure. Enter your current password and choose a new one.",
+
+  "old_password_label": "Current Password",
+  "old_password_placeholder": "Enter your current password",
+  "old_password_required": "Current password is required",
+
+  "new_password_label": "New Password",
+  "new_password_placeholder": "Enter your new password",
+  "new_password_required": "New password is required",
+
+  "confirm_password_label": "Confirm Password",
+  "confirm_password_placeholder": "Confirm your new password",
+  "confirm_password_required": "Please confirm your password",
+
+  "password_pattern": "Password must contain at least one uppercase letter, one lowercase letter, one special character, and be at least 6 characters long",
+  "passwords_do_not_match": "Passwords do not match",
+
+  "change_button": "Change Password"
     },
     "register": {
       "title": "Create your account and start using QuizWiz!",
