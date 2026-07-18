@@ -1,7 +1,37 @@
 <app-auth-layout
-  title="Sign In"
+  title="Continue your learning journey with QuizWiz!"
   [iconsForLogin]="[
-    { icon: 'pi pi-google', label: 'login', link: '/login' },
-    { icon: 'pi pi-facebook', label: 'register', link: '/register' }
-  ]">
+    { icon: 'pi pi-user', label: 'Sign in', link: '/login' },
+    { icon: 'pi pi-user-plus', label: 'Sign Up', link: '/register' },
+  ]"
+>
+  <div class="h-full" auth-form class="login-container">
+    <form class="pb-8">
+      <app-form-field
+        [control]="form.controls['email']"
+        type="email"
+        icon="pi pi-envelope"
+        [label]="'Registered email address'"
+        [placeholder]="'Type your email'"
+      ></app-form-field>
+      <app-form-field
+        [control]="form.controls['password']"
+        type="password"
+        icon="pi pi-key"
+        [label]="'Password'"
+        [placeholder]="'Type your password'"
+      ></app-form-field>
+      <div class="flex align-items-center justify-content-between">
+        <p-button
+          type="submit"
+          [label]="'Sign In'"
+          icon="pi pi-check"
+          iconPos="right"
+          styleClass="form-btn"
+        >
+        </p-button>
+        <p>Forgot password? <a class="forget-link">click here</a></p>
+      </div>
+    </form>
+  </div>
 </app-auth-layout>
