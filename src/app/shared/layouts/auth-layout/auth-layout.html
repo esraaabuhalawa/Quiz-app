@@ -6,20 +6,24 @@
         <img src="/images/Logo-white.svg" alt="Logo" />
       </a>
 
-      <h1 class="text-3xl font-medium mb-3 capitalize auth-title">
+      <h1 class="text-3xl font-medium mb-0 capitalize auth-title">
         {{ title() }}
       </h1>
 
       @if (iconsForLogin().length) {
-      <div class="flex flex-row justify-content-start gap-4 mb-4">
-        @for (item of iconsForLogin(); track item.label) {
-        <a [routerLink]="item.link" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"
-          class="auth-layout__icon-wrapper flex flex-column align-items-center justify-content-center gap-2 no-underline">
-          <i [class]="item.icon"></i>
-          <span>{{ item.label }}</span>
-        </a>
-        }
-      </div>
+        <div class="flex flex-row justify-content-start gap-4 mb-4">
+          @for (item of iconsForLogin(); track item.label) {
+            <a
+              [routerLink]="item.link"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{ exact: true }"
+              class="auth-layout__icon-wrapper flex flex-column align-items-center justify-content-center gap-2 no-underline"
+            >
+              <i [class]="item.icon"></i>
+              <span>{{ item.label }}</span>
+            </a>
+          }
+        </div>
       }
     </div>
 
@@ -32,6 +36,6 @@
 
   <!-- Right side (Image) -->
   <div class="auth-layout__image">
-    <img src="/images/Login-Image.png" alt="login-image">
+    <img src="/images/Login-Image.png" alt="login-image" />
   </div>
 </div>
