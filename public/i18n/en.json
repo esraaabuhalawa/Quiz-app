@@ -69,7 +69,26 @@
       "change_button": "Change Password"
     },
     "register": {
-      "title": "Create Account"
+      "title": "Create your account and start using QuizWiz!",
+      "signin_tab": "Sign in",
+"signup_tab": "Sign Up",
+      "first_name_label": "Your first name",
+      "first_name_placeholder": "Type your first name",
+      "first_name_required": "First name is required",
+      "last_name_label": "Your last name",
+      "last_name_placeholder": "Type your last name",
+      "last_name_required": "Last name is required",
+      "email_label": "Your email address",
+      "email_placeholder": "Type your email",
+      "email_required": "Email is required",
+      "email_invalid": "Please enter a valid email address",
+      "role_label": "Your role",
+      "role_placeholder": "Choose your role",
+      "password_label": "Password",
+      "pasword_placeholder": "Type your password",
+      "password_required": "Password is required",
+      "password_pattern": "Password must contain uppercase, lowercase, and numbers",
+      "submit_btn": "Sign Up"
     }
   },
   "account": {

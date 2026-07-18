@@ -1,7 +1,101 @@
 <app-auth-layout
-  title="Sign Up"
+  [title]="'auth.register.title' | translate"
   [iconsForLogin]="[
-    { icon: 'pi pi-google', label: 'login', link: '/login' },
-    { icon: 'pi pi-facebook', label: 'register', link: '/register' }
-  ]">
+    { icon: 'pi pi-user', label: ('auth.register.signin_tab' | translate), link: '/login' },
+    { icon: 'pi pi-user-plus', label: ('auth.register.signup_tab' | translate), link: '/register' },
+  ]"
+>
+  <div auth-form>
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()" class="formgrid grid">
+      <!-- First Name -->
+      <div class="field col-12 md:col-6">
+        <app-form-field
+          icon="pi pi-id-card"
+          [control]="signupForm.get('first_name')"
+          [label]="'auth.register.first_name_label' | translate"
+          [placeholder]="'auth.register.first_name_placeholder' | translate"
+          [errorMessages]="{
+            required: 'auth.register.first_name_required',
+          }"
+        ></app-form-field>
+      </div>
+
+      <!-- Last Name -->
+      <div class="field col-12 md:col-6">
+        <app-form-field
+          icon="pi pi-id-card"
+          [control]="signupForm.get('last_name')"
+          [label]="'auth.register.last_name_label' | translate"
+          [placeholder]="'auth.register.last_name_placeholder' | translate"
+          [errorMessages]="{
+            required: 'auth.register.last_name_required',
+          }"
+        ></app-form-field>
+      </div>
+
+      <!-- Email -->
+      <div class="field col-12">
+        <app-form-field
+          type="email"
+          icon="pi pi-envelope"
+          [control]="signupForm.get('email')"
+          [label]="'auth.register.email_label' | translate"
+          [placeholder]="'auth.register.email_placeholder' | translate"
+          [errorMessages]="{
+            required: 'auth.register.email_required',
+            email: 'auth.register.email_invalid',
+          }"
+        ></app-form-field>
+      </div>
+
+      <!-- Role -->
+      <div class="field col-12 custom-role-field">
+        <label for="role" class="form-field__label block mb-2" style="font-weight: 600">
+          {{ 'auth.register.role_label' | translate }}
+        </label>
+        <div class="role-input-wrapper">
+          <i class="pi pi-briefcase role-icon"></i>
+          <p-select
+            id="role"
+            formControlName="role"
+            [options]="roleOptions"
+            optionLabel="label"
+            optionValue="value"
+            placeholder="{{ 'auth.register.role_placeholder' | translate }}"
+            styleClass="custom-role-select w-full"
+          >
+          </p-select>
+        </div>
+      </div>
+
+      <!-- Password -->
+      <div class="field col-12">
+        <app-form-field
+          type="password"
+          icon="pi pi-lock"
+          [control]="signupForm.get('password')"
+          [label]="'auth.register.password_label' | translate"
+          [placeholder]="'auth.register.password_placeholder' | translate"
+          [errorMessages]="{
+            required: 'auth.register.password_required',
+            pattern: 'auth.register.password_pattern',
+          }"
+        ></app-form-field>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="col-12 mt-3 mb-3">
+        <p-button
+          type="submit"
+          label="{{ 'auth.register.submit_btn' | translate }}"
+          icon="pi pi-check"
+          iconPos="right"
+          class="signup-btn"
+          [loading]="isLoading()"
+          [disabled]="signupForm.invalid"
+        >
+        </p-button>
+      </div>
+    </form>
+  </div>
 </app-auth-layout>

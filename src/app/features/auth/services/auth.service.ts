@@ -1,4 +1,4 @@
-import { HttpClient} from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { jwtDecode } from 'jwt-decode';
@@ -6,8 +6,15 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import {
   IResetResponse,
   IReset,
+  IChangePassword,
+  IChangePasswordResponse,
+  IRegister,
+  IRegisterResponse,
   IForgotResponse,
+  ILogin,
+  ILoginResponse,
 } from '../interfaces/auth';
+import { environment } from '../../../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -18,9 +25,9 @@ export class AuthService {
   // private currentUserSubject = new BehaviorSubject<ICurrentUser | null>(null);
   // currentUser$ = this.currentUserSubject.asObservable();
 
-  // onLogin(data: ILogin): Observable<ILoginResponse> {
-  //   return this.http.post<ILoginResponse>('portal/users/Login', data)
-  // }
+  onLogin(data: ILogin): Observable<ILoginResponse> {
+    return this.http.post<ILoginResponse>('portal/users/Login', data);
+  }
 
   // getProfile() {
   //   let token = localStorage.getItem('HMSToken');
@@ -93,14 +100,14 @@ export class AuthService {
   }
 
   forgotPassword(email: string): Observable<IForgotResponse> {
-    return this.http.post<IForgotResponse> ('auth/forgot-password', { email });
+    return this.http.post<IForgotResponse>('auth/forgot-password', { email });
   }
 
   // changePassword(data: IChangePassword): Observable<IChangePasswordResponse> {
   //   return this.http.post<IChangePasswordResponse>('portal/users/change-password', data);
   // }
 
-  // register(data: FormData): Observable<ICurrentUserResponse> {
-  //   return this.http.post<ICurrentUserResponse>('admin/users', data);
-  // }
+  register(data: IRegister): Observable<IRegisterResponse> {
+    return this.http.post<IRegisterResponse>('auth/register', data);
+  }
 }

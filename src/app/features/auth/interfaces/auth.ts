@@ -1,5 +1,56 @@
-export interface IForgotResponse {
-  message: string;
+import { JwtPayload } from 'jwt-decode';
+import { IApiResponse } from '../../../shared/interfaces/general.interface';
+
+export interface IDecodedToken extends JwtPayload {
+  _id: string;
+  role: string;
+  verified: boolean;
+  iat: number;
+  exp: number;
+}
+
+export interface IRegister {
+  first_name: string;
+  last_name: string;
+  email: string;
+  password: string;
+  role: string;
+}
+
+export interface ILogin {
+  email: string;
+  password: string;
+}
+
+export interface IChangePassword {
+  oldPassword: string;
+  newPassword: string;
+  confirmPassword: string;
+}
+
+// ====== Response Interfaces ======
+
+export interface ILoginData {
+  user: IUser;
+  token: string;
+}
+
+export interface IUser {
+  _id: string;
+  userName: string;
+  role: string;
+}
+
+export interface IRegisterData {
+  first_name: string;
+  last_name: string;
+  email: string;
+  password: string;
+  status: string;
+  role: string;
+  _id: string;
+  updatedAt: string;
+  createdAt: string;
 }
 
 export interface IReset {
@@ -8,7 +59,21 @@ export interface IReset {
   password: string;
 }
 
+export interface IForgotResponse {
+  message: string;
+}
+
 export interface IResetResponse {
   message: string;
   timestamp: string;
 }
+
+// ====== API Response Types ======
+
+export type ILoginResponse = IApiResponse<ILoginData>;
+
+export type IResetResponseAPI = IApiResponse<null>;
+
+export type IRegisterResponse = IApiResponse<IRegisterData>;
+
+export type IChangePasswordResponse = IApiResponse<null>;
