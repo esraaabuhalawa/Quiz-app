@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { jwtDecode } from 'jwt-decode';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 import {
   IResetResponse,
   IReset,
@@ -10,6 +10,12 @@ import {
   IRegister,
   IRegisterResponse,
   IForgotResponse,
+  ILoginRequest,
+  LoginResponse,
+} from '../interfaces/auth';
+import { ApiResponse } from '../../../core/interfaces/api-response.model';
+import { TokenService } from './token.service';
+import { AuthStoreService } from './auth-store.service';
   ILogin,
   ILoginResponse,
 } from '../interfaces/auth';
@@ -20,6 +26,8 @@ import { environment } from '../../../../environments/environment';
 })
 export class AuthService {
   private http = inject(HttpClient);
+  private readonly authStore = inject(AuthStoreService);
+  private readonly tokenService = inject(TokenService);
   //private router = inject(Router);
   // private currentUserSubject = new BehaviorSubject<ICurrentUser | null>(null);
   // currentUser$ = this.currentUserSubject.asObservable();
@@ -93,7 +101,19 @@ export class AuthService {
   //   this.currentUserSubject.next(null);
   //   this.router.navigate(['/']);
   // }
-
+  onLogin(data: ILoginRequest): Observable<LoginResponse> {
+    return this.http.post<LoginResponse>('auth/login', data).pipe(
+      tap((response) => {
+        this.tokenService.saveToken(response.data.accessToken);
+        this.tokenService.saveUser(response.data.profile);
+        this.authStore.setUser(response.data.profile);
+      }),
+    );
+  }
+  logout(): void {
+    this.tokenService.clearSession();
+    this.authStore.clearUser();
+  }
   onResetPass(data: IReset): Observable<IResetResponse> {
     return this.http.post<IResetResponse>('auth/reset-password', data);
   }

@@ -1,7 +1,48 @@
 <app-auth-layout
-  title="Sign In"
+  [title]="'auth.login.title' | translate"
   [iconsForLogin]="[
-    { icon: 'pi pi-google', label: 'login', link: '/login' },
-    { icon: 'pi pi-facebook', label: 'register', link: '/register' }
-  ]">
+    { icon: 'pi pi-user', label: 'Sign in', link: '/login' },
+    { icon: 'pi pi-user-plus', label: 'Sign Up', link: '/register' },
+  ]"
+>
+  <div class="h-full" auth-form class="login-container">
+    <form class="pb-8" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <app-form-field
+        [control]="form.controls['email']"
+        type="email"
+        icon="pi pi-envelope"
+        [label]="'Registered email address'"
+        [placeholder]="'Type your email'"
+        [errorMessages]="{
+          required: 'auth.login.email_required',
+          email: 'auth.login.email_invalid',
+        }"
+      ></app-form-field>
+      <app-form-field
+        [control]="form.controls['password']"
+        type="password"
+        icon="pi pi-key"
+        [label]="'Password'"
+        [placeholder]="'Type your password'"
+        [errorMessages]="{
+          required: 'auth.login.password_required',
+          pattern: 'auth.login.password_pattern',
+        }"
+      ></app-form-field>
+      <div class="flex align-items-center justify-content-between">
+        <p-button
+          type="submit"
+          [label]="'Sign In'"
+          icon="pi pi-check"
+          iconPos="right"
+          [loading]="loading()"
+          styleClass="form-btn"
+        >
+        </p-button>
+        <p>
+          Forgot password? <a class="forget-link" [routerLink]="['/forgot-password']">click here</a>
+        </p>
+      </div>
+    </form>
+  </div>
 </app-auth-layout>
