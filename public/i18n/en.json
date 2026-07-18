@@ -94,7 +94,7 @@
       "role_label": "Your role",
       "role_placeholder": "Choose your role",
       "password_label": "Password",
-      "pasword_placeholder": "Type your password",
+      "password_placeholder": "Type your password",
       "password_required": "Password is required",
       "password_pattern": "Password must contain uppercase, lowercase, and numbers",
       "submit_btn": "Sign Up"
