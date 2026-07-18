@@ -1,5 +1,6 @@
 import {
   ApplicationConfig,
+  provideAppInitializer,
   provideBrowserGlobalErrorListeners,
   TransferState,
 } from '@angular/core';
@@ -17,6 +18,7 @@ import { errorInterceptor } from './core/interceptors/error-interceptor';
 
 import { TranslateLoader, provideTranslateService } from '@ngx-translate/core';
 import { translateLoaderFactory } from './core/translation/translate-loader';
+import { initializeSession } from './features/auth/services/initialize-session';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -48,5 +50,6 @@ export const appConfig: ApplicationConfig = {
         },
       },
     }),
+    provideAppInitializer(() => initializeSession()),
   ],
 };
