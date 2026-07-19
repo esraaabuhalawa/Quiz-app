@@ -6,7 +6,7 @@ import { IStudents } from '../interfaces/students';
 @Injectable({
   providedIn: 'root',
 })
-export class Students {
+export class StudentsService {
   private http = inject(HttpClient);
 
   getAllStudents():Observable<IStudents>{

@@ -1,0 +1,70 @@
+<p-dialog
+  [header]="isEditMode ? ('ADS.EDIT_AD' | translate) : ('ADS.ADD_AD' | translate)"
+  [modal]="true"
+  [(visible)]="visible"
+  [style]="{ width: '50rem', maxWidth: '95vw', height: '25rem' }"
+  [breakpoints]="{
+    '1280px': '70vw',
+    '1024px': '80vw',
+    '768px': '90vw',
+    '640px': '95vw'
+  }"
+  (onHide)="close()"
+>
+   <form [formGroup]="form" class="flex flex-col gap-6 mt-4">
+    <!-- Name -->
+    <div>
+      <input
+        pInputText
+        class="w-full"
+        formControlName="name"
+        [placeholder]="'groups.name' | translate"
+      />
+
+      @if (form.get('name')?.invalid && (form.get('name')?.dirty ||
+      form.get('name')?.touched)) {
+      <small class="text-red-500">
+        {{ 'common.validation.required' | translate }}
+      </small>
+      }
+    </div>
+
+    <!-- Students -->
+    <div>
+      <p-multiSelect
+        appendTo="body"
+        [options]="allStudents()"
+        formControlName="students"
+        class="w-full"
+        optionLabel="studentName"
+        optionValue="_id"
+        [filter]="true"
+        filterBy="studentName"
+        [virtualScroll]="true"
+        [virtualScrollItemSize]="40"
+        [loading]="loadingStudents"
+        [placeholder]="'ADS.STUDENTS' | translate"
+      >
+      </p-multiSelect>
+
+      @if (form.get('students')?.invalid && (form.get('students')?.dirty ||
+      form.get('students')?.touched)) {
+      <small class="text-red-500">
+        {{ 'ADS.VALIDATION.STUDENTS_REQUIRED' | translate }}
+      </small>
+      }
+    </div>
+  </form>
+
+  <ng-template pTemplate="footer">
+    <div class="flex justify-end gap-2">
+      <p-button
+        [label]="isEditMode ? ('COMMON.UPDATE' | translate) : ('COMMON.CREATE' | translate)"
+        [disabled]="loading"
+        [loading]="loading"
+        (click)="save()"
+      >
+      </p-button>
+    </div>
+  </ng-template>
+</p-dialog>
