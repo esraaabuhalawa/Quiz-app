@@ -128,7 +128,10 @@
   },
   "common": {
     "success": "نجاح",
-    "error": "خطأ"
+    "error": "خطأ",
+    "validation": {
+      "required": "هذه الخانة مطلوبه"
+    }
   },
   "empty_state": {
     "no_data": "لا توجد بيانات!",

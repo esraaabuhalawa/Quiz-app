@@ -7,10 +7,17 @@ import { IGroupData } from '../../interfaces/groups';
 import { Paginator, PaginatorState } from 'primeng/paginator';
 import { Loader } from "../../../../../../../shared/components/loader/loader";
 import { EmptyStateComponent } from "../../../../../../../shared/components/empty-state/empty-state.component";
+import { AddEditGroup } from '../add-edit-group/add-edit-group';
 
 @Component({
   selector: 'app-groups-list',
-  imports: [PageLayout, Paginator, TranslatePipe, Loader, EmptyStateComponent],
+  imports: [PageLayout,
+    Paginator,
+    TranslatePipe,
+    Loader,
+    EmptyStateComponent,
+    AddEditGroup
+  ],
   templateUrl: './groups-list.html',
   styleUrl: './groups-list.scss',
 })
@@ -20,7 +27,7 @@ export class GroupsList {
   private translate = inject(TranslateService);
 
   allGroups = signal<IGroupData[]>([]);
-groupsList = signal<IGroupData[]>([]);
+  groupsList = signal<IGroupData[]>([]);
   isLoading = signal<boolean>(true);
   currentPage = signal<number>(1);
   pageSize = signal<number>(1);
@@ -59,15 +66,15 @@ groupsList = signal<IGroupData[]>([]);
   fetchGroupsData() {
     this.isLoading.set(true);
     this.GroupsService.getAllGroups().subscribe({
-      next: (res:IGroupData[]) => {
+      next: (res: IGroupData[]) => {
         this.groupsList.set(res);
-          this.updateDisplayedGroups();
-//         console.log(res);
-// console.log(Array.isArray(res));
-// console.log(res.length);
+        this.updateDisplayedGroups();
+        //         console.log(res);
+        // console.log(Array.isArray(res));
+        // console.log(res.length);
 
-this.totalRecords.set(res.length);
-     //   console.log('total',this.totalRecords())
+        this.totalRecords.set(res.length);
+        //   console.log('total',this.totalRecords())
 
         this.isLoading.set(false);
       },
@@ -153,13 +160,13 @@ this.totalRecords.set(res.length);
 
   //Helper Functions
   private updateDisplayedGroups() {
-  const start = (this.currentPage() - 1) * this.pageSize();
-  const end = start + this.pageSize();
+    const start = (this.currentPage() - 1) * this.pageSize();
+    const end = start + this.pageSize();
 
-  this.groupsList.set(
-    this.allGroups().slice(start, end)
-  );
-}
+    this.groupsList.set(
+      this.allGroups().slice(start, end)
+    );
+  }
 
   onPageChange(event: PaginatorState) {
     this.currentPage.set((event.page ?? 0) + 1);

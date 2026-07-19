@@ -128,7 +128,10 @@
   },
   "common": {
     "success": "Success",
-    "error": "Error"
+    "error": "Error",
+    "validation": {
+      "required": "This Field is required"
+    }
   },
   "empty_state": {
     "no_data": "No Data!",

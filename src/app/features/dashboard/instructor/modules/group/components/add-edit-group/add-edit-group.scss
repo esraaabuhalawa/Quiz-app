@@ -1,0 +1,26 @@
+:host ::ng-deep .readonly-select.p-select {
+  background: var(--surface-hover);
+  border-color: var(--surface-border);
+  color: var(--text-secondary-color);
+}
+
+:host ::ng-deep .readonly-select .p-select-label {
+  color: var(--text-secondary-color);
+}
+
+:host ::ng-deep .readonly-select .p-select-dropdown {
+  opacity: 0.5;
+}
+
+:host ::ng-deep .readonly-select {
+  cursor: not-allowed;
+}
+
+.p-button-text.p-button-secondary {
+    background: transparent;
+    border-color: transparent;
+    color: #F44336;
+    border: 1px solid red;
+    width: 32px;
+    height: 32px;
+}
