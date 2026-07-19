@@ -7,19 +7,19 @@
     "login_failed_message": "فشل تسجيل الدخول. يرجى التحقق من البريد الإلكتروني وكلمة المرور والمحاولة مرة أخرى.",
     "login_success_summary": "نجاح",
     "login": {
-    "title": "واصل رحلتك التعليمية مع QuizWiz!",
-    "email_label": "البريد الإلكتروني المسجل",
-    "email_placeholder": "أدخل بريدك الإلكتروني",
-    "email_required": "البريد الإلكتروني مطلوب",
-    "email_invalid": "يرجى إدخال بريد إلكتروني صحيح",
-    "password_label": "كلمة المرور",
-    "password_placeholder": "أدخل كلمة المرور",
-    "password_required": "كلمة المرور مطلوبة",
-    "password_pattern": "يجب أن تحتوي كلمة المرور على حرف كبير واحد على الأقل، وحرف صغير واحد على الأقل، ورمز خاص واحد على الأقل، وأن تتكون من 6 أحرف على الأقل",
-    "forgot_password": "هل نسيت كلمة المرور؟",
-    "click_here": "اضغط هنا"
-            }
-    ,
+      "title": "واصل رحلتك التعليمية مع QuizWiz!",
+      "email_label": "البريد الإلكتروني المسجل",
+      "email_placeholder": "أدخل بريدك الإلكتروني",
+      "email_required": "البريد الإلكتروني مطلوب",
+      "email_invalid": "يرجى إدخال بريد إلكتروني صحيح",
+      "password_label": "كلمة المرور",
+      "password_placeholder": "أدخل كلمة المرور",
+      "password_required": "كلمة المرور مطلوبة",
+      "password_pattern": "يجب أن تحتوي كلمة المرور على حرف كبير واحد على الأقل، وحرف صغير واحد على الأقل، ورمز خاص واحد على الأقل، وأن تتكون من 6 أحرف على الأقل",
+      "forgot_password": "هل نسيت كلمة المرور؟",
+      "click_here": "اضغط هنا",
+      "login_title": "تسجيل الدخول"
+    },
     "forgot": {
       "title": "نسيت كلمة المرور",
       "description": "لا تقلق، يحدث ذلك. أدخل بريدك الإلكتروني لإعادة تعيين كلمة المرور.",
@@ -58,30 +58,25 @@
       "error": "حدث خطأ أثناء إعادة تعيين كلمة المرور."
     },
     "change_password": {
-     "title": "تغيير كلمة المرور",
-  "description": "قم بتحديث كلمة المرور للحفاظ على أمان حسابك. أدخل كلمة المرور الحالية واختر كلمة مرور جديدة.",
-
-  "old_password_label": "كلمة المرور الحالية",
-  "old_password_placeholder": "أدخل كلمة المرور الحالية",
-  "old_password_required": "كلمة المرور الحالية مطلوبة",
-
-  "new_password_label": "كلمة المرور الجديدة",
-  "new_password_placeholder": "أدخل كلمة المرور الجديدة",
-  "new_password_required": "كلمة المرور الجديدة مطلوبة",
-
-  "confirm_password_label": "تأكيد كلمة المرور",
-  "confirm_password_placeholder": "أعد إدخال كلمة المرور الجديدة",
-  "confirm_password_required": "تأكيد كلمة المرور مطلوب",
-
-  "password_pattern": "يجب أن تحتوي كلمة المرور على حرف كبير وحرف صغير ورقم ورمز خاص، وألا تقل عن 6 أحرف",
-  "passwords_do_not_match": "كلمتا المرور غير متطابقتين",
-
-  "change_button": "تغيير كلمة المرور"
- },
+      "title": "تغيير كلمة المرور",
+      "description": "قم بتحديث كلمة المرور للحفاظ على أمان حسابك. أدخل كلمة المرور الحالية واختر كلمة مرور جديدة.",
+      "old_password_label": "كلمة المرور الحالية",
+      "old_password_placeholder": "أدخل كلمة المرور الحالية",
+      "old_password_required": "كلمة المرور الحالية مطلوبة",
+      "new_password_label": "كلمة المرور الجديدة",
+      "new_password_placeholder": "أدخل كلمة المرور الجديدة",
+      "new_password_required": "كلمة المرور الجديدة مطلوبة",
+      "confirm_password_label": "تأكيد كلمة المرور",
+      "confirm_password_placeholder": "أعد إدخال كلمة المرور الجديدة",
+      "confirm_password_required": "تأكيد كلمة المرور مطلوب",
+      "password_pattern": "يجب أن تحتوي كلمة المرور على حرف كبير وحرف صغير ورقم ورمز خاص، وألا تقل عن 6 أحرف",
+      "passwords_do_not_match": "كلمتا المرور غير متطابقتين",
+      "change_button": "تغيير كلمة المرور"
+    },
     "register": {
       "title": "أنشئ حسابك وابدأ استخدام QuizWiz!",
       "signin_tab": "تسجيل الدخول",
-"signup_tab": "إنشاء حساب",
+      "signup_tab": "إنشاء حساب",
       "first_name_label": "الاسم الأول",
       "first_name_placeholder": "اكتب اسمك الأول",
       "first_name_required": "الاسم الأول مطلوب",
@@ -113,6 +108,17 @@
     "description": "عذرًا، الصفحة التي تبحث عنها غير موجودة أو تم نقلها إلى موقع آخر.",
     "button": "العودة إلى لوحة التحكم"
   },
+  "groups": {
+    "status": "الحالة",
+    "instructor": "المدرس",
+    "students": "عدد الطلاب",
+    "max_students": "الحد الأقصى للطلاب",
+    "edit": "تعديل",
+    "delete": "حذف",
+    "title": "قائمة المجموعات",
+    "add": "إضافة مجموعة",
+    "group": "المجموعة"
+  },
   "user_profile": {
     "title": "الملف الشخصي",
     "country": "الدولة",
@@ -123,5 +129,9 @@
   "common": {
     "success": "نجاح",
     "error": "خطأ"
+  },
+  "empty_state": {
+    "no_data": "لا توجد بيانات!",
+    "message": "لا توجد بيانات لعرضها لـ"
   }
 }

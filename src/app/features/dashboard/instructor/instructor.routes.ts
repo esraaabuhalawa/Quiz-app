@@ -7,7 +7,7 @@ export const INSTRUCTOR_ROUTES: Routes = [
   },
   {
     path: 'groups',
-    loadComponent: () => import('./components/groups/groups').then((c) => c.Groups),
+    loadComponent: () => import('../instructor/modules/group/components/groups-list/groups-list').then((c) => c.GroupsList),
   },
   {
     path: '**',

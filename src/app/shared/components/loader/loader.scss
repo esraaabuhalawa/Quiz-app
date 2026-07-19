@@ -1,0 +1,12 @@
+.loader-overlay{
+  height: 75vh;
+}
+
+:host ::ng-deep .loader-spinner {
+  width: 7rem;
+  height: 7rem;
+}
+
+:host ::ng-deep .loader-spinner .p-progressspinner-circle {
+  stroke: var(--ultra-color) !important;
+}

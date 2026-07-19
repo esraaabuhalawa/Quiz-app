@@ -1,0 +1,62 @@
+<app-page-layout [title]="'groups.title'"  [showButton]="false"
+   [showBoxButton]="true" [boxButtonLabel]="'groups.add'">
+
+  <!-- this is the content fetched from the API -->
+  @if (true) {
+  <app-loader></app-loader>
+  } @else if (groupsList().length === 0) {
+    <app-empty-state [elementName]="'groups.group'"></app-empty-state>
+  } @else {
+  <!-- Ads List -->
+  <div
+    class="w-full bg-white dark:bg-surface rounded-2xl shadow-sm border border-gray-100 dark:border-surface-border overflow-hidden">
+    <div class="grid">
+      @for (group of groupsList(); track group._id) {
+      <div class="col-12 md:col-6">
+        <div class="group-card border-1 border-round-md surface-card  flex justify-content-between align-items-start">
+
+          <!-- Group Info -->
+          <div class="flex flex-column gap-2">
+            <h3 class="m-0 text-xl font-semibold">
+              {{'groups.group' | translate}} : {{ group.name }}
+            </h3>
+
+            <p class="m-0">
+              <strong>{{ 'groups.students' | translate }} : </strong>
+              {{ group.students.length }}
+            </p>
+          </div>
+
+          <!-- Actions -->
+          <div class="flex flex-row gap-2">
+            <button type="button" class="action-btn">
+              <i class="pi pi-pencil"></i>
+            </button>
+
+            <button type="button" class="action-btn delete-btn">
+              <i class="pi pi-trash"></i>
+            </button>
+          </div>
+
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+  <div class="flex items-center mt-7 justify-center">
+    <!-- Paginator -->
+    <p-paginator [first]="(currentPage() - 1) * pageSize()" [rows]="pageSize()" [totalRecords]="totalRecords()"
+      [rowsPerPageOptions]="[]" [showCurrentPageReport]="true" [currentPageReportTemplate]="''"
+      (onPageChange)="onPageChange($event)">
+    </p-paginator>
+  </div>
+  }
+
+</app-page-layout>
+
+<!-- <app-view-ad [selectedAd]="selectedAd()" [visible]="visible()" [loading]="adLoading()"
+    (visibleChange)="visible.set($event)">
+  </app-view-ad> -->
+
+<!-- <app-add-edit-ads [(visible)]="showDialog" [loading]="addEditLoad()" [ad]="selectedAd()"
+  (submitForm)="saveAd($event)"></app-add-edit-ads> -->

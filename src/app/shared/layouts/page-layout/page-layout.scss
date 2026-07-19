@@ -1,0 +1,20 @@
+:host ::ng-deep .add-btn.p-button {
+  background: transparent;
+  border: 1px solid #000;
+  color: #000;
+  transition: all 0.2s ease;
+}
+
+:host ::ng-deep .add-btn.p-button .pi {
+  color: #000;
+}
+
+:host ::ng-deep .add-btn.p-button:hover {
+  background: #000;
+  border-color: #000;
+  color: #fff;
+}
+
+:host ::ng-deep .add-btn.p-button:hover .pi {
+  color: #fff;
+}

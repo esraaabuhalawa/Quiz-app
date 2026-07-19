@@ -39,14 +39,14 @@ export interface IReset {
   password: string;
 }
 
-export interface IForgotResponse {
-  message: string;
-}
+// export interface IForgotResponse {
+//   message: string;
+// }
 
-export interface IResetResponse {
-  message: string;
-  timestamp: string;
-}
+// export interface IResetResponse {
+//   message: string;
+//   timestamp: string;
+// }
 
 export interface LoginResponseData {
   accessToken: string;

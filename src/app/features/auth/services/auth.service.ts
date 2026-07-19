@@ -2,12 +2,12 @@ import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import {
-  IResetResponse,
+  // IResetResponse,
   IReset,
   IChangePassword,
   IRegister,
   IRegisterResponse,
-  IForgotResponse,
+  // IForgotResponse,
   ILoginRequest,
   LoginResponse,
 } from '../interfaces/auth';
@@ -36,17 +36,17 @@ export class AuthService {
     this.authStore.clearUser();
   }
 
-  onResetPass(data: IReset): Observable<IResetResponse> {
-    return this.http.post<IResetResponse>('auth/reset-password', data);
+  onResetPass(data: IReset): Observable<any> {
+    return this.http.post<any>('auth/reset-password', data);
   }
 
-  forgotPassword(email: string): Observable<IForgotResponse> {
-    return this.http.post<IForgotResponse>('auth/forgot-password', { email });
+  forgotPassword(email: string): Observable<any> {
+    return this.http.post<any>('auth/forgot-password', { email });
   }
 
-   changePassword(data: IChangePassword): Observable<IResetResponse> {
-     return this.http.post<IResetResponse>('auth/change-password', data);
-   }
+  changePassword(data: IChangePassword): Observable<any> {
+    return this.http.post<any>('auth/change-password', data);
+  }
 
   register(data: IRegister): Observable<IRegisterResponse> {
     return this.http.post<IRegisterResponse>('auth/register', data);
