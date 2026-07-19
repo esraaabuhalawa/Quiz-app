@@ -2,7 +2,7 @@
    [showBoxButton]="true" [boxButtonLabel]="'groups.add'">
 
   <!-- this is the content fetched from the API -->
-  @if (true) {
+  @if (isLoading()) {
   <app-loader></app-loader>
   } @else if (groupsList().length === 0) {
     <app-empty-state [elementName]="'groups.group'"></app-empty-state>
