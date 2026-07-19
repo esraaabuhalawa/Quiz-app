@@ -3,11 +3,14 @@ import { PageLayout } from "../../../../../../../shared/layouts/page-layout/page
 import { GroupsService } from '../../services/groups.service';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { MessageService } from 'primeng/api';
-import { IGroupData } from '../../interfaces/groups';
+import { IGroupData, IGroupDetails, IGroupFormData } from '../../interfaces/groups';
 import { Paginator, PaginatorState } from 'primeng/paginator';
 import { Loader } from "../../../../../../../shared/components/loader/loader";
 import { EmptyStateComponent } from "../../../../../../../shared/components/empty-state/empty-state.component";
 import { AddEditGroup } from '../add-edit-group/add-edit-group';
+import { finalize } from 'rxjs';
+import { FormsModule } from '@angular/forms';
+import { ViewGroup } from "../view-group/view-group";
 
 @Component({
   selector: 'app-groups-list',
@@ -15,9 +18,9 @@ import { AddEditGroup } from '../add-edit-group/add-edit-group';
     Paginator,
     TranslatePipe,
     Loader,
+    FormsModule,
     EmptyStateComponent,
-    AddEditGroup
-  ],
+    AddEditGroup, ViewGroup],
   templateUrl: './groups-list.html',
   styleUrl: './groups-list.scss',
 })
@@ -30,34 +33,15 @@ export class GroupsList {
   groupsList = signal<IGroupData[]>([]);
   isLoading = signal<boolean>(true);
   currentPage = signal<number>(1);
-  pageSize = signal<number>(1);
+  pageSize = signal<number>(10);
   totalRecords = signal<number>(0);
-  selectedAd = signal<IGroupData | null>(null);
-  adLoading = signal(false);
+  selectedGroup = signal<IGroupData | null>(null);
+  SelectedViewGroup =  signal<IGroupDetails | null>(null);
+
+  groupLoading = signal(false);
   visible = signal(false);
   showDialog = false;
   addEditLoad = signal(false);
-
-  // openMenu(event: Event, ad: any, menu: any) {
-  //   this.menuItems = [
-  //     {
-  //       label: this.translate.instant('ROOMS.VIEW'),
-  //       icon: 'pi pi-eye',
-  //       command: () => this.viewAd(ad)
-  //     },
-  //     {
-  //       label: this.translate.instant('ROOMS.EDIT'),
-  //       icon: 'pi pi-pencil',
-  //       command: () => this.openEditDialog(ad)
-  //     },
-  //     {
-  //       label: this.translate.instant('ROOMS.DELETE'),
-  //       icon: 'pi pi-trash',
-  //       command: () => this.deleteAd(ad)
-  //     }
-  //   ];
-  //   menu.toggle(event);
-  // }
 
   ngOnInit(): void {
     this.fetchGroupsData();
@@ -67,15 +51,9 @@ export class GroupsList {
     this.isLoading.set(true);
     this.GroupsService.getAllGroups().subscribe({
       next: (res: IGroupData[]) => {
-        this.groupsList.set(res);
+        this.allGroups.set(res);
         this.updateDisplayedGroups();
-        //         console.log(res);
-        // console.log(Array.isArray(res));
-        // console.log(res.length);
-
         this.totalRecords.set(res.length);
-        //   console.log('total',this.totalRecords())
-
         this.isLoading.set(false);
       },
       error: (err) => {
@@ -90,73 +68,74 @@ export class GroupsList {
     });
   }
 
-  // viewAd(ad: IAd) {
-  //   this.selectedAd.set(null);
-  //   this.adLoading.set(true);
-  //   this.visible.set(true);
+  viewGroup(group: IGroupData) {
+    this.selectedGroup.set(null);
+    this.groupLoading.set(true);
+    this.visible.set(true);
 
-  //   this.adsService.getAdDetails(ad._id).subscribe({
-  //     next: (res) => {
-  //       this.selectedAd.set(res.data.ads);
-  //       this.adLoading.set(false);
-  //     },
-  //     error: () => {
-  //       this.adLoading.set(false);
-  //       this.visible.set(false);
-  //     }
-  //   });
-  // }
+    this.GroupsService.getGroupDetails(group._id).subscribe({
+      next: (res:IGroupDetails) => {
+        this.SelectedViewGroup.set(res);
+        this.groupLoading.set(false);
+      },
+      error: () => {
+        this.groupLoading.set(false);
+        this.visible.set(false);
+      }
+    });
+  }
 
   openEditDialog(group: IGroupData): void {
-    this.selectedAd.set(group)
+    this.selectedGroup.set(structuredClone(group));
+    // this.selectedGroup.set({ ...group });
+    // this.selectedGroup.set(group)
     this.showDialog = true;
   }
 
   openAddDialog() {
-    this.selectedAd.set(null)
+    this.selectedGroup.set(null)
     this.showDialog = true;
   }
 
   //Emit Add And Edit requests to Dialog
-  // saveAd(data: ICreateAdData | IUpdateAdData) {
-  //   this.addEditLoad.set(true);
-  //   const isEdit = !!this.selectedAd();
-  //   const request$ = isEdit
-  //     ? this.adsService.updateAd(this.selectedAd()!._id, data as IUpdateAdData)
-  //     : this.adsService.createAd(data as ICreateAdData);
+  saveGroup(data: IGroupFormData) {
+    this.addEditLoad.set(true);
+    const isEdit = !!this.selectedGroup();
+    const request$ = isEdit
+      ? this.GroupsService.updateGroup(this.selectedGroup()!._id, data)
+      : this.GroupsService.createGroup(data);
 
-  //   request$.pipe(
-  //     finalize(() => this.addEditLoad.set(false))
-  //   ).subscribe({
-  //     next: () => {
-  //       this.showDialog = false;
-  //       this.fetchAdsData();
-  //       this.messageService.add({
-  //         severity: 'success',
-  //         summary: this.translate.instant('COMMON.SUCCESS'),
-  //         detail: this.translate.instant(isEdit ? 'ADS.UPDATE_SUCCESS' : 'ADS.CREATE_SUCCESS'),
-  //       });
-  //     },
-  //     error: (err) => {
-  //       this.messageService.add({
-  //         severity: 'error',
-  //         summary: this.translate.instant('COMMON.ERROR'),
-  //         detail: err.message || this.translate.instant('COMMON.SOMETHING_WENT_WRONG'),
-  //       });
-  //       console.error(err);
-  //     }
-  //   });
-  // }
+    request$.pipe(finalize(() => this.addEditLoad.set(false))
+    ).subscribe({
+      next: () => {
+        this.showDialog = false;
+        this.fetchGroupsData();
+        this.messageService.add({
+          severity: 'success',
+          summary: this.translate.instant('common.success'),
+          detail: this.translate.instant(isEdit ? 'groups.update_success' : 'groups.create_success'),
+        });
+      },
+      error: (err) => {
+        this.messageService.add({
+          severity: 'error',
+          summary: this.translate.instant('common.error'),
+          detail: err.error.message || this.translate.instant('common.something_went_wrong'),
+        });
+        console.error(err);
+      }
+    });
+  }
 
-  //Delete Room
-  // deleteAd(ad: IAd) {
-  //   this.alertService.delete({
-  //     entity: 'ADS.TITLE',
-  //     label: ad.room.roomNumber,
-  //     request: () => this.adsService.deleteAd(ad._id),
-  //     onSuccess: () => this.fetchAdsData(),
-  //   });
-  // }
+  //Delete Group
+  deleteGroup(group: IGroupData) {
+    // this.alertService.delete({
+    //   entity: 'ADS.TITLE',
+    //   label: ad.room.roomNumber,
+    //   request: () => this.adsService.deleteAd(ad._id),
+    //   onSuccess: () => this.fetchAdsData(),
+    // });
+  }
 
   //Helper Functions
   private updateDisplayedGroups() {

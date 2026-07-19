@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ICreateResponse, IDeleteResponse, IGroupFormData, IUpdateResponse, IGroupData } from '../interfaces/groups';
+import { ICreateResponse, IDeleteResponse, IGroupFormData, IUpdateResponse, IGroupData, IGroupDetails } from '../interfaces/groups';
 
 @Injectable({
   providedIn: 'root',
@@ -13,8 +13,8 @@ export class GroupsService {
     return this.http.get<IGroupData[]>(`group`)
   }
 
-  getGroupDetails(id: string): Observable<IGroupData> {
-    return this.http.get<IGroupData>(`group/${id}`)
+  getGroupDetails(id: string): Observable<IGroupDetails> {
+    return this.http.get<IGroupDetails>(`group/${id}`)
   }
 
   createGroup(data: IGroupFormData): Observable<ICreateResponse> {

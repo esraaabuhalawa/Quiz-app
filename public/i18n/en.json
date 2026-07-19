@@ -117,7 +117,22 @@
     "delete": "Delete",
     "title": "Groups List",
     "add": "Add Group",
-    "group": "Group"
+    "group": "Group",
+    "name": "Group Name",
+    "students-placeholder": "List Students",
+    "create_success": "Group created successfully.",
+    "update_success": "Group updated successfully.",
+    "details": {
+      "title": "Group Details",
+      "group": "Group",
+      "students": "Students",
+      "max_students": "Maximum Students",
+      "status": "Status",
+      "instructor": "Instructor",
+      "active": "Active",
+      "inactive": "Inactive",
+      "seats_left": "Seats Left"
+    }
   },
   "user_profile": {
     "title": "Profile",
@@ -131,7 +146,8 @@
     "error": "Error",
     "validation": {
       "required": "This Field is required"
-    }
+    },
+    "something_went_wrong": "Sorry, Something went wrong ."
   },
   "empty_state": {
     "no_data": "No Data!",
