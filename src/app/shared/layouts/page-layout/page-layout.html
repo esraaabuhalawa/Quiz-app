@@ -1,0 +1,48 @@
+<!-- Header row: title/description left, action button top-right -->
+<div class="flex justify-content-between align-items-center gap-4 py-4 w-full px-6">
+  <div>
+    <h1 class="text-xl font-bold text-900 m-0">{{ title | translate }}</h1>
+  </div>
+
+  @if (linkUrl && showButton) {
+    <p-button
+      [routerLink]="linkUrl"
+      [label]="linkLabel | translate"
+      icon="pi pi-plus"
+      styleClass="add-btn" />
+  }
+  @else if (showButton) {
+    <p-button
+      (onClick)="onButtonClick()"
+      [label]="buttonLabel | translate"
+      icon="pi pi-plus"
+      styleClass="add-btn" />
+  }
+</div>
+
+<!-- Bordered box: box title left, optional box button, API content projected below -->
+<div class="border-1 surface-border border-round-lg p-4 mx-6">
+  <div class="flex justify-content-between align-items-center mb-3">
+    <h2 class="text-lg font-semibold text-900 m-0">{{ boxTitle | translate }}</h2>
+
+    @if (showBoxButton) {
+      @if (boxLinkUrl) {
+        <p-button
+          [routerLink]="boxLinkUrl"
+          [label]="boxButtonLabel | translate"
+          icon="pi pi-plus"
+          styleClass="add-btn" />
+      }
+      @else {
+        <p-button
+          (onClick)="onBoxButtonClick()"
+          [label]="boxButtonLabel | translate"
+          icon="pi pi-plus"
+          styleClass="add-btn" />
+      }
+    }
+  </div>
+
+  <!-- content coming from API is projected here -->
+  <ng-content></ng-content>
+</div>

@@ -1,0 +1,38 @@
+.group-card {
+  border-color: #00000033;
+  height: 80px;
+  padding: 12px;
+
+  h3 {
+    color: var(--black-color);
+    font-weight: 600;
+    font-size: 18px;
+  }
+
+  p {
+    color: #0D1321CC;
+    font-weight: 500;
+    font-size: 13px;
+  }
+}
+
+:host ::ng-deep .edit-btn.p-button {
+  background: transparent;
+  border: 1px solid #000;
+  color: #000;
+  transition: all 0.2s ease;
+}
+
+:host ::ng-deep .edit-btn.p-button .pi {
+  color: #000;
+}
+
+:host ::ng-deep .edit-btn.p-button:hover {
+  background: #000;
+  border-color: #000;
+  color: #fff;
+}
+
+:host ::ng-deep .edit-btn.p-button:hover .pi {
+  color: #fff;
+}

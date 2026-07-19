@@ -7,7 +7,7 @@
     "login_failed_message": "Login failed. Please check your email and password and try again.",
     "login_success_summary": "Success",
     "login": {
-      "title":"Continue your learning journey with QuizWiz!",
+      "title": "Continue your learning journey with QuizWiz!",
       "email_label": "Registered email address",
       "email_placeholder": "Type your email",
       "email_required": "Email is required",
@@ -17,7 +17,8 @@
       "password_required": "Password is required",
       "password_pattern": "Password must contain at least one uppercase letter, one lowercase letter, one special character, and be at least 6 characters long",
       "forgot_password": "Forgot Password?",
-      "click_here": "click here"
+      "click_here": "click here",
+      "login_title": "Login"
     },
     "forgot": {
       "title": "Forgot Password",
@@ -58,29 +59,24 @@
     },
     "change_password": {
       "title": "Change Password",
-  "description": "Update your password to keep your account secure. Enter your current password and choose a new one.",
-
-  "old_password_label": "Current Password",
-  "old_password_placeholder": "Enter your current password",
-  "old_password_required": "Current password is required",
-
-  "new_password_label": "New Password",
-  "new_password_placeholder": "Enter your new password",
-  "new_password_required": "New password is required",
-
-  "confirm_password_label": "Confirm Password",
-  "confirm_password_placeholder": "Confirm your new password",
-  "confirm_password_required": "Please confirm your password",
-
-  "password_pattern": "Password must contain at least one uppercase letter, one lowercase letter, one special character, and be at least 6 characters long",
-  "passwords_do_not_match": "Passwords do not match",
-
-  "change_button": "Change Password"
+      "description": "Update your password to keep your account secure. Enter your current password and choose a new one.",
+      "old_password_label": "Current Password",
+      "old_password_placeholder": "Enter your current password",
+      "old_password_required": "Current password is required",
+      "new_password_label": "New Password",
+      "new_password_placeholder": "Enter your new password",
+      "new_password_required": "New password is required",
+      "confirm_password_label": "Confirm Password",
+      "confirm_password_placeholder": "Confirm your new password",
+      "confirm_password_required": "Please confirm your password",
+      "password_pattern": "Password must contain at least one uppercase letter, one lowercase letter, one special character, and be at least 6 characters long",
+      "passwords_do_not_match": "Passwords do not match",
+      "change_button": "Change Password"
     },
     "register": {
       "title": "Create your account and start using QuizWiz!",
       "signin_tab": "Sign in",
-"signup_tab": "Sign Up",
+      "signup_tab": "Sign Up",
       "first_name_label": "Your first name",
       "first_name_placeholder": "Type your first name",
       "first_name_required": "First name is required",
@@ -112,6 +108,17 @@
     "description": "Sorry, the page you are looking for doesn't exist or has been moved.",
     "button": "Back to Dashboard"
   },
+  "groups": {
+    "status": "Status",
+    "instructor": "Instructor",
+    "students": "No. of students",
+    "max_students": "Maximum Students",
+    "edit": "Edit",
+    "delete": "Delete",
+    "title": "Groups List",
+    "add": "Add Group",
+    "group": "Group"
+  },
   "user_profile": {
     "title": "Profile",
     "country": "Country",
@@ -122,5 +129,9 @@
   "common": {
     "success": "Success",
     "error": "Error"
+  },
+  "empty_state": {
+    "no_data": "No Data!",
+    "message": "There is no data to show for"
   }
 }
