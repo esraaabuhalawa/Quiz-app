@@ -9,7 +9,7 @@ import { IStudents } from '../interfaces/students';
 export class StudentsService {
   private http = inject(HttpClient);
 
-  getAllStudents():Observable<IStudents>{
-    return this.http.get<IStudents>(`student`)
+  getAllStudents():Observable<IStudents[]>{
+    return this.http.get<IStudents[]>(`student`)
   }
 }
