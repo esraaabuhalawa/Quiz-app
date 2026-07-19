@@ -14,7 +14,21 @@ export interface IGroupData {
   max_students: number;
 }
 
+export interface IGroupDetails{
+  _id: string;
+  name: string;
+  status: string;
+  instructor: string;
+  students: IStudent[];
+  max_students: number;
+}
 
+interface IStudent {
+  _id: string;
+  first_name: string;
+  last_name: string;
+  email: string;
+}
 // interface ICreateResponseData {
 //   name: string;
 //   status: string;

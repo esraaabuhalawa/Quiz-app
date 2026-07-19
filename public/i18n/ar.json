@@ -117,7 +117,26 @@
     "delete": "حذف",
     "title": "قائمة المجموعات",
     "add": "إضافة مجموعة",
-    "group": "المجموعة"
+    "group": "المجموعة",
+    "name": "اسم المجموعة",
+    "create_success": "تم إنشاء المجموعة بنجاح.",
+    "update_success": "تم تحديث المجموعة بنجاح.",
+    "students-placeholder": "قائمة الطلاب",
+    "groups": {
+      "details": {
+        "title": "تفاصيل المجموعة",
+        "group": "المجموعة",
+        "students": "عدد الطلاب",
+        "max_students": "الحد الأقصى للطلاب",
+        "status": "الحالة",
+        "instructor": "المدرب",
+        "active": "نشطة",
+        "inactive": "غير نشطة"
+      }
+    },
+    "details": {
+      "seats_left": "مقاعد اليسار"
+    }
   },
   "user_profile": {
     "title": "الملف الشخصي",
@@ -131,7 +150,8 @@
     "error": "خطأ",
     "validation": {
       "required": "هذه الخانة مطلوبه"
-    }
+    },
+    "something_went_wrong": "آسف، حدث خطأ ما."
   },
   "empty_state": {
     "no_data": "لا توجد بيانات!",

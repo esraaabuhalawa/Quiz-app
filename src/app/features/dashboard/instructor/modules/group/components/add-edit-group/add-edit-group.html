@@ -1,25 +1,15 @@
-<p-dialog
-  [header]="isEditMode ? ('ADS.EDIT_AD' | translate) : ('ADS.ADD_AD' | translate)"
-  [modal]="true"
-  [(visible)]="visible"
-  [style]="{ width: '50rem', maxWidth: '95vw', height: '25rem' }"
-  [breakpoints]="{
+<p-dialog [header]="isEditMode ? ('ADS.EDIT_AD' | translate) : ('ADS.ADD_AD' | translate)" [modal]="true"
+  [(visible)]="visible" [style]="{ width: '50rem', maxWidth: '95vw', height: '25rem' }" [breakpoints]="{
     '1280px': '70vw',
     '1024px': '80vw',
     '768px': '90vw',
     '640px': '95vw'
-  }"
-  (onHide)="close()"
->
-   <form [formGroup]="form" class="flex flex-col gap-6 mt-4">
+  }" (onHide)="close()">
+
+  <form [formGroup]="form" class="flex flex-col gap-6 mt-4">
     <!-- Name -->
     <div>
-      <input
-        pInputText
-        class="w-full"
-        formControlName="name"
-        [placeholder]="'groups.name' | translate"
-      />
+      <input pInputText class="w-full" formControlName="name" [placeholder]="'groups.name' | translate" />
 
       @if (form.get('name')?.invalid && (form.get('name')?.dirty ||
       form.get('name')?.touched)) {
@@ -31,21 +21,25 @@
 
     <!-- Students -->
     <div>
-      <p-multiSelect
-        appendTo="body"
-        [options]="allStudents()"
-        formControlName="students"
-        class="w-full"
-        optionLabel="studentName"
-        optionValue="_id"
-        [filter]="true"
-        filterBy="studentName"
-        [virtualScroll]="true"
-        [virtualScrollItemSize]="40"
-        [loading]="loadingStudents"
-        [placeholder]="'ADS.STUDENTS' | translate"
-      >
+      @if(isEditMode){
+      <p-multiSelect appendTo="body" [options]="allStudents()" formControlName="students" class="w-full"
+        optionLabel="first_name" optionValue="_id" [filter]="true" filterBy="fullName" display="chip"
+        [virtualScroll]="true" [virtualScrollItemSize]="40" [loading]="loadingStudents"
+        [placeholder]="'groups.students-placeholder' | translate">
+        <ng-template let-student pTemplate="item">
+          <span>{{ student.first_name + '' + student.last_name }}</span>
+        </ng-template>
       </p-multiSelect>
+      }@else{
+      <p-multiSelect appendTo="body" [options]="filteredStudents()" formControlName="students" class="w-full"
+        optionLabel="first_name" optionValue="_id" [filter]="true" filterBy="fullName" display="chip"
+        [virtualScroll]="true" [virtualScrollItemSize]="40" [loading]="loadingStudents"
+        [placeholder]="'groups.students-placeholder' | translate">
+        <ng-template let-student pTemplate="item">
+          <span>{{ student.first_name + '' + student.last_name }}</span>
+        </ng-template>
+      </p-multiSelect>
+      }
 
       @if (form.get('students')?.invalid && (form.get('students')?.dirty ||
       form.get('students')?.touched)) {
@@ -58,12 +52,7 @@
 
   <ng-template pTemplate="footer">
     <div class="flex justify-end gap-2">
-      <p-button
-        [label]="isEditMode ? ('COMMON.UPDATE' | translate) : ('COMMON.CREATE' | translate)"
-        [disabled]="loading"
-        [loading]="loading"
-        (click)="save()"
-      >
+      <p-button [label]="isEditMode ? 'update' : 'create'" [disabled]="loading" [loading]="loading" (click)="save()">
       </p-button>
     </div>
   </ng-template>

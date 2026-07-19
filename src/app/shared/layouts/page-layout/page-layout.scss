@@ -6,7 +6,7 @@
 }
 
 :host ::ng-deep .add-btn.p-button .pi {
-  color: #000;
+  color: #fff;
 }
 
 :host ::ng-deep .add-btn.p-button:hover {
@@ -15,6 +15,17 @@
   color: #fff;
 }
 
-:host ::ng-deep .add-btn.p-button:hover .pi {
-  color: #fff;
+:host ::ng-deep .add-btn .p-button-icon {
+  color: var(--surface-color);
+  background-color: var(--dark-color);
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.layout-title{
+  font-size: 20px;
 }

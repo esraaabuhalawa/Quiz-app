@@ -1,6 +1,6 @@
 import { Component, EventEmitter, inject, Input, Output, signal, SimpleChanges } from '@angular/core';
 import { ReactiveFormsModule, FormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { TranslatePipe, TranslateService } from '@ngx-translate/core';
+import { TranslatePipe} from '@ngx-translate/core';
 import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
 import { IGroupData, IGroupFormData } from '../../interfaces/groups';
@@ -35,25 +35,19 @@ export class AddEditGroup {
   @Output() submitForm = new EventEmitter<IGroupFormData>();
   form!: FormGroup;
 
-  // allStudents = signal([]);
   allStudents = signal<IStudents[]>([]);
-
-  page = 1;
-  size = 20;
-  totalRecords = 0;
+  filteredStudents = signal<IStudents[]>([]);
   loadingStudents = false;
   search = '';
-
 
   formInit() {
     this.form = this.fb.group({
       students: [[], Validators.required],
-      name: [  '',
-  [
-    Validators.required,
-    Validators.minLength(3),
-    Validators.maxLength(100),
-  ],],
+      name: ['',[
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(100),
+        ],],
     });
   }
 
@@ -63,11 +57,14 @@ export class AddEditGroup {
 
   ngOnInit(): void {
     this.getStudents();
+    this.getStudentswithoutGroup();
   }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['groupData']) {
       if (this.groupData) {
+        // console.log(this.groupData)
+        // console.log(this.allStudents());
         this.form.patchValue({
           name: this.groupData.name,
           students: this.groupData.students,
@@ -81,59 +78,51 @@ export class AddEditGroup {
     }
   }
 
-
   get isEditMode(): boolean {
     return !!this.groupData;
   }
 
-  // Submitting Form Data
-  // save() {
-  //   if (this.form.invalid) {
-  //     this.form.markAllAsTouched();
-  //     return;
-  //   }
-  //   if (this.isEditMode) {
-  //     const payload = {
-  //       name: this.form.value.name,
-  //       students: this.form.value.students,
-  //     };
-  //     this.submitForm.emit(payload);
-  //   } else {
-  //     this.submitForm.emit(this.form.value);
-  //   }
-  // }
-
   save() {
-  if (this.form.invalid) {
-    this.form.markAllAsTouched();
-    return;
+    if (this.form.invalid) {
+      this.form.markAllAsTouched();
+      return;
+    }
+    this.submitForm.emit(this.form.getRawValue());
   }
-  this.submitForm.emit(this.form.getRawValue());
-}
+
+  getStudentswithoutGroup() {
+    this.loadingStudents = true;
+    this.studentService.getStudentsWithoutGroup().subscribe({
+      next: (res: IStudents[]) => {
+        this.filteredStudents.set(res)
+        this.loadingStudents = false;
+      },
+      error: () => {
+        this.loadingStudents = false;
+      },
+    });
+  }
+
   //Get students Data For Select
-getStudents() {
-  this.loadingStudents = true;
+  getStudents() {
+    this.loadingStudents = true;
+    this.studentService.getAllStudents().subscribe({
+      next: (res: IStudents[]) => {
+        this.allStudents.set(res);
+        this.loadingStudents = false;
+      },
+      error: () => {
+        this.loadingStudents = false;
+      },
+    });
+  }
 
-  this.studentService.getAllStudents().subscribe({
-    next: (res: IStudents[]) => {
-      this.allStudents.set(res);
-      this.loadingStudents = false;
-    },
-    error: () => {
-      this.loadingStudents = false;
-    },
-  });
-}
+  close() {
+    this.form.reset({
+      name: '',
+      students: [],
+    });
 
-close() {
-  this.form.reset({
-    name: '',
-    students: [],
-  });
-
-  this.visibleChange.emit(false);
-}
-  // close() {
-  //   this.visibleChange.emit(false);
-  // }
+    this.visibleChange.emit(false);
+  }
 }

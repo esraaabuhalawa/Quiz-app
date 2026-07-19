@@ -1,0 +1,89 @@
+<p-dialog [(visible)]="visible" [modal]="true" [style]="{ width: '42rem', maxWidth: '95vw' }" (onHide)="onHide()">
+
+  <ng-template pTemplate="header">
+    <div class="flex align-items-center gap-2">
+      <i class="pi pi-users"></i>
+      <span class="font-semibold">
+        {{ 'groups.details.title' | translate }}
+      </span>
+    </div>
+  </ng-template>
+
+  @if (loading) {
+  <app-loader></app-loader>
+
+  } @else if (selectedGroup) {
+  <div class="flex flex-column gap-4">
+    <!-- Header -->
+    <div class="group-header">
+      <div class="flex justify-content-between gap-3">
+        <div class="flex gap-3">
+          <div class="group-icon">
+            <i class="pi pi-users"></i>
+          </div>
+
+          <div>
+            <h3 class="m-0">
+              {{ selectedGroup.name }}
+            </h3>
+
+            <small class="text-color-secondary">
+              {{ 'groups.details.group' | translate }}
+            </small>
+          </div>
+
+        </div>
+        <p-tag [value]="selectedGroup.status | titlecase"
+          [severity]="selectedGroup.status === 'active' ? 'success' : 'danger'">
+        </p-tag>
+      </div>
+    </div>
+
+    <!-- Cards -->
+    <div class=" flex  gap-3">
+      <div>
+        <small>{{ 'groups.details.students' | translate }}</small>
+        <h3>{{ selectedGroup.students.length }} / {{ selectedGroup.max_students }}</h3>
+
+      </div>
+      <div>
+        <p-progressBar [value]="(selectedGroup.students.length / selectedGroup.max_students) * 100" [showValue]="false"
+          styleClass="capacity-bar"></p-progressBar>
+
+        <small class="text-color-secondary">
+          {{ selectedGroup.max_students - selectedGroup.students.length }} {{ 'groups.details.seats_left' | translate }}
+        </small>
+      </div>
+    </div>
+
+    <!-- Student list -->
+    <div class="student-list-card">
+      <div class="flex align-items-center justify-content-between mb-3">
+        <h4 class="m-0">{{ 'groups.details.roster' | translate }}</h4>
+        <p-tag [value]="selectedGroup.students.length + ' ' + ('groups.details.students' | translate)"
+          severity="info"></p-tag>
+      </div>
+
+      <div class="flex flex-column gap-2">
+        <div class="student-row flex align-items-center justify-content-between p-2"
+          *ngFor="let student of selectedGroup.students">
+          <div class="flex align-items-center gap-3">
+            <p-avatar [label]="(student.first_name[0] + student.last_name[0]) | uppercase" shape="circle"
+              styleClass="student-avatar"></p-avatar>
+
+            <div class="flex flex-column">
+              <span class="font-medium">{{ student.first_name }} {{ student.last_name }}</span>
+              <small class="text-color-secondary">{{ student.email }}</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="empty-state text-center p-4" *ngIf="!selectedGroup.students.length">
+          <i class="pi pi-inbox text-3xl text-color-secondary"></i>
+          <p class="text-color-secondary m-0 mt-2">{{ 'groups.details.no_students' | translate }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  }
+</p-dialog>

@@ -24,6 +24,6 @@ export class PageLayout {
   @Output() buttonClick = new EventEmitter<void>();
   @Output() boxButtonClick = new EventEmitter<void>();
 
-  onButtonClick() { this.buttonClick.emit(); }
-  onBoxButtonClick() { this.boxButtonClick.emit(); }
+  onButtonClick() { this.buttonClick.emit();}
+  onBoxButtonClick() { this.boxButtonClick.emit();}
 }
