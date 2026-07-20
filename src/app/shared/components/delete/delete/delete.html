@@ -1,0 +1,48 @@
+<p-dialog
+  [visible]="visible()"
+  (visibleChange)="visibleChange.emit($event)"
+  [modal]="true"
+  [showHeader]="false"
+  [draggable]="false"
+  [resizable]="false"
+  [dismissableMask]="true"
+  [style]="{ width: '340px' }"
+  styleClass="delete-confirm-dialog"
+>
+  <div class="delete-confirm-header flex align-items-center justify-content-between">
+    <span class="delete-confirm-title">{{ config().title }}</span>
+    <div class="flex align-items-center gap-2">
+      <button type="button" class="icon-btn" (click)="onConfirm()" aria-label="Confirm">
+        <i class="pi pi-check"></i>
+      </button>
+      <button type="button" class="icon-btn" (click)="onCancel()" aria-label="Close">
+        <i class="pi pi-times"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="delete-confirm-body text-center">
+    <div class="delete-icon-circle">
+      <i class="pi pi-trash"></i>
+    </div>
+
+    <p class="delete-confirm-message">{{ config().confirmMessage }}</p>
+    <p class="delete-confirm-subtext">This action cannot be undone.</p>
+
+    <div class="delete-item-card flex align-items-center gap-3 text-left">
+      @if (config().item.image) {
+        <p-avatar [image]="config().item.image" shape="circle" size="large" />
+      } @else {
+        <div class="delete-item-icon" [ngClass]="'bg-' + (config().item.iconBg || 'dark')">
+          <i [class]="config().item.icon || 'pi pi-info-circle'"></i>
+        </div>
+      }
+      <div class="delete-item-text">
+        <p class="delete-item-name">{{ config().item.name }}</p>
+        <p class="delete-item-subtitle">{{ config().item.subtitle }}</p>
+      </div>
+    </div>
+
+    <p class="delete-confirm-note">{{ config().warningNote }}</p>
+  </div>
+</p-dialog>

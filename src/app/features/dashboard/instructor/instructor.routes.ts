@@ -7,7 +7,17 @@ export const INSTRUCTOR_ROUTES: Routes = [
   },
   {
     path: 'groups',
-    loadComponent: () => import('../instructor/modules/group/components/groups-list/groups-list').then((c) => c.GroupsList),
+    loadComponent: () =>
+      import('../instructor/modules/group/components/groups-list/groups-list').then(
+        (c) => c.GroupsList,
+      ),
+  },
+  {
+    path: 'students',
+    loadComponent: () =>
+      import('../instructor/modules/students/components/student-list/student-list').then(
+        (c) => c.StudentList,
+      ),
   },
   {
     path: '**',

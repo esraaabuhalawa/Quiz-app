@@ -1,60 +1,85 @@
-<app-page-layout [boxTitle]="'groups.title'" [showButton]="true" [showBoxButton]="false" [buttonLabel]="'groups.add'"
-  (buttonClick)="openAddDialog()">
-
+<app-page-layout
+  [boxTitle]="'groups.title'"
+  [showButton]="true"
+  [showBoxButton]="false"
+  [buttonLabel]="'groups.add'"
+  (buttonClick)="openAddDialog()"
+>
   <!-- this is the content fetched from the API -->
+
   @if (isLoading()) {
-  <app-loader></app-loader>
+    <app-loader></app-loader>
   } @else if (groupsList().length === 0) {
-  <app-empty-state [elementName]="'groups.group'"></app-empty-state>
+    <app-empty-state [elementName]="'groups.group'"></app-empty-state>
   } @else {
-  <!-- Ads List -->
-  <div  class="w-full bg-white dark:bg-surface rounded-2xl shadow-sm border border-gray-100 dark:border-surface-border overflow-hidden">
-    <div class="grid">
-      @for (group of groupsList(); track group._id) {
-      <div  class="col-12 md:col-6">
-        <div class="group-card border-1 border-round-md surface-card  flex justify-content-between align-items-start">
+    <!-- Ads List -->
+    <div
+      class="w-full bg-white dark:bg-surface rounded-2xl shadow-sm border border-gray-100 dark:border-surface-border overflow-hidden"
+    >
+      <div class="grid">
+        @for (group of groupsList(); track group._id) {
+          <div class="col-12 md:col-6">
+            <div
+              class="group-card border-1 border-round-md surface-card flex justify-content-between align-items-start"
+            >
+              <!-- Group Info -->
+              <div class="flex flex-column gap-2">
+                <h3 class="m-0 text-xl font-semibold" (click)="viewGroup(group)">
+                  {{ 'groups.group' | translate }} : {{ group.name }}
+                </h3>
 
-          <!-- Group Info -->
-          <div class="flex flex-column gap-2">
-            <h3 class="m-0 text-xl font-semibold" (click)="viewGroup(group)">
-              {{'groups.group' | translate}} : {{ group.name }}
-            </h3>
+                <p class="m-0">
+                  <strong>{{ 'groups.students' | translate }} : </strong>
+                  {{ group.students.length }}
+                </p>
+              </div>
 
-            <p class="m-0">
-              <strong>{{ 'groups.students' | translate }} : </strong>
-              {{ group.students.length }}
-            </p>
+              <!-- Actions -->
+              <div class="flex flex-row gap-2">
+                <button type="button" class="action-btn" (click)="openEditDialog(group)">
+                  <i class="pi pi-pencil"></i>
+                </button>
+
+                <button
+                  type="button"
+                  class="action-btn delete-btn"
+                  (click)="openDeleteDialog(group)"
+                >
+                  <i class="pi pi-trash"></i>
+                </button>
+              </div>
+            </div>
           </div>
-
-          <!-- Actions -->
-          <div class="flex flex-row gap-2">
-            <button type="button" class="action-btn" (click)="openEditDialog(group)">
-              <i class="pi pi-pencil"></i>
-            </button>
-
-            <button type="button" class="action-btn delete-btn" (click)="deleteGroup(group)">
-              <i class="pi pi-trash"></i>
-            </button>
-          </div>
-
-        </div>
+        }
       </div>
-      }
     </div>
-  </div>
-  <div class="flex items-center mt-7 justify-center">
-    <!-- Paginator -->
-    <p-paginator [first]="(currentPage() - 1) * pageSize()" [rows]="pageSize()" [totalRecords]="totalRecords()"
-      [showCurrentPageReport]="true" [currentPageReportTemplate]="''"
-      (onPageChange)="onPageChange($event)"> <!--[rowsPerPageOptions]="[]" -->
-    </p-paginator>
-  </div>
+    <div class="flex items-center mt-7 justify-center">
+      <!-- Paginator -->
+      <p-paginator
+        [first]="(currentPage() - 1) * pageSize()"
+        [rows]="pageSize()"
+        [totalRecords]="totalRecords()"
+        [showCurrentPageReport]="true"
+        [currentPageReportTemplate]="''"
+        (onPageChange)="onPageChange($event)"
+      >
+        <!--[rowsPerPageOptions]="[]" -->
+      </p-paginator>
+    </div>
   }
 </app-page-layout>
 
-<app-add-edit-group [(visible)]="showDialog" [loading]="addEditLoad()" [groupData]="selectedGroup()"
-  (submitForm)="saveGroup($event)" />
+<app-add-edit-group
+  [(visible)]="showDialog"
+  [loading]="addEditLoad()"
+  [groupData]="selectedGroup()"
+  (submitForm)="saveGroup($event)"
+/>
 
-<app-view-group [selectedGroup]="SelectedViewGroup()" [visible]="visible()" [loading]="groupLoading()"
-  (visibleChange)="visible.set($event)">
+<app-view-group
+  [selectedGroup]="SelectedViewGroup()"
+  [visible]="visible()"
+  [loading]="groupLoading()"
+  (visibleChange)="visible.set($event)"
+>
 </app-view-group>

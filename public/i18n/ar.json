@@ -121,6 +121,10 @@
     "name": "اسم المجموعة",
     "create_success": "تم إنشاء المجموعة بنجاح.",
     "update_success": "تم تحديث المجموعة بنجاح.",
+    "delete_title": "حذف مجموعة",
+"delete_confirm_message": "هل أنت متأكد أنك تريد حذف هذه المجموعة؟",
+"delete_warning_note": "سيتم حذف المجموعة نهائيًا من النظام، وسيتم حذف جميع البيانات المرتبطة بها.",
+"delete_success": "تم حذف المجموعة بنجاح.",
     "students-placeholder": "قائمة الطلاب",
     "groups": {
       "details": {
@@ -138,6 +142,12 @@
       "seats_left": "مقاعد اليسار"
     }
   },
+  "students": {
+  "delete_title": "حذف طالب",
+  "delete_confirm_message": "هل أنت متأكد أنك تريد حذف هذا الطالب؟",
+  "delete_warning_note": "سيتم حذف الطالب نهائيًا من النظام، وسيتم حذف جميع نتائج الاختبارات المرتبطة به.",
+  "delete_success": "تم حذف الطالب بنجاح."
+},
   "user_profile": {
     "title": "الملف الشخصي",
     "country": "الدولة",
