@@ -1,0 +1,28 @@
+<app-page-layout
+  [boxTitle]="'groups.title'"
+  [showButton]="true"
+  [showBoxButton]="false"
+  [buttonLabel]="'groups.add'"
+  // (buttonClick)="openAddDialog()"
+>
+  @if (isLoading()) {
+    <app-loader />
+  } @else if (studentsList().length === 0) {
+    <app-empty-state [elementName]="'students.student'"></app-empty-state>
+  } @else {
+    <table>
+      <tbody>
+        @for (student of studentsList(); track student._id) {
+          <tr>
+            <td>{{ student.first_name }} {{ student.last_name }}</td>
+            <td>{{ student.email }}</td>
+            <td>{{ student.group.name }}</td>
+            <td>
+              <button pButton icon="pi pi-trash" (click)="openDeleteDialog(student)"></button>
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  }
+</app-page-layout>

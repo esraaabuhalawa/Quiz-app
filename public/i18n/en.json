@@ -122,6 +122,10 @@
     "students-placeholder": "List Students",
     "create_success": "Group created successfully.",
     "update_success": "Group updated successfully.",
+    "delete_title": "Delete Group",
+"delete_confirm_message": "Are you sure you want to delete this group?",
+"delete_warning_note": "The group will be permanently removed from the system, and all related data will be deleted.",
+"delete_success": "Group deleted successfully.",
     "details": {
       "title": "Group Details",
       "group": "Group",
@@ -133,6 +137,13 @@
       "inactive": "Inactive",
       "seats_left": "Seats Left"
     }
+  },
+    "students": {
+  "delete_title": "Delete Student",
+  "delete_confirm_message": "Are you sure you want to delete this student?",
+  "delete_warning_note": "The student will be permanently removed from the system, and all related quiz results will be deleted.",
+  "delete_success": "Student deleted successfully."
+
   },
   "user_profile": {
     "title": "Profile",
