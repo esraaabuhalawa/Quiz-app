@@ -47,25 +47,13 @@
     <div class="form-field">
       <div class="input-group">
         <label class="input-label" for="groupStudents">{{ 'groups.students-placeholder' | translate }}</label>
-        @if(isEditMode){
-        <p-multiSelect inputId="groupStudents" appendTo="body" [options]="allStudents()" formControlName="students"
+        <p-multiSelect inputId="groupStudents" appendTo="body" [options]="studentOptions()" formControlName="students"
           optionLabel="first_name" optionValue="_id" [filter]="true" filterBy="fullName" display="chip"
-          [virtualScroll]="true" [virtualScrollItemSize]="40" [loading]="loadingStudents"
-          > <!--[placeholder]="'groups.students_placeholder' | translate"-->
+          [virtualScroll]="true" [virtualScrollItemSize]="40" [loading]="loadingStudents">
           <ng-template let-student pTemplate="item">
             <span>{{ student.first_name + ' ' + student.last_name }}</span>
           </ng-template>
         </p-multiSelect>
-        }@else{
-        <p-multiSelect inputId="groupStudents" appendTo="body" [options]="filteredStudents()" formControlName="students"
-          optionLabel="first_name" optionValue="_id" [filter]="true" filterBy="fullName" display="chip"
-          [virtualScroll]="true" [virtualScrollItemSize]="40" [loading]="loadingStudents"
-          >
-          <ng-template let-student pTemplate="item">
-            <span>{{ student.first_name + ' ' + student.last_name }}</span>
-          </ng-template>
-        </p-multiSelect>
-        }
       </div>
 
       @if (form.get('students')?.invalid && (form.get('students')?.dirty || form.get('students')?.touched)) {
