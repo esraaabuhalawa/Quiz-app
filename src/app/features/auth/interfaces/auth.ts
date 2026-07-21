@@ -39,9 +39,9 @@ export interface IReset {
   password: string;
 }
 
-// export interface IForgotResponse {
-//   message: string;
-// }
+export interface IForgotResponse {
+  message: string;
+}
 
 // export interface IResetResponse {
 //   message: string;

@@ -1,49 +1,123 @@
 .not-found {
-  background: var(--surface-ground);
+  min-height: 75dvh;
+  padding: 3rem 1.25rem;
 
   &__container {
-    max-width: 34rem;
+    max-width: 36rem;
     width: 100%;
+    animation: nf-fade-up 0.5s ease both;
   }
 
-  &__circle {
-    width: 8rem;
-    height: 8rem;
-    border-radius: 50%;
-    background: var(--primary-100);
-    border: 2px solid var(--primary-color);
+  &__illustration {
+    max-width: 24rem;
+    margin: 0 auto 1.5rem;
+    animation: nf-float 5s ease-in-out infinite;
+
+    img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
   }
 
-  &__question-mark {
-    font-size: 3.5rem;
+  &__badge {
+    display: inline-block;
+    padding: 0.35rem 1rem;
+    border-radius: 999px;
+    background: var(--primary-color);
+    color: var(--secondary-color);
+    font-size: 0.8rem;
     font-weight: 700;
-    color: var(--primary-color);
-    line-height: 1;
-  }
-
-  &__code {
-    font-size: clamp(4rem, 10vw, 7rem);
-    font-weight: 800;
-    line-height: 1;
-    color: var(--primary-color);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
 
   &__title {
-    font-size: 2rem;
-    font-weight: 600;
-    color: var(--text-color);
+    font-size: clamp(1.6rem, 4vw, 2.25rem);
+    font-weight: 700;
+    color: var(--secondary-color);
+    margin: 1rem 0 0.5rem;
   }
 
   &__description {
     font-size: 1rem;
     line-height: 1.7;
-    color: var(--text-color-secondary);
+    color: var(--input-placeholder-color);
     max-width: 28rem;
-    margin-inline: auto;
+    margin: 0 auto;
   }
 
-  :host ::ng-deep .p-button {
-    border-radius: 0.75rem;
-    padding-inline: 2rem;
+  &__actions {
+    margin-top: 2rem;
+  }
+
+  &__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.75rem;
+    border-radius: 10px;
+    font-family: var(--font-base);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+
+    &--primary {
+      background: var(--secondary-color);
+      color: var(--white-color);
+      border: 1px solid var(--secondary-color);
+
+      &:hover {
+        box-shadow: 0 8px 16px rgba(13, 19, 33, 0.25);
+      }
+    }
+
+    &--ghost {
+      background: transparent;
+      color: var(--secondary-color);
+      border: 1px solid var(--input-border-color);
+
+      &:hover {
+        background: var(--surface-hover);
+      }
+    }
+  }
+}
+
+// Flip the back arrow for Arabic
+:host-context(html[lang='ar']) .not-found__back-icon {
+  transform: scaleX(-1);
+}
+
+@keyframes nf-fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes nf-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .not-found__container,
+  .not-found__illustration {
+    animation: none;
   }
 }

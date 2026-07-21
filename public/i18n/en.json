@@ -104,9 +104,11 @@
     "logout": "Logout"
   },
   "not_found": {
+    "badge": "Error 404",
     "title": "Page Not Found",
     "description": "Sorry, the page you are looking for doesn't exist or has been moved.",
-    "button": "Back to Dashboard"
+    "button": "Back to Dashboard",
+    "back": "Go Back"
   },
   "groups": {
     "status": "Status",
