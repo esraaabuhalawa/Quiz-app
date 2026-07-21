@@ -163,6 +163,26 @@
     "remove_from_group_warning_note": "سيتم حذف الطالب  من هذه المجموعة.",
     "remove_from_group_success": "تم حذف الطالب بنجاح."
   },
+  "questions": {
+    "title": " بنك الأسئلة",
+    "add": "إضافة سؤال",
+    "question": "سؤال",
+    "view": "عرض",
+    "edit": "تعديل",
+    "delete": "حذف",
+    "difficulty": {
+      "hard": "صعب",
+      "medium": "متوسط",
+      "easy": "سهل"
+    },
+    "table": {
+      "title": "العنوان",
+      "description": "الوصف",
+      "difficulty": "مستوى الصعوبة",
+      "date": "تاريخ الإنشاء",
+      "actions": "الإجراءات"
+    }
+  },
   "user_profile": {
     "title": "الملف الشخصي",
     "country": "الدولة",
