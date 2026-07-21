@@ -181,7 +181,9 @@
       "difficulty": "مستوى الصعوبة",
       "date": "تاريخ الإنشاء",
       "actions": "الإجراءات"
-    }
+    },
+    "delete_success": "تم حذف السؤال بنجاح",
+    "description": "وصف السؤال"
   },
   "user_profile": {
     "title": "الملف الشخصي",

@@ -144,13 +144,13 @@ export class QuestionsList {
         warningNote: this.translate.instant('groups.delete_warning_note'),
         item: {
           name: question.title,
-          subtitle: `${this.translate.instant('groups.students')}: ${question.description}`,
+          subtitle: `${this.translate.instant('questions.description')}: ${question.description}`,
           icon: 'pi pi-users',
           iconBg: 'dark',
         },
       },
       request: () => this.questionService.deleteQuestion(question._id),
-      successMessage: this.translate.instant('groups.delete_success'),
+      successMessage: this.translate.instant('questions.delete_success'),
       onSuccess: () => this.fetchQuestionsData(),
     });
   }
