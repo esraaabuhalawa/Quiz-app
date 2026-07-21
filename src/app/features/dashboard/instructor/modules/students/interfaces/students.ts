@@ -1,4 +1,4 @@
-import { IGroup } from "../../../../../../shared/interfaces/general.interface";
+import { IGroup } from '../../../../../../shared/interfaces/general.interface';
 
 export interface IStudents {
   _id: string;
@@ -7,6 +7,5 @@ export interface IStudents {
   email: string;
   status: string;
   role: string;
-  group: IGroup;
+  group?: IGroup;
 }
-
