@@ -7,7 +7,7 @@ import {
   IChangePassword,
   IRegister,
   IRegisterResponse,
-  // IForgotResponse,
+  IForgotResponse,
   ILoginRequest,
   LoginResponse,
 } from '../interfaces/auth';
@@ -40,8 +40,8 @@ export class AuthService {
     return this.http.post<any>('auth/reset-password', data);
   }
 
-  forgotPassword(email: string): Observable<any> {
-    return this.http.post<any>('auth/forgot-password', { email });
+  forgotPassword(email: string): Observable<IForgotResponse> {
+    return this.http.post<IForgotResponse>('auth/forgot-password', { email });
   }
 
   changePassword(data: IChangePassword): Observable<any> {
