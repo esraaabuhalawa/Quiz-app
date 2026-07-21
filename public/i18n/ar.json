@@ -113,7 +113,7 @@
     "instructor": "المدرس",
     "students": "عدد الطلاب",
     "max_students": "الحد الأقصى للطلاب",
-    "edit": "تعديل",
+    "edit": "تعديل المجموعة",
     "delete": "حذف",
     "title": "قائمة المجموعات",
     "add": "إضافة مجموعة",
@@ -122,20 +122,23 @@
     "create_success": "تم إنشاء المجموعة بنجاح.",
     "update_success": "تم تحديث المجموعة بنجاح.",
     "students-placeholder": "قائمة الطلاب",
-    "groups": {
-      "details": {
-        "title": "تفاصيل المجموعة",
-        "group": "المجموعة",
-        "students": "عدد الطلاب",
-        "max_students": "الحد الأقصى للطلاب",
-        "status": "الحالة",
-        "instructor": "المدرب",
-        "active": "نشطة",
-        "inactive": "غير نشطة"
-      }
-    },
     "details": {
-      "seats_left": "مقاعد اليسار"
+      "title": "تفاصيل المجموعة",
+      "group": "المجموعة",
+      "students": "عدد الطلاب",
+      "max_students": "الحد الأقصى للطلاب",
+      "status": "الحالة",
+      "instructor": "المدرب",
+      "active": "نشطة",
+      "inactive": "غير نشطة",
+      "seats_left": "مقاعد متبقية"
+    },
+    "students_placeholder": "اختر الطلاب",
+    "create": "إنشاء",
+    "update": "تحديث",
+    "validation": {
+      "name_required": "اسم المجموعة مطلوب.",
+      "students_required": "يرجى اختيار طالب واحد على الأقل."
     }
   },
   "user_profile": {

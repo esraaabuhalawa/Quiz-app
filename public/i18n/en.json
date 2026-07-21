@@ -113,7 +113,7 @@
     "instructor": "Instructor",
     "students": "No. of students",
     "max_students": "Maximum Students",
-    "edit": "Edit",
+    "edit": "Edit Group",
     "delete": "Delete",
     "title": "Groups List",
     "add": "Add Group",
@@ -132,6 +132,13 @@
       "active": "Active",
       "inactive": "Inactive",
       "seats_left": "Seats Left"
+    },
+    "students_placeholder": "Select students",
+    "create": "Create",
+    "update": "Update",
+    "validation": {
+      "name_required": "Group name is required.",
+      "students_required": "Please select at least one student."
     }
   },
   "user_profile": {
