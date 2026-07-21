@@ -125,6 +125,7 @@
 "delete_confirm_message": "هل أنت متأكد أنك تريد حذف هذه المجموعة؟",
 "delete_warning_note": "سيتم حذف المجموعة نهائيًا من النظام، وسيتم حذف جميع البيانات المرتبطة بها.",
 "delete_success": "تم حذف المجموعة بنجاح.",
+ "all": "كل المجموعات",
     "students-placeholder": "قائمة الطلاب",
     "groups": {
       "details": {
@@ -143,11 +144,19 @@
     }
   },
   "students": {
-  "delete_title": "حذف طالب",
-  "delete_confirm_message": "هل أنت متأكد أنك تريد حذف هذا الطالب؟",
-  "delete_warning_note": "سيتم حذف الطالب نهائيًا من النظام، وسيتم حذف جميع نتائج الاختبارات المرتبطة به.",
-  "delete_success": "تم حذف الطالب بنجاح."
-},
+  "title": "قائمة الطلاب",
+  "student": "طالب",
+  "add": "إضافة طالب",
+
+  "group": "المجموعة",
+  "not_assigned": "غير منضم",
+
+  "remove_from_group_title": "حذف الطالب",
+  "remove_from_group_confirm_message": "هل أنت متأكد من حذف هذا الطالب؟",
+  "remove_from_group_warning_note": "سيتم حذف الطالب  من هذه المجموعة.",
+  "remove_from_group_success": "تم حذف الطالب بنجاح."
+}
+  ,
   "user_profile": {
     "title": "الملف الشخصي",
     "country": "الدولة",

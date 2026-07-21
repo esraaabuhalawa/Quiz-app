@@ -38,8 +38,6 @@ export class AlertDeleteService {
       componentRef.destroy();
     };
 
-    // Delete component closes itself (visibleChange false) on both
-    // confirm and cancel — this is what tears the dynamic view down.
     componentRef.instance.visibleChange.subscribe((visible: boolean) => {
       if (!visible) destroy();
     });

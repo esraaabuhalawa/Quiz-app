@@ -1,28 +1,107 @@
 <app-page-layout
-  [boxTitle]="'groups.title'"
+  [boxTitle]="'students.title'"
   [showButton]="true"
   [showBoxButton]="false"
-  [buttonLabel]="'groups.add'"
-  // (buttonClick)="openAddDialog()"
+  [buttonLabel]="'students.add'"
 >
   @if (isLoading()) {
     <app-loader />
-  } @else if (studentsList().length === 0) {
+  } @else if (allStudents().length === 0) {
     <app-empty-state [elementName]="'students.student'"></app-empty-state>
   } @else {
-    <table>
-      <tbody>
+    <!-- Group Tabs -->
+    <div class="flex gap-2 mb-4">
+      <!-- <p-button
+        [label]="'groups.all' | translate"
+        [rounded]="true"
+        [outlined]="selectedGroupId() !== null"
+        [severity]="selectedGroupId() === null ? 'contrast' : 'secondary'"
+        size="large"
+        (onClick)="selectAllGroups()"
+      /> -->
+      @for (group of groupsList(); track group._id) {
+        <p-button
+          [label]="group.name"
+          [rounded]="true"
+          [outlined]="selectedGroupId() !== group._id"
+          [severity]="selectedGroupId() === group._id ? 'contrast' : 'secondary'"
+          size="large"
+          (onClick)="selectGroup(group._id)"
+        />
+      }
+    </div>
+
+    <!-- Students Grid -->
+    @if (studentsList().length === 0) {
+      <app-empty-state [elementName]="'students.student'"></app-empty-state>
+    } @else {
+      <div class="grid">
         @for (student of studentsList(); track student._id) {
-          <tr>
-            <td>{{ student.first_name }} {{ student.last_name }}</td>
-            <td>{{ student.email }}</td>
-            <td>{{ student.group.name }}</td>
-            <td>
-              <button pButton icon="pi pi-trash" (click)="openDeleteDialog(student)"></button>
-            </td>
-          </tr>
+          <div class="col-12 md:col-6">
+            <div
+              class="flex align-items-center gap-3 p-3 border-1 border-round-xl surface-border cursor-pointer hover:shadow-2 transition-duration-200"
+              (click)="viewStudent(student)"
+            >
+              <p-avatar
+                [label]="student.first_name.charAt(0) + student.last_name.charAt(0)"
+                shape="square"
+                size="xlarge"
+                styleClass="border-round-lg"
+              />
+
+              <div class="flex-1 min-w-0">
+                <p
+                  class="m-0 mb-1 white-space-nowrap overflow-hidden text-overflow-ellipsis"
+                  style="font-size: 18px; font-weight: 600; color: #000000; line-height: 100%"
+                >
+                  {{ student.first_name }} {{ student.last_name }}
+                </p>
+
+                <div
+                  class="flex align-items-center text-xs text-color-secondary gap-2 m-0 white-space-nowrap overflow-hidden text-overflow-ellipsis"
+                >
+                  <span>{{ student.email }}</span>
+
+                  <span style="color: rgba(13, 19, 33, 0.4)">|</span>
+
+                  {{ 'students.group' | translate }}:
+                  {{ student.group?.name || ('students.not_assigned' | translate) }}
+                </div>
+              </div>
+
+              <div class="flex gap-1">
+                <p-button
+                  icon="pi pi-pencil"
+                  [rounded]="true"
+                  [size]="'large'"
+                  severity="secondary"
+                  [text]="true"
+                  (onClick)="$event.stopPropagation(); openEditDialog(student)"
+                />
+                <p-button
+                  icon="pi pi-trash"
+                  [rounded]="true"
+                  [size]="'large'"
+                  severity="danger"
+                  [text]="true"
+                  (onClick)="$event.stopPropagation(); openDeleteDialog(student)"
+                />
+              </div>
+            </div>
+          </div>
         }
-      </tbody>
-    </table>
+      </div>
+
+      <!-- Pagination -->
+      <div class="flex justify-content-center mt-4">
+        <p-paginator
+          [rows]="pageSize()"
+          [totalRecords]="totalRecords()"
+          [first]="first()"
+          [rowsPerPageOptions]="[10, 15, 20]"
+          (onPageChange)="onPageChange($event)"
+        />
+      </div>
+    }
   }
 </app-page-layout>
