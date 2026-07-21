@@ -163,6 +163,26 @@
     "remove_from_group_warning_note": "The student will be removed from this group.",
     "remove_from_group_success": "Student deleted successfully."
   },
+  "questions": {
+    "title": "Bank Of Questions",
+    "add": "Add Question",
+    "question": "question",
+    "view": "View",
+    "edit": "Edit",
+    "delete": "Delete",
+    "difficulty": {
+      "hard": "Hard",
+      "medium": "Medium",
+      "easy": "Easy"
+    },
+    "table": {
+      "title": "Title",
+      "description": "Description",
+      "difficulty": "Difficulty",
+      "date": "Created Date",
+      "actions": "Actions"
+    }
+  },
   "user_profile": {
     "title": "Profile",
     "country": "Country",

@@ -20,6 +20,13 @@ export const INSTRUCTOR_ROUTES: Routes = [
       ),
   },
   {
+    path: 'questions',
+    loadComponent: () =>
+      import('../instructor/modules/questions/components/questions-list/questions-list').then(
+        (c) => c.QuestionsList,
+      ),
+  },
+  {
     path: '**',
     title: 'Page Not Found',
     loadComponent: () =>
