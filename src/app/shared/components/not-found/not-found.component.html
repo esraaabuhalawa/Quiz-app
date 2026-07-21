@@ -1,36 +1,35 @@
-<div class="not-found flex align-items-center justify-content-center">
+<section class="not-found flex align-items-center justify-content-center pt-8">
   <div class="not-found__container text-center">
 
-    <!-- Decorative Element -->
-    <div class="not-found__illustration flex justify-content-center">
-      <div class="not-found__circle">
-        <div class="not-found__question-mark">
-          ?
-        </div>
-      </div>
+    <!-- Illustration -->
+    <div class="not-found__illustration">
+      <img src="images/error.jpg" alt="404 illustration" />
     </div>
 
-    <!-- Error Code -->
-    <h1 class="not-found__code">
-      404
-    </h1>
+    <!-- Error Badge -->
+    <span class="not-found__badge">{{ 'not_found.badge' | translate }}</span>
 
     <!-- Title -->
-    <h2 class="not-found__title">
+    <h1 class="not-found__title">
       {{ 'not_found.title' | translate }}
-    </h2>
+    </h1>
 
     <!-- Description -->
     <p class="not-found__description">
       {{ 'not_found.description' | translate }}
     </p>
 
-    <!-- Action -->
-    <div class="flex justify-content-center mt-5">
-      <button routerLink="/dashboard">
+    <!-- Actions -->
+    <div class="not-found__actions flex flex-wrap align-items-center justify-content-center gap-3">
+      <button type="button" class="not-found__btn not-found__btn--primary" routerLink="/dashboard">
+        <i class="pi pi-home"></i>
         {{ 'not_found.button' | translate }}
+      </button>
+      <button type="button" class="not-found__btn not-found__btn--ghost" (click)="goBack()">
+        <i class="pi pi-arrow-left not-found__back-icon"></i>
+        {{ 'not_found.back' | translate }}
       </button>
     </div>
 
   </div>
-</div>
+</section>
