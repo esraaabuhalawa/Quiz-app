@@ -36,7 +36,7 @@ export class StudentList {
   //students after selecting group
   filteredStudents = computed(() => {
     const groupId = this.selectedGroupId();
-    // if (!groupId) return this.allStudents();
+    if (!groupId) return this.allStudents();
     return this.allStudents().filter((s) => s.group?._id === groupId);
   });
 
@@ -58,9 +58,6 @@ export class StudentList {
     this.groupsService.getAllGroups().subscribe({
       next: (groups) => {
         this.groupsList.set(groups);
-        if (groups.length > 0) {
-          this.selectedGroupId.set(groups[0]._id);
-        }
       },
     });
   }
