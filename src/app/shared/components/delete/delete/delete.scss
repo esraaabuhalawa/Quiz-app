@@ -1,0 +1,143 @@
+:host ::ng-deep .delete-confirm-dialog {
+  width: 27.9375rem !important;
+  height: 21.8125rem !important;
+  border-radius: 10px;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+
+  .p-dialog-content {
+    padding: 0;
+  }
+}
+
+.delete-confirm-header {
+  padding: 12px 16px;
+  border-bottom: 0.5px solid #e5e5e3;
+  background: #ffffff;
+  position: relative;
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.3);
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
+  .delete-confirm-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1a1a18;
+  }
+
+  .icon-btn {
+    width: 22px;
+    height: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    color: #0d1321;
+    transition: color 0.2s ease-in-out;
+    cursor: pointer;
+    padding: 0;
+    &:hover {
+      color: #6b6b67;
+    }
+    i {
+      font-size: 16px;
+      font-weight: 600;
+    }
+  }
+}
+
+.delete-confirm-body {
+  padding: 20px 18px 18px;
+  background: #ffffff;
+}
+
+.delete-icon-circle {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  background: #fcebeb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 12px;
+
+  i {
+    font-size: 20px;
+    color: #a32d2d;
+  }
+}
+
+.delete-confirm-message {
+  font-size: 15px;
+  font-weight: 500;
+  color: #1a1a18;
+  margin: 0 0 4px;
+}
+
+.delete-confirm-subtext {
+  font-size: 12px;
+  color: #a32d2d;
+  margin: 0 0 14px;
+}
+
+.delete-item-card {
+  background: #f7f7f5;
+  border-radius: 8px;
+  padding: 10px 12px;
+}
+
+.delete-item-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #ffffff;
+
+  &.bg-dark {
+    background: #1a1a18;
+  }
+
+  &.bg-light {
+    background: #ffffff;
+    border: 0.5px solid #e5e5e3;
+    color: #6b6b67;
+  }
+
+  &.bg-danger {
+    background: #fcebeb;
+    color: #a32d2d;
+  }
+
+  i {
+    font-size: 18px;
+  }
+}
+
+.delete-item-text {
+  min-width: 0;
+
+  .delete-item-name {
+    font-size: 13px;
+    font-weight: 500;
+    color: #1a1a18;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .delete-item-subtitle {
+    font-size: 11px;
+    color: #6b6b67;
+    margin: 2px 0 0;
+  }
+}
+
+.delete-confirm-note {
+  font-size: 11px;
+  color: #9a9a96;
+  margin: 14px 0 0;
+  line-height: 1.6;
+}
