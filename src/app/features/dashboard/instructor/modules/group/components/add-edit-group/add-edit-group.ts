@@ -1,7 +1,6 @@
-import { Component, EventEmitter, inject, Input, Output, signal, SimpleChanges } from '@angular/core';
-import { ReactiveFormsModule, FormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Component, computed, EventEmitter, inject, Input, Output, signal, SimpleChanges } from '@angular/core';
+import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TranslatePipe} from '@ngx-translate/core';
-import { ButtonModule } from 'primeng/button';
 import { DialogModule } from 'primeng/dialog';
 import { IGroupData, IGroupFormData } from '../../interfaces/groups';
 import { StudentsService } from '../../../students/services/students.service';
@@ -16,8 +15,6 @@ import { IStudents } from '../../../students/interfaces/students';
     ReactiveFormsModule,
     InputTextModule,
     MultiSelectModule,
-    ButtonModule,
-    FormsModule,
     TranslatePipe
   ],
   templateUrl: './add-edit-group.html',
@@ -26,7 +23,6 @@ import { IStudents } from '../../../students/interfaces/students';
 export class AddEditGroup {
   private fb = inject(FormBuilder);
   private studentService = inject(StudentsService);
-  // private translate = inject(TranslateService)
   @Input() visible = false;
   @Input() groupData: IGroupData | null = null;
   @Input() loading = false;
@@ -37,19 +33,18 @@ export class AddEditGroup {
 
   allStudents = signal<IStudents[]>([]);
   filteredStudents = signal<IStudents[]>([]);
+  private currentGroup = signal<IGroupData | null>(null);
   loadingStudents = false;
   search = '';
 
-  formInit() {
-    this.form = this.fb.group({
-      students: [[], Validators.required],
-      name: ['',[
-          Validators.required,
-          Validators.minLength(3),
-          Validators.maxLength(100),
-        ],],
-    });
-  }
+  // Edit mode: current group members first, then students without a group
+  studentOptions = computed(() => {
+    const group = this.currentGroup();
+    if (!group) return this.filteredStudents();
+    const members = this.allStudents().filter(s => group.students.includes(s._id));
+    const unassigned = this.filteredStudents().filter(s => !group.students.includes(s._id));
+    return [...members, ...unassigned];
+  });
 
   constructor() {
     this.formInit();
@@ -60,11 +55,21 @@ export class AddEditGroup {
     this.getStudentswithoutGroup();
   }
 
+  formInit() {
+    this.form = this.fb.group({
+      students: [[], Validators.required],
+      name: ['',[
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(40),
+        ],],
+    });
+  }
+
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['groupData']) {
+      this.currentGroup.set(this.groupData);
       if (this.groupData) {
-        // console.log(this.groupData)
-        // console.log(this.allStudents());
         this.form.patchValue({
           name: this.groupData.name,
           students: this.groupData.students,

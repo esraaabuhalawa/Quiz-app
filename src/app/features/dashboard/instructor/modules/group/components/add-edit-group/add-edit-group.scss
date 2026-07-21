@@ -1,26 +1,135 @@
-:host ::ng-deep .readonly-select.p-select {
-  background: var(--surface-hover);
-  border-color: var(--surface-border);
-  color: var(--text-secondary-color);
+:host ::ng-deep .group-form-dialog {
+  border-radius: 10px;
+  overflow: hidden;
+
+  .p-dialog-content {
+    padding: 0;
+  }
 }
 
-:host ::ng-deep .readonly-select .p-select-label {
-  color: var(--text-secondary-color);
+:host ::ng-deep {
+  .p-inputtext {
+    background-color: transparent;
+  }
+
+  .p-multiselect-label.p-placeholder {
+    color: var(--p-multiselect-placeholder-color);
+    height: 100%;
+  }
 }
 
-:host ::ng-deep .readonly-select .p-select-dropdown {
-  opacity: 0.5;
-}
+.group-dialog-header {
+  background: var(--surface-color);
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.1);
 
-:host ::ng-deep .readonly-select {
-  cursor: not-allowed;
-}
+  .group-dialog-title {
+    font-size: 20px;
+    font-weight: 700;
+    font-family: var(--font-inter-family);
+    color: var(--secondary-color);
+    padding: 0px 40px;
+  }
 
-.p-button-text.p-button-secondary {
+  .icon-btn-border {
+    position: relative;
+
+    &::before,
+    &::after {
+      content: '';
+      height: 100%;
+      background-color: #0000004D;
+      position: absolute;
+      top: 0;
+      width: 1px;
+    }
+
+    &::before {
+      left: 0;
+    }
+
+    &::after {
+      right: 0;
+    }
+  }
+
+  .icon-btn {
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: transparent;
-    border-color: transparent;
-    color: #F44336;
-    border: 1px solid red;
-    width: 32px;
-    height: 32px;
+    border: none;
+    color: var(--secondary-color);
+    transition: color 0.2s ease-in-out;
+    cursor: pointer;
+    padding: 30px 34px;
+
+    &:hover:not(:disabled) {
+      color: var(--text-secondary-color);
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    i {
+      font-size: 16px;
+      font-weight: 600;
+    }
+  }
+}
+
+.group-dialog-body {
+  padding: 45px 40px 100px;
+}
+
+.input-group {
+  display: flex;
+  align-items: stretch;
+  border: 1px solid var(--input-border-color);
+  border-radius: 10px;
+  overflow: hidden;
+
+  .input-label {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    min-width: 8.5rem;
+    padding: 0.75rem 1rem;
+    background: var(--primary-color);
+    color: var(--secondary-color);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  input[pInputText] {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    outline: none;
+  }
+
+  p-multiselect {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+  }
+
+  ::ng-deep .p-multiselect {
+    flex: 1;
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+
+.form-field small {
+  display: block;
+  margin-top: 4px;
 }
