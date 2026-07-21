@@ -12,21 +12,18 @@
   } @else if (groupsList().length === 0) {
     <app-empty-state [elementName]="'groups.group'"></app-empty-state>
   } @else {
-    <!-- Ads List -->
-    <div
-      class="w-full bg-white dark:bg-surface rounded-2xl shadow-sm border border-gray-100 dark:border-surface-border overflow-hidden"
-    >
-      <div class="grid">
-        @for (group of groupsList(); track group._id) {
-          <div class="col-12 md:col-6">
-            <div
-              class="group-card border-1 border-round-md surface-card flex justify-content-between align-items-start"
-            >
-              <!-- Group Info -->
-              <div class="flex flex-column gap-2">
-                <h3 class="m-0 text-xl font-semibold" (click)="viewGroup(group)">
-                  {{ 'groups.group' | translate }} : {{ group.name }}
-                </h3>
+  <!-- Ads List -->
+  <div  class="w-full bg-white dark:bg-surface rounded-2xl shadow-sm border border-gray-100 dark:border-surface-border overflow-hidden">
+    <div class="grid">
+      @for (group of groupsList(); track group._id) {
+      <div  class="col-12 md:col-6">
+        <div class="group-card border-1 border-round-md surface-card  flex align-items-center justify-content-between align-items-start">
+
+          <!-- Group Info -->
+          <div class="flex flex-column gap-2">
+            <h3 class="m-0 text-xl font-semibold" (click)="viewGroup(group)">
+              {{'groups.group' | translate}} : {{ group.name }}
+            </h3>
 
                 <p class="m-0">
                   <strong>{{ 'groups.students' | translate }} : </strong>

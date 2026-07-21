@@ -13,7 +13,6 @@ import { routes } from './app.routes';
 import { QuizPreset } from './core/theme/QuizPreset';
 import { HttpClient, provideHttpClient, withInterceptors } from '@angular/common/http';
 import { generalInterceptor } from './core/interceptors/general-interceptor';
-import { environment } from '../environments/environment';
 import { errorInterceptor } from './core/interceptors/error-interceptor';
 
 import { TranslateLoader, provideTranslateService } from '@ngx-translate/core';

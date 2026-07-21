@@ -7,6 +7,13 @@
     color: var(--black-color);
     font-weight: 600;
     font-size: 18px;
+    transition: transform 0.3s ease, color 0.3s ease;
+
+    &:hover {
+      cursor: pointer;
+      color: var(--ultra-color);
+      transform: translateX(3px);
+    }
   }
 
   p {
@@ -16,23 +23,30 @@
   }
 }
 
-:host ::ng-deep .edit-btn.p-button {
+.action-btn {
+  border: none;
   background: transparent;
-  border: 1px solid #000;
-  color: #000;
-  transition: all 0.2s ease;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  transition: all .3s ease-in-out;
 }
 
-:host ::ng-deep .edit-btn.p-button .pi {
+
+:host ::ng-deep .action-btn .pi {
   color: #000;
+  font-size: 18px;
+  transition: all .3s ease-in-out;
 }
 
-:host ::ng-deep .edit-btn.p-button:hover {
-  background: #000;
+.action-btn:hover {
+  border-radius: 2px;
   border-color: #000;
   color: #fff;
+  background-color: var(--ultra-color);
 }
 
-:host ::ng-deep .edit-btn.p-button:hover .pi {
+:host ::ng-deep .action-btn:hover .pi {
   color: #fff;
 }

@@ -1,4 +1,4 @@
-<p-dialog [header]="isEditMode ? ('ADS.EDIT_AD' | translate) : ('ADS.ADD_AD' | translate)" [modal]="true"
+<p-dialog [header]="isEditMode ? ('groups.edit' | translate) : ('groups.add' | translate)" [modal]="true"
   [(visible)]="visible" [style]="{ width: '50rem', maxWidth: '95vw', height: '25rem' }" [breakpoints]="{
     '1280px': '70vw',
     '1024px': '80vw',
@@ -14,7 +14,7 @@
       @if (form.get('name')?.invalid && (form.get('name')?.dirty ||
       form.get('name')?.touched)) {
       <small class="text-red-500">
-        {{ 'common.validation.required' | translate }}
+         {{ 'groups.validation.name_required' | translate }}
       </small>
       }
     </div>
@@ -44,7 +44,7 @@
       @if (form.get('students')?.invalid && (form.get('students')?.dirty ||
       form.get('students')?.touched)) {
       <small class="text-red-500">
-        {{ 'ADS.VALIDATION.STUDENTS_REQUIRED' | translate }}
+           {{ 'groups.validation.students_required' | translate }}
       </small>
       }
     </div>
@@ -52,7 +52,8 @@
 
   <ng-template pTemplate="footer">
     <div class="flex justify-end gap-2">
-      <p-button [label]="isEditMode ? 'update' : 'create'" [disabled]="loading" [loading]="loading" (click)="save()">
+      <p-button [label]="isEditMode ? ('groups.update' | translate) : ('groups.create' | translate)"
+      [disabled]="loading" [loading]="loading" (click)="save()">
       </p-button>
     </div>
   </ng-template>

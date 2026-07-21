@@ -40,13 +40,12 @@
     </div>
 
     <!-- Cards -->
-    <div class=" flex  gap-3">
-      <div>
+    <div class="flex  gap-3">
+      <div class="w-1">
         <small>{{ 'groups.details.students' | translate }}</small>
         <h3>{{ selectedGroup.students.length }} / {{ selectedGroup.max_students }}</h3>
-
       </div>
-      <div>
+      <div style="flex:1">
         <p-progressBar [value]="(selectedGroup.students.length / selectedGroup.max_students) * 100" [showValue]="false"
           styleClass="capacity-bar"></p-progressBar>
 
