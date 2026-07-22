@@ -1,0 +1,107 @@
+<p-dialog
+  [modal]="true"
+  [(visible)]="visible"
+  [showHeader]="false"
+  styleClass="group-form-dialog"
+  [style]="{ width: '50rem', maxWidth: '95vw' }"
+  [breakpoints]="{
+    '1280px': '70vw',
+    '1024px': '80vw',
+    '768px': '90vw',
+    '640px': '95vw',
+  }"
+  (onHide)="close()"
+>
+  <div class="group-dialog-header flex align-items-center justify-content-between">
+    <span class="group-dialog-title">
+      {{ isEditMode ? ('students.edit' | translate) : ('students.add' | translate) }}
+    </span>
+
+    <div class="flex align-items-center gap-2">
+      <button type="button" class="icon-btn icon-btn-border" (click)="save()" [disabled]="loading">
+        @if (loading) {
+          <i class="pi pi-spin pi-spinner"></i>
+        } @else {
+          <i class="pi pi-check"></i>
+        }
+      </button>
+
+      <button type="button" class="icon-btn" (click)="close()">
+        <i class="pi pi-times"></i>
+      </button>
+    </div>
+  </div>
+
+  <form [formGroup]="form" class="group-dialog-body flex flex-column gap-4">
+    <!-- Student -->
+    <div class="form-field">
+      <div class="input-group">
+        <label class="input-label" for="student">
+          {{ 'students.student' | translate }}
+        </label>
+
+        <p-select
+          inputId="student"
+          formControlName="student"
+          [options]="studentOptions()"
+          optionLabel="fullName"
+          optionValue="_id"
+          [filter]="true"
+          filterBy="fullName"
+          appendTo="body"
+          [loading]="loadingStudents"
+          [fluid]="true"
+        >
+        </p-select>
+      </div>
+
+      @if (
+        form.get('student')?.invalid && (form.get('student')?.dirty || form.get('student')?.touched)
+      ) {
+        <small class="text-red-500">
+          {{ 'students.validation.student_required' | translate }}
+        </small>
+      }
+    </div>
+
+    <!-- Email -->
+    <div class="form-field">
+      <div class="input-group">
+        <label class="input-label" for="email">
+          {{ 'students.details.email' | translate }}
+        </label>
+
+        <input id="email" pInputText formControlName="email" readonly />
+      </div>
+    </div>
+
+    <!-- group -->
+    <div class="form-field">
+      <div class="input-group">
+        <label class="input-label" for="group">
+          {{ 'groups.group' | translate }}
+        </label>
+
+        <p-select
+          inputId="group"
+          formControlName="group"
+          [options]="groups()"
+          optionLabel="name"
+          optionValue="_id"
+          [loading]="loadingGroups"
+          [filter]="true"
+          filterBy="name"
+          appendTo="body"
+          [fluid]="true"
+        >
+        </p-select>
+      </div>
+
+      @if (form.get('group')?.invalid && (form.get('group')?.dirty || form.get('group')?.touched)) {
+        <small class="text-red-500">
+          {{ 'students.validation.group_required' | translate }}
+        </small>
+      }
+    </div>
+  </form>
+</p-dialog>

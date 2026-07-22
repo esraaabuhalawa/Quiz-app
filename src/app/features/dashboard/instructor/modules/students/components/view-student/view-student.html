@@ -1,0 +1,83 @@
+<p-dialog
+  [(visible)]="visible"
+  [modal]="true"
+  [style]="{ width: '42rem', maxWidth: '95vw' }"
+  (onHide)="onHide()"
+>
+  <ng-template pTemplate="header">
+    <div class="flex align-items-center gap-2">
+      <i class="pi pi-user"></i>
+      <span class="font-semibold">
+        {{ 'students.details.title' | translate }}
+      </span>
+    </div>
+  </ng-template>
+
+  @if (loading) {
+    <app-loader></app-loader>
+  } @else if (selectedStudent) {
+    <div class="flex flex-column gap-4">
+      <!-- Header -->
+      <div class="group-header">
+        <div class="flex justify-content-between align-items-start">
+          <div class="flex gap-3">
+            <p-avatar
+              [label]="selectedStudent.first_name[0] + selectedStudent.last_name[0] | uppercase"
+              shape="circle"
+              size="xlarge"
+            >
+            </p-avatar>
+
+            <div>
+              <h3 class="m-0">
+                {{ selectedStudent.first_name }}
+                {{ selectedStudent.last_name }}
+              </h3>
+
+              <small class="text-color-secondary">
+                {{ 'students.details.student' | translate }}
+              </small>
+            </div>
+          </div>
+
+          <p-tag
+            [value]="selectedStudent.status | titlecase"
+            [severity]="selectedStudent.status === 'active' ? 'success' : 'danger'"
+          >
+          </p-tag>
+        </div>
+      </div>
+
+      <!-- Information -->
+      <div class="student-list-card">
+        <div class="flex flex-column gap-3">
+          <div class="flex justify-content-between">
+            <strong>{{ 'students.details.email' | translate }}</strong>
+            <span>{{ selectedStudent.email }}</span>
+          </div>
+
+          <div class="flex justify-content-between">
+            <strong>{{ 'students.details.group' | translate }}</strong>
+            <span>
+              {{ selectedStudent.group?.name || ('students.not_assigned' | translate) }}
+            </span>
+          </div>
+
+          <div class="flex justify-content-between">
+            <strong>{{ 'students.details.role' | translate }}</strong>
+            <span>{{ 'students.details.roles.' + selectedStudent.role | translate }}</span>
+          </div>
+
+          <div class="flex justify-content-between">
+            <strong>{{ 'students.details.status' | translate }}</strong>
+            <p-tag
+              [value]="'students.details.' + selectedStudent.status | translate"
+              [severity]="selectedStudent.status === 'active' ? 'success' : 'danger'"
+            >
+            </p-tag>
+          </div>
+        </div>
+      </div>
+    </div>
+  }
+</p-dialog>

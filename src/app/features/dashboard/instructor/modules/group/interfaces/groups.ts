@@ -1,4 +1,4 @@
-import { IApiResponse, IGroup } from "../../../../../../shared/interfaces/general.interface";
+import { IApiResponse, IGroup } from '../../../../../../shared/interfaces/general.interface';
 
 export interface IGroupFormData {
   name: string;
@@ -14,7 +14,7 @@ export interface IGroupData {
   max_students: number;
 }
 
-export interface IGroupDetails{
+export interface IGroupDetails {
   _id: string;
   name: string;
   status: string;
@@ -63,6 +63,6 @@ interface IDeleteGroupData {
 }
 
 // ====== API Response Types ======
-export type ICreateResponse = IApiResponse<IGroup>
-export type IUpdateResponse = IApiResponse<IUpdateData>
-export type IDeleteResponse = IApiResponse<IDeleteGroupData>
+export type ICreateResponse = IApiResponse<IGroup>;
+export type IUpdateResponse = IApiResponse<IUpdateData>;
+export type IDeleteResponse = IApiResponse<IDeleteGroupData>;

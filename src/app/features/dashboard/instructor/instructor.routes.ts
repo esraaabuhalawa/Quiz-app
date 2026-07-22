@@ -11,6 +11,9 @@ export const INSTRUCTOR_ROUTES: Routes = [
       import('../instructor/modules/group/components/groups-list/groups-list').then(
         (c) => c.GroupsList,
       ),
+    data: {
+      title: 'Groups',
+    },
   },
   {
     path: 'students',
@@ -18,6 +21,39 @@ export const INSTRUCTOR_ROUTES: Routes = [
       import('../instructor/modules/students/components/student-list/student-list').then(
         (c) => c.StudentList,
       ),
+    data: {
+      title: 'Students',
+    },
+  },
+  {
+    path: 'quizzes',
+    loadComponent: () =>
+      import('../instructor/modules/quizzes/components/quiz-list/quiz-list').then(
+        (c) => c.QuizList,
+      ),
+    data: {
+      title: 'Quizzes',
+    },
+  },
+  {
+    path: 'view-quiz/:id',
+    loadComponent: () =>
+      import('../instructor/modules/quizzes/components/view-quiz/view-quiz').then(
+        (c) => c.ViewQuiz,
+      ),
+    data: {
+      title: 'view-quiz',
+    },
+  },
+  {
+    path: 'add-quiz',
+    loadComponent: () =>
+      import('../instructor/modules/quizzes/components/add-edit-quiz/add-edit-quiz').then(
+        (c) => c.AddEditQuiz,
+      ),
+    data: {
+      title: 'Add-quiz',
+    },
   },
   {
     path: 'questions',
