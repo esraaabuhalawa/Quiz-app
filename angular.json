@@ -20,7 +20,7 @@
       },
       "root": "",
       "sourceRoot": "src",
-      "prefix": "app",
+      "prefix": "quiz-app",
       "architect": {
         "build": {
           "builder": "@angular/build:application",

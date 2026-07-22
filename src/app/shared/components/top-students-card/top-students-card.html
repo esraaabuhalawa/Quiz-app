@@ -1,0 +1,41 @@
+<!-- top-students-card.component.html -->
+<div class="students-card">
+  <div class="flex align-items-center justify-content-between mb-3">
+    <h3 class="m-0 text-xl font-bold">Top {{ students().length }} Students</h3>
+    <a
+      routerLink="/students"
+      class="flex align-items-center gap-2 text-sm text-color-secondary no-underline"
+    >
+      <span>All Students</span>
+      <i class="pi pi-arrow-right students-card__link-icon"></i>
+    </a>
+  </div>
+
+  <div class="flex flex-column gap-3">
+    @for (student of students(); track student.id) {
+      <div class="students-card__item flex align-items-center gap-3 p-3 border-round-lg">
+        <img
+          [src]="student.avatar"
+          [alt]="student.name"
+          class="students-card__avatar border-round-lg"
+        />
+
+        <div class="flex-1 flex flex-column gap-1">
+          <h4 class="m-0 text-lg font-bold">{{ student.name }}</h4>
+          <div class="flex align-items-center gap-2 text-sm text-color-secondary">
+            <span>Class rank: {{ student.classRank }}</span>
+            <span>|</span>
+            <span>Average score: {{ student.averageScore }}%</span>
+          </div>
+        </div>
+
+        <a
+          [routerLink]="['/students', student.id]"
+          class="students-card__arrow flex align-items-center justify-content-center border-circle"
+        >
+          <i class="pi pi-arrow-right text-sm"></i>
+        </a>
+      </div>
+    }
+  </div>
+</div>

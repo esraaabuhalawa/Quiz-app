@@ -1,0 +1,25 @@
+.app-header {
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--surface-border);
+  //   position: fixed;
+  //   width: 100%;
+  //   background-color: #fff;
+
+  ::ng-deep {
+    p-button .p-ripple.p-button-outlined.p-component {
+      border: 1px solid #00000033;
+      border-radius: 30px;
+      color: #000000;
+      font-size: 18px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 5px 10px;
+    }
+    .p-menu-list {
+      padding: 20px 10px;
+      gap: 13px;
+    }
+  }
+}

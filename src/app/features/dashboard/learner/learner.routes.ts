@@ -10,6 +10,10 @@ export const LEARNER_ROUTES: Routes = [
     loadComponent: () => import('./components/quizzes/quizzes').then((c) => c.Quizzes),
   },
   {
+    path: 'results',
+    loadComponent: () => import('./components/results/results').then((c) => c.Results),
+  },
+  {
     path: '**',
     title: 'Page Not Found',
     loadComponent: () =>
