@@ -1,1 +1,16 @@
-<p>instructor-home works!</p>
+<!-- instructor-home.component.html -->
+<div class="grid">
+  <div class="col-12 lg:col-6">
+    @if (isLoadingQuizzes()) {
+      <app-loader></app-loader>
+    } @else {
+      <quiz-app-upcoming-quizzes-card
+        [quizzes]="upcomingQuizzes()"
+      ></quiz-app-upcoming-quizzes-card>
+    }
+  </div>
+  <div class="col-12 lg:col-6">
+    <!-- <app-top-students-card [students]="topStudents()" /> -->
+    <quiz-app-upcoming-quizzes-card [quizzes]="upcomingQuizzes()"></quiz-app-upcoming-quizzes-card>
+  </div>
+</div>

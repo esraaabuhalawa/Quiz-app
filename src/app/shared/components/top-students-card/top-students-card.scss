@@ -1,0 +1,36 @@
+.students-card {
+  background: var(--white-color);
+  border: 1px solid var(--surface-border);
+  border-radius: 12px;
+  padding: 1.5rem;
+
+  &__item {
+    border: 1px solid var(--surface-border);
+  }
+
+  &__avatar {
+    width: 56px;
+    height: 56px;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  &__link-icon {
+    background: var(--green-200);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.65rem;
+  }
+
+  &__arrow {
+    width: 32px;
+    height: 32px;
+    background: var(--text-color);
+    color: var(--white-color);
+    flex-shrink: 0;
+  }
+}

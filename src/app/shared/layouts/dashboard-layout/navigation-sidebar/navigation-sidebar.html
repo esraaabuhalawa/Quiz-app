@@ -1,0 +1,37 @@
+<aside class="sidebar flex flex-column" [class.sidebar--collapsed]="isCollapsed()">
+  <div class="flex align-items-center justify-content-between p-4 sidebar__logo-container">
+    <div class="flex align-items-center gap-4">
+      <i class="pi pi-bars cursor-pointer bars-icon" (click)="toggleCollapse()"></i>
+      @if (!isCollapsed()) {
+        <img src="images/Logo.png" alt="Logo" class="sidebar__logo" />
+      }
+    </div>
+  </div>
+
+  <nav class="flex flex-column flex-grow-1">
+    @for (item of navItems(); track item.route) {
+      <a
+        class="sidebar__nav-item flex align-items-center gap-3 p-4"
+        [routerLink]="item.route"
+        routerLinkActive="sidebar__nav-item--active"
+        [routerLink]="item.route"
+        routerLinkActive="sidebar__nav-item--active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        #rla="routerLinkActive"
+        [class.sidebar__nav-item--active]="rla.isActive"
+      >
+        <span class="sidebar__nav-item__icon-container">
+          <img
+            [src]="rla.isActive ? item.icon.active : item.icon.default"
+            [alt]="item.label"
+            class="nav-icon"
+          />
+        </span>
+
+        @if (!isCollapsed()) {
+          <span class="font-medium">{{ item.label }}</span>
+        }
+      </a>
+    }
+  </nav>
+</aside>
