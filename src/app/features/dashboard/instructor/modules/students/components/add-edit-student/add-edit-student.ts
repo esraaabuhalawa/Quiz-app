@@ -30,7 +30,15 @@ export class AddEditStudent {
 
   @Input() visible = false;
   @Input() loading = false;
-  @Input() selectedStudent: IStudents | null = null;
+  @Input() set selectedStudent(value: IStudents | null) {
+    this._selectedStudent.set(value);
+  }
+
+  get selectedStudent() {
+    return this._selectedStudent();
+  }
+
+  private _selectedStudent = signal<IStudents | null>(null);
 
   @Output() visibleChange = new EventEmitter<boolean>();
   @Output() submitForm = new EventEmitter<{
@@ -42,7 +50,6 @@ export class AddEditStudent {
 
   loadingStudents = false;
 
-  allStudents = signal<IStudents[]>([]);
   availableStudents = signal<IStudents[]>([]);
   groups = signal<IGroupData[]>([]);
   loadingGroups = false;
@@ -53,34 +60,27 @@ export class AddEditStudent {
 
   //  students dropdown depending on Add/Edit mode
   studentOptions = computed(() => {
+    const current = this._selectedStudent();
     const available = this.availableStudents();
 
-    if (!this.selectedStudent) {
+    if (!current) {
       return available.map((student) => ({
         ...student,
         fullName: `${student.first_name} ${student.last_name}`,
       }));
     }
 
-    const current = this.allStudents().find((s) => s._id === this.selectedStudent!._id);
-
-    const result = current
-      ? [current, ...available.filter((s) => s._id !== current._id)]
-      : available;
-
-    return result.map((student) => ({
-      ...student,
-      fullName: `${student.first_name} ${student.last_name}`,
-    }));
+    return [current, ...available.filter((student) => student._id !== current._id)].map(
+      (student) => ({
+        ...student,
+        fullName: `${student.first_name} ${student.last_name}`,
+      }),
+    );
   });
 
   ngOnInit() {
     this.getStudentsWithoutGroup();
     this.getGroups();
-
-    if (this.selectedStudent) {
-      this.getAllStudents();
-    }
 
     // Auto-fill email
     this.form.get('student')?.valueChanges.subscribe((studentId) => {
@@ -99,8 +99,6 @@ export class AddEditStudent {
     if (changes['selectedStudent']) {
       if (this.selectedStudent) {
         this.form.get('student')?.disable();
-
-        this.getAllStudents();
 
         this.form.patchValue({
           student: this.selectedStudent._id,
@@ -131,37 +129,14 @@ export class AddEditStudent {
     });
   }
 
-  getAllStudents() {
-    this.studentService.getAllStudents().subscribe({
-      next: (res) => {
-        this.allStudents.set(res);
-
-        if (this.selectedStudent) {
-          this.form.patchValue({
-            student: this.selectedStudent._id,
-            email: this.selectedStudent.email,
-            group: this.selectedStudent.group?._id,
-          });
-        }
-      },
-    });
-  }
-
   getStudentsWithoutGroup() {
     this.loadingStudents = true;
 
     this.studentService.getStudentsWithoutGroup().subscribe({
       next: (res: IStudents[]) => {
         this.availableStudents.set(res);
-        this.loadingStudents = false;
 
-        if (this.selectedStudent) {
-          this.form.patchValue({
-            student: this.selectedStudent._id,
-            email: this.selectedStudent.email,
-            group: this.selectedStudent.group?._id,
-          });
-        }
+        this.loadingStudents = false;
       },
       error: () => {
         this.loadingStudents = false;
@@ -201,6 +176,7 @@ export class AddEditStudent {
   }
 
   close() {
+    this._selectedStudent.set(null);
     this.form.reset({
       student: '',
       group: '',
