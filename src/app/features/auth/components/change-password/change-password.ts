@@ -8,13 +8,10 @@ import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { FormField } from '../../../../shared/components/auth/form-field/form-field';
 import { Router } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
+import { IReset, IResetResponse } from '../../interfaces/auth';
 @Component({
   selector: 'app-change-password',
-  imports: [AuthLayout,
-  TranslatePipe,
-  ReactiveFormsModule,
-  FormField,
-  ButtonModule,],
+  imports: [AuthLayout, TranslatePipe, ReactiveFormsModule, FormField, ButtonModule],
   templateUrl: './change-password.html',
   styleUrl: './change-password.scss',
 })
@@ -29,26 +26,23 @@ export class ChangePassword {
 
   ngOnInit() {
     this.changePasswordForm = this.fb.group(
-  {
-    password: ['', Validators.required],       // Old Password
-    password_new: [
-      '',
-      [
-        Validators.required,
-        Validators.pattern(
-          /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/
-        ),
-      ],
-    ],
-    confirmPassword: ['', Validators.required],
-  },
-  {
-    validators: matchPasswordValidator(
-      'password_new',
-      'confirmPassword'
-    ),
-  }
-);
+      {
+        password: ['', Validators.required], // Old Password
+        password_new: [
+          '',
+          [
+            Validators.required,
+            Validators.pattern(
+              /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/,
+            ),
+          ],
+        ],
+        confirmPassword: ['', Validators.required],
+      },
+      {
+        validators: matchPasswordValidator('password_new', 'confirmPassword'),
+      },
+    );
   }
 
   get form() {
@@ -63,12 +57,13 @@ export class ChangePassword {
 
     this.loading.set(true);
 
-    this.authService.changePassword({
-  password: this.changePasswordForm.value.password,
-  password_new: this.changePasswordForm.value.password_new,
-})
+    this.authService
+      .changePassword({
+        password: this.changePasswordForm.value.password,
+        password_new: this.changePasswordForm.value.password_new,
+      })
       .subscribe({
-        next: (res) => {
+        next: (res: IResetResponse) => {
           this.loading.set(false);
 
           this.messageService.add({

@@ -70,4 +70,4 @@ export interface ILoginRequest {
 // ====== API Response Types ======
 export type LoginResponse = ApiResponse<LoginResponseData>;
 export type IRegisterResponse = IApiResponse<IRegisterData>;
-
+export type IResetResponse = IApiResponse<IReset>;

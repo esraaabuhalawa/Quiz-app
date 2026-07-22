@@ -1,1 +1,12 @@
-<p>dashboard-layout works!</p>
+<div class="app-shell">
+  <app-navigation-sidebar></app-navigation-sidebar>
+  <!-- Main area -->
+  <div class="main-area">
+    <app-nav-bar></app-nav-bar>
+
+    <!-- Page content -->
+    <main class="content">
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>

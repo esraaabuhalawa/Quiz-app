@@ -1,0 +1,50 @@
+// upcoming-quizzes-card.component.scss
+.quiz-card {
+  background: var(--white-color);
+  border: 1px solid var(--surface-border);
+  border-radius: 12px;
+  padding: 1.5rem;
+
+  &__item {
+    border: 1px solid var(--surface-border);
+  }
+  &__image-container {
+    width: 120px;
+    height: 120px;
+    background-color: #ffeddf;
+    border-radius: 10px;
+    padding: 10px;
+    img {
+      width: 100%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+  }
+
+  &__link-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #c5d86d;
+  }
+
+  &__open-link {
+    color: var(--text-color);
+  }
+
+  &__open-icon {
+    background: var(--green-300);
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+    background: #c5d86d;
+    color: #fff;
+  }
+}

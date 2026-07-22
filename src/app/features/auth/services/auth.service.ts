@@ -10,14 +10,18 @@ import {
   IForgotResponse,
   ILoginRequest,
   LoginResponse,
+  IResetResponse,
 } from '../interfaces/auth';
 import { TokenService } from './token.service';
 import { AuthStoreService } from './auth-store.service';
+import { Router } from '@angular/router';
+import { RoleEnum } from '../../../core/enum/role.enum';
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
   private http = inject(HttpClient);
+  private router = inject(Router);
   private readonly authStore = inject(AuthStoreService);
   private readonly tokenService = inject(TokenService);
 
@@ -34,6 +38,7 @@ export class AuthService {
   logout(): void {
     this.tokenService.clearSession();
     this.authStore.clearUser();
+    this.router.navigate(['/auth/login']);
   }
 
   onResetPass(data: IReset): Observable<any> {
@@ -50,5 +55,11 @@ export class AuthService {
 
   register(data: IRegister): Observable<IRegisterResponse> {
     return this.http.post<IRegisterResponse>('auth/register', data);
+  }
+  getCurrentUser() {
+    return this.tokenService.getUser();
+  }
+  getRole(): RoleEnum | null {
+    return this.authStore.userRole();
   }
 }
