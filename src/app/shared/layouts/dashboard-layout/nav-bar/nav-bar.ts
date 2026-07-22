@@ -42,6 +42,6 @@ export class NavBar implements OnInit {
   ];
 
   onNewQuiz(): void {
-    this.router.navigate(['/dashboard/instructor/add-quiz'], { relativeTo: this.activatedRoute });
+    this.router.navigate(['/instructor/add-quiz'], { relativeTo: this.activatedRoute });
   }
 }

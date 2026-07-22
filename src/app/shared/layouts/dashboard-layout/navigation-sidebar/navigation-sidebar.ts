@@ -1,7 +1,6 @@
 import { Component, computed, inject, signal } from '@angular/core';
-import { isActive, RouterLink, RouterLinkActive } from '@angular/router';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 import { RoleEnum } from '../../../../core/enum/role.enum';
-import { AuthStoreService } from '../../../../features/auth/services/auth-store.service';
 import { AuthService } from '../../../../features/auth/services/auth.service';
 
 export interface NavItem {
@@ -16,7 +15,7 @@ export interface NavItem {
 export const INSTRUCTOR_NAV_ITEMS: NavItem[] = [
   {
     label: 'Dashboard',
-    route: '/dashboard/instructor',
+    route: '/instructor',
     icon: {
       default: '/images/dashboard-icon.svg',
       active: '/images/dashboard-icon-white.svg',
@@ -24,7 +23,7 @@ export const INSTRUCTOR_NAV_ITEMS: NavItem[] = [
   },
   {
     label: 'Students',
-    route: '/dashboard/instructor/students',
+    route: '/instructor/students',
     icon: {
       default: '/images/groups-icon.svg',
       active: '/images/groups-icon-white.svg',
@@ -32,7 +31,7 @@ export const INSTRUCTOR_NAV_ITEMS: NavItem[] = [
   },
   {
     label: 'Quizzes',
-    route: '/dashboard/instructor/quizzes',
+    route: '/instructor/quizzes',
     icon: {
       default: '/images/Quiz-icon.svg',
       active: '/images/Quiz-icon-white.svg',
@@ -40,7 +39,7 @@ export const INSTRUCTOR_NAV_ITEMS: NavItem[] = [
   },
   {
     label: 'Groups',
-    route: '/dashboard/instructor/groups',
+    route: '/instructor/groups',
     icon: {
       default: '/images/groups-icon.svg',
       active: '/images/groups-icon-white.svg',
@@ -59,7 +58,7 @@ export const STUDENT_NAV_ITEMS: NavItem[] = [
   },
   {
     label: 'Quizzes',
-    route: '/dashboard/learner/quizzes',
+    route: '/learner/quizzes',
     icon: {
       default: '/images/Quiz-icon.svg',
       active: '/images/Quiz-icon-white.svg',
@@ -67,7 +66,7 @@ export const STUDENT_NAV_ITEMS: NavItem[] = [
   },
   {
     label: 'Results',
-    route: '/dashboard/learner/results',
+    route: '/learner/results',
     icon: {
       default: '/images/Results-icon.svg',
       active: '/images/Results-icon-white.svg',
