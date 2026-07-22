@@ -154,8 +154,6 @@ export class StudentList {
       });
     }
   }
-<<<<<<< HEAD
-=======
 
   //delete student from system
 
@@ -225,5 +223,4 @@ export class StudentList {
       },
     });
   }
->>>>>>> development
 }
