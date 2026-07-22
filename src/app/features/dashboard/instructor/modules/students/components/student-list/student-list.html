@@ -3,6 +3,7 @@
   [showButton]="true"
   [showBoxButton]="false"
   [buttonLabel]="'students.add'"
+  (buttonClick)="openAddDialog()"
 >
   @if (isLoading()) {
     <app-loader />
@@ -105,3 +106,17 @@
     }
   }
 </app-page-layout>
+
+<app-add-edit-student
+  [visible]="showDialog()"
+  (visibleChange)="showDialog.set($event)"
+  [loading]="addEditLoad()"
+  [selectedStudent]="selectedStudent()"
+  (submitForm)="saveStudent($event)"
+/>
+
+<app-view-student
+  [visible]="viewDialog()"
+  (visibleChange)="viewDialog.set($event)"
+  [selectedStudent]="selectedViewStudent()">
+</app-view-student>

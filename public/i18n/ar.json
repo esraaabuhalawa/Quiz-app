@@ -156,8 +156,31 @@
     "title": "قائمة الطلاب",
     "student": "طالب",
     "add": "إضافة طالب",
+    "edit": "تعديل الطالب",
     "group": "المجموعة",
     "not_assigned": "غير منضم",
+
+      "details": {
+    "title": "تفاصيل الطالب",
+    "student": "طالب",
+    "email": "البريد الإلكتروني",
+    "group": "المجموعة",
+    "role": "الدور",
+
+    "roles": {
+      "Student": "طالب",
+      "Instructor": "مدرب",
+      "Admin": "مدير"
+    },
+
+  "status": "الحالة",
+    "active": "نشط",
+    "inactive": "غير نشط"
+  } ,
+   "validation": {
+    "student_required": "يرجى اختيار طالب."
+  },
+
     "remove_from_group_title": "حذف الطالب",
     "remove_from_group_confirm_message": "هل أنت متأكد من حذف هذا الطالب؟",
     "remove_from_group_warning_note": "سيتم حذف الطالب  من هذه المجموعة.",
