@@ -155,28 +155,6 @@ export class StudentList {
     }
   }
 
-  //delete student from system
-
-  // openDeleteDialog(student: IStudents): void {
-  //   this.deleteService.open({
-  //     config: {
-  //       title: this.translate.instant('students.delete_title'),
-  //       confirmMessage: this.translate.instant('students.delete_confirm_message'),
-  //       warningNote: this.translate.instant('students.delete_warning_note'),
-  //       item: {
-  //         name: `${student.first_name} ${student.last_name}`,
-  //         subtitle: `${student.email} | ${this.translate.instant('students.group')}: ${
-  //           student.group?.name ?? this.translate.instant('students.not_assigned')
-  //         }`,
-  //         iconBg: 'dark',
-  //       },
-  //     },
-  //     request: () => this.studentsService.deleteStudent(student._id),
-  //     successMessage: this.translate.instant('students.delete_success'),
-  //     onSuccess: () => this.loadStudents(),
-  //   });
-  // }
-
   openAddDialog() {
     this.selectedStudent.set(null);
     this.showDialog.set(true);
