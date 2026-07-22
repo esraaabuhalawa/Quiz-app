@@ -159,6 +159,7 @@
     "edit": "تعديل الطالب",
     "group": "المجموعة",
     "not_assigned": "غير منضم",
+    "already_in_group": "هذا الطالب مضاف بالفعل إلى مجموعة.",
 
       "details": {
     "title": "تفاصيل الطالب",
@@ -178,8 +179,12 @@
     "inactive": "غير نشط"
   } ,
    "validation": {
-    "student_required": "يرجى اختيار طالب."
+    "student_required": "يرجى اختيار طالب.",
+  "group_required": "يرجى اختيار مجموعة."
   },
+
+  "create_success": "تمت إضافة الطالب إلى المجموعة بنجاح.",
+"update_success": "تم تحديث مجموعة الطالب بنجاح.",
 
     "remove_from_group_title": "حذف الطالب",
     "remove_from_group_confirm_message": "هل أنت متأكد من حذف هذا الطالب؟",
