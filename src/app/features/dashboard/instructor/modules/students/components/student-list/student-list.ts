@@ -116,52 +116,44 @@ export class StudentList {
     this.viewDialog.set(true);
   }
 
-  // remove student from group
+  //delete student & remove from group
   openDeleteDialog(student: IStudents): void {
     const groupId = student.group?._id;
 
-    if (!groupId) {
-      return;
-    }
-
-    this.deleteService.open({
-      config: {
-        title: this.translate.instant('students.remove_from_group_title'),
-        confirmMessage: this.translate.instant('students.remove_from_group_confirm_message'),
-        warningNote: this.translate.instant('students.remove_from_group_warning_note'),
-        item: {
-          name: `${student.first_name} ${student.last_name}`,
-          subtitle: `${student.email} | ${this.translate.instant('students.group')}: ${student.group?.name}`,
-          iconBg: 'dark',
+    if (groupId) {
+      this.deleteService.open({
+        config: {
+          title: this.translate.instant('students.remove_from_group_title'),
+          confirmMessage: this.translate.instant('students.remove_from_group_confirm_message'),
+          warningNote: this.translate.instant('students.remove_from_group_warning_note'),
+          item: {
+            name: `${student.first_name} ${student.last_name}`,
+            subtitle: `${student.email} | ${this.translate.instant('students.group')}: ${student.group?.name}`,
+            iconBg: 'dark',
+          },
         },
-      },
-      request: () => this.studentsService.removeFromGroup(student._id, groupId),
-      successMessage: this.translate.instant('students.remove_from_group_success'),
-      onSuccess: () => this.loadStudents(),
-    });
+        request: () => this.studentsService.removeFromGroup(student._id, groupId),
+        successMessage: this.translate.instant('students.remove_from_group_success'),
+        onSuccess: () => this.loadStudents(),
+      });
+    } else {
+      this.deleteService.open({
+        config: {
+          title: this.translate.instant('students.delete_title'),
+          confirmMessage: this.translate.instant('students.delete_confirm_message'),
+          warningNote: this.translate.instant('students.delete_warning_note'),
+          item: {
+            name: `${student.first_name} ${student.last_name}`,
+            subtitle: `${student.email} | ${this.translate.instant('students.group')}: ${this.translate.instant('students.not_assigned')}`,
+            iconBg: 'dark',
+          },
+        },
+        request: () => this.studentsService.deleteStudent(student._id),
+        successMessage: this.translate.instant('students.delete_success'),
+        onSuccess: () => this.loadStudents(),
+      });
+    }
   }
-
-  //delete student from system
-
-  // openDeleteDialog(student: IStudents): void {
-  //   this.deleteService.open({
-  //     config: {
-  //       title: this.translate.instant('students.delete_title'),
-  //       confirmMessage: this.translate.instant('students.delete_confirm_message'),
-  //       warningNote: this.translate.instant('students.delete_warning_note'),
-  //       item: {
-  //         name: `${student.first_name} ${student.last_name}`,
-  //         subtitle: `${student.email} | ${this.translate.instant('students.group')}: ${
-  //           student.group?.name ?? this.translate.instant('students.not_assigned')
-  //         }`,
-  //         iconBg: 'dark',
-  //       },
-  //     },
-  //     request: () => this.studentsService.deleteStudent(student._id),
-  //     successMessage: this.translate.instant('students.delete_success'),
-  //     onSuccess: () => this.loadStudents(),
-  //   });
-  // }
 
   openAddDialog() {
     this.selectedStudent.set(null);
