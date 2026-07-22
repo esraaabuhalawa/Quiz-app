@@ -13,9 +13,13 @@
   (onHide)="close()">
 
   <div class="group-dialog-header flex align-items-center justify-content-between">
-    <span class="group-dialog-title">
-      {{ 'students.add' | translate }}
-    </span>
+  <span class="group-dialog-title">
+    {{
+      isEditMode
+      ? ('students.edit' | translate)
+      : ('students.add' | translate)
+    }}
+  </span>
 
     <div class="flex align-items-center gap-2">
       <button

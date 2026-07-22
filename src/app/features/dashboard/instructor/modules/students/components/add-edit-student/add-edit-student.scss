@@ -139,3 +139,9 @@
   display: block;
   margin-top: 4px;
 }
+
+:host ::ng-deep .p-inputtext:read-only {
+  background-color: transparent !important;
+  color: var(--secondary-color) !important;
+  opacity: 1 !important;
+}

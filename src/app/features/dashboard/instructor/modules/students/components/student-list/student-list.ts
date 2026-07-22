@@ -100,6 +100,9 @@ selectedStudent = signal<IStudents | null>(null);
   }
 
   openEditDialog(student: IStudents): void {
+    console.log(student);
+     this.selectedStudent.set(structuredClone(student));
+  this.showDialog.set(true);
     //  this.router.navigate();
   }
   //view student
@@ -156,7 +159,8 @@ selectedStudent = signal<IStudents | null>(null);
 
 
   openAddDialog() {
-  this.showDialog.set(true);
+   this.selectedStudent.set(null);
+ this.showDialog.set(true);
 }
 
 

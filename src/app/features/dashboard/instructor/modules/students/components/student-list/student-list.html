@@ -108,7 +108,9 @@
 </app-page-layout>
 
 <app-add-edit-student
-  [(visible)]="showDialog"
+  [visible]="showDialog()"
+  (visibleChange)="showDialog.set($event)"
   [loading]="addEditLoad()"
+  [selectedStudent]="selectedStudent()"
   (submitForm)="saveStudent($event)"
 />
