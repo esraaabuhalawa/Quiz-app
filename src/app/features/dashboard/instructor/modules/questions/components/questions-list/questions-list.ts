@@ -25,13 +25,13 @@ import { DatePipe } from '@angular/common';
     FormsModule,
     EmptyStateComponent,
     TableModule,
-  //  AddEditQuestion,
+    //  AddEditQuestion,
   ],
   templateUrl: './questions-list.html',
   styleUrl: './questions-list.scss',
 })
 export class QuestionsList {
-   private questionService= inject(QuestionsService);
+  private questionService = inject(QuestionsService);
   private readonly messageService = inject(MessageService);
   private translate = inject(TranslateService);
   private deleteService = inject(AlertDeleteService);
@@ -77,7 +77,7 @@ export class QuestionsList {
     });
   }
 
-  viewQuestion(question:IQuestion) {
+  viewQuestion(question: IQuestion) {
     this.selectedQuestion.set(null);
     this.questionLoading.set(true);
     this.visible.set(true);
@@ -135,17 +135,18 @@ export class QuestionsList {
   //   });
   // }
 
-  //Delete Group
-  openDeleteDialog(question:IQuestion): void {
+  //Delete Question
+
+  openDeleteDialog(question: IQuestion): void {
     this.deleteService.open({
       config: {
-        title: this.translate.instant('groups.delete_title'),
-        confirmMessage: this.translate.instant('groups.delete_confirm_message'),
-        warningNote: this.translate.instant('groups.delete_warning_note'),
+        title: this.translate.instant('questions.delete_title'),
+        confirmMessage: this.translate.instant('questions.delete_confirm_message'),
+        warningNote: this.translate.instant('questions.delete_warning_note'),
         item: {
           name: question.title,
-          subtitle: `${this.translate.instant('questions.description')}: ${question.description}`,
-          icon: 'pi pi-users',
+          subtitle: `${question.type} | ${question.difficulty}`,
+          icon: 'pi pi-question-circle',
           iconBg: 'dark',
         },
       },

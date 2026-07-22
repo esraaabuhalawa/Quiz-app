@@ -158,10 +158,14 @@
     "add": "إضافة طالب",
     "group": "المجموعة",
     "not_assigned": "غير منضم",
-    "remove_from_group_title": "حذف الطالب",
-    "remove_from_group_confirm_message": "هل أنت متأكد من حذف هذا الطالب؟",
-    "remove_from_group_warning_note": "سيتم حذف الطالب  من هذه المجموعة.",
-    "remove_from_group_success": "تم حذف الطالب بنجاح."
+    "remove_from_group_title": "إزالة الطالب من المجموعة",
+  "remove_from_group_confirm_message": "هل أنت متأكد من إزالة هذا الطالب من المجموعة؟",
+  "remove_from_group_warning_note": "سيتم إزالة الطالب من هذه المجموعة، وسيظل موجودًا في النظام كطالب غير منضم.",
+  "remove_from_group_success": "تمت إزالة الطالب من المجموعة بنجاح.",
+  "delete_title": "حذف الطالب",
+  "delete_confirm_message": "هل أنت متأكد من حذف هذا الطالب؟",
+  "delete_warning_note": "لا يمكن التراجع عن هذا الإجراء، سيتم حذف الطالب نهائيًا من النظام.",
+  "delete_success": "تم حذف الطالب بنجاح."
   },
   "questions": {
     "title": " بنك الأسئلة",
@@ -182,8 +186,11 @@
       "date": "تاريخ الإنشاء",
       "actions": "الإجراءات"
     },
-    "delete_success": "تم حذف السؤال بنجاح",
-    "description": "وصف السؤال"
+    "description": "وصف السؤال",
+    "delete_title": "حذف سؤال",
+  "delete_confirm_message": "هل أنت متأكد أنك تريد حذف هذا السؤال؟",
+  "delete_warning_note": "سيتم حذف السؤال نهائيًا من بنك الأسئلة ",
+  "delete_success": "تم حذف السؤال بنجاح."
   },
   "user_profile": {
     "title": "الملف الشخصي",
