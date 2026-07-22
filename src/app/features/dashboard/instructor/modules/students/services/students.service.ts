@@ -22,7 +22,14 @@ export class StudentsService {
     return this.http.delete(`student/${studentId}`);
   }
 
-  addToGroup(studentId: string, groupId: string) {
+addToGroup(studentId: string, groupId: string) {
+  return this.http.get(
+    `student/${studentId}/${groupId}`
+  );
+}
+
+
+updateStudentGroup(studentId: string, groupId: string) {
   return this.http.put(
     `student/${studentId}/${groupId}`,
     {}

@@ -8,26 +8,17 @@
     '1280px': '70vw',
     '1024px': '80vw',
     '768px': '90vw',
-    '640px': '95vw'
+    '640px': '95vw',
   }"
-  (onHide)="close()">
-
+  (onHide)="close()"
+>
   <div class="group-dialog-header flex align-items-center justify-content-between">
-  <span class="group-dialog-title">
-    {{
-      isEditMode
-      ? ('students.edit' | translate)
-      : ('students.add' | translate)
-    }}
-  </span>
+    <span class="group-dialog-title">
+      {{ isEditMode ? ('students.edit' | translate) : ('students.add' | translate) }}
+    </span>
 
     <div class="flex align-items-center gap-2">
-      <button
-        type="button"
-        class="icon-btn icon-btn-border"
-        (click)="save()"
-        [disabled]="loading">
-
+      <button type="button" class="icon-btn icon-btn-border" (click)="save()" [disabled]="loading">
         @if (loading) {
           <i class="pi pi-spin pi-spinner"></i>
         } @else {
@@ -35,17 +26,13 @@
         }
       </button>
 
-      <button
-        type="button"
-        class="icon-btn"
-        (click)="close()">
+      <button type="button" class="icon-btn" (click)="close()">
         <i class="pi pi-times"></i>
       </button>
     </div>
   </div>
 
   <form [formGroup]="form" class="group-dialog-body flex flex-column gap-4">
-
     <!-- Student -->
     <div class="form-field">
       <div class="input-group">
@@ -63,17 +50,17 @@
           filterBy="fullName"
           appendTo="body"
           [loading]="loadingStudents"
-          [fluid]="true">
+          [fluid]="true"
+        >
         </p-select>
       </div>
 
-      @if (form.get('student')?.invalid &&
-      (form.get('student')?.dirty || form.get('student')?.touched)) {
-
+      @if (
+        form.get('student')?.invalid && (form.get('student')?.dirty || form.get('student')?.touched)
+      ) {
         <small class="text-red-500">
           {{ 'students.validation.student_required' | translate }}
         </small>
-
       }
     </div>
 
@@ -84,14 +71,37 @@
           {{ 'students.details.email' | translate }}
         </label>
 
-        <input
-          id="email"
-          pInputText
-          formControlName="email"
-          readonly />
+        <input id="email" pInputText formControlName="email" readonly />
       </div>
     </div>
 
-  </form>
+    <!-- group -->
+    <div class="form-field">
+      <div class="input-group">
+        <label class="input-label" for="group">
+          {{ 'groups.group' | translate }}
+        </label>
 
+        <p-select
+          inputId="group"
+          formControlName="group"
+          [options]="groups()"
+          optionLabel="name"
+          optionValue="_id"
+          [loading]="loadingGroups"
+          [filter]="true"
+          filterBy="name"
+          appendTo="body"
+          [fluid]="true"
+        >
+        </p-select>
+      </div>
+
+      @if (form.get('group')?.invalid && (form.get('group')?.dirty || form.get('group')?.touched)) {
+        <small class="text-red-500">
+          {{ 'students.validation.group_required' | translate }}
+        </small>
+      }
+    </div>
+  </form>
 </p-dialog>

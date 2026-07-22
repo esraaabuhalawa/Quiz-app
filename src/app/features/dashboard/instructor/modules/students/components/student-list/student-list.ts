@@ -12,11 +12,21 @@ import { Avatar } from 'primeng/avatar';
 import { GroupsService } from '../../../group/services/groups.service';
 import { IGroupData } from '../../../group/interfaces/groups';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
-import { AddEditStudent } from "../add-edit-student/add-edit-student";
+import { AddEditStudent } from '../add-edit-student/add-edit-student';
 import { ViewStudent } from '../view-student/view-student';
 @Component({
   selector: 'app-student-list',
-  imports: [PageLayout, Loader, EmptyStateComponent, Paginator, Button, Avatar, TranslatePipe, AddEditStudent ,ViewStudent],
+  imports: [
+    PageLayout,
+    Loader,
+    EmptyStateComponent,
+    Paginator,
+    Button,
+    Avatar,
+    TranslatePipe,
+    AddEditStudent,
+    ViewStudent,
+  ],
   templateUrl: './student-list.html',
   styleUrl: './student-list.scss',
 })
@@ -35,19 +45,11 @@ export class StudentList {
   first = signal(0);
   pageSize = signal<number>(10);
 
-
-
-
-
   showDialog = signal(false);
-addEditLoad = signal(false);
-selectedStudent = signal<IStudents | null>(null);
-selectedViewStudent = signal<IStudents | null>(null);
-viewDialog = signal(false);
-
-
-
-
+  addEditLoad = signal(false);
+  selectedStudent = signal<IStudents | null>(null);
+  selectedViewStudent = signal<IStudents | null>(null);
+  viewDialog = signal(false);
 
   //students after selecting group
   filteredStudents = computed(() => {
@@ -104,14 +106,14 @@ viewDialog = signal(false);
 
   openEditDialog(student: IStudents): void {
     console.log(student);
-     this.selectedStudent.set(structuredClone(student));
-  this.showDialog.set(true);
+    this.selectedStudent.set(structuredClone(student));
+    this.showDialog.set(true);
     //  this.router.navigate();
   }
   //view student
   viewStudent(student: IStudents): void {
     this.selectedViewStudent.set(student);
-  this.viewDialog.set(true);
+    this.viewDialog.set(true);
   }
 
   // remove student from group
@@ -161,28 +163,19 @@ viewDialog = signal(false);
   //   });
   // }
 
-
-
-
   openAddDialog() {
-   this.selectedStudent.set(null);
- this.showDialog.set(true);
-}
-
-
-saveStudent(data: { student: string }) {
-  this.addEditLoad.set(true);
-
-  const groupId = this.selectedGroupId();
-
-  if (!groupId) {
-    this.addEditLoad.set(false);
-    return;
+    this.selectedStudent.set(null);
+    this.showDialog.set(true);
   }
 
-  this.studentsService
-    .addToGroup(data.student, groupId)
-    .subscribe({
+  saveStudent(data: { student: string; group: string }) {
+    this.addEditLoad.set(true);
+
+    const request = this.selectedStudent()
+      ? this.studentsService.updateStudentGroup(data.student, data.group)
+      : this.studentsService.addToGroup(data.student, data.group);
+
+    request.subscribe({
       next: () => {
         this.addEditLoad.set(false);
         this.showDialog.set(false);
@@ -192,20 +185,28 @@ saveStudent(data: { student: string }) {
         this.messageService.add({
           severity: 'success',
           summary: this.translate.instant('common.success'),
-          detail: this.translate.instant('students.add_success'),
+          detail: this.selectedStudent()
+            ? this.translate.instant('students.update_success')
+            : this.translate.instant('students.create_success'),
         });
       },
       error: (err: any) => {
         this.addEditLoad.set(false);
 
+        let detail = this.translate.instant('common.something_went_wrong');
+
+        if (err.error?.message?.includes('already in a group')) {
+          detail = this.translate.instant('students.already_in_group');
+        } else if (err.error?.message) {
+          detail = err.error.message;
+        }
+
         this.messageService.add({
           severity: 'error',
           summary: this.translate.instant('common.error'),
-          detail:
-            err.error?.message ??
-            this.translate.instant('common.something_went_wrong'),
+          detail,
         });
       },
     });
-}
+  }
 }
