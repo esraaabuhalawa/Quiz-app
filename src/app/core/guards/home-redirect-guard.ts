@@ -6,9 +6,9 @@ import { RoleEnum } from '../enum/role.enum';
 export const homeRedirectGuard: CanActivateFn = (route, state) => {
   const tokenService = inject(TokenService);
   const router = inject(Router);
-
+  console.log("token service",tokenService.getUser()?.role);
   const role = tokenService.getUser()?.role;
-  console.log(state);
+
 
   return role === RoleEnum.Instructor
     ? router.createUrlTree(['/dashboard/instructor'])
