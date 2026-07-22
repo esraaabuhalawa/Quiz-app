@@ -25,6 +25,16 @@ export const INSTRUCTOR_ROUTES: Routes = [
       title: 'Students',
     },
   },
+   {
+    path: 'questions',
+    loadComponent: () =>
+      import('../instructor/modules/questions/components/questions-list/questions-list').then(
+        (c) => c.QuestionsList,
+      ),
+    data: {
+      title: 'Questions',
+    },
+  },
   {
     path: 'quizzes',
     loadComponent: () =>
