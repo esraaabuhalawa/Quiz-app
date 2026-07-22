@@ -21,4 +21,11 @@ export class StudentsService {
   deleteStudent(studentId: string): Observable<any> {
     return this.http.delete(`student/${studentId}`);
   }
+
+  addToGroup(studentId: string, groupId: string) {
+  return this.http.put(
+    `student/${studentId}/${groupId}`,
+    {}
+  );
+}
 }
