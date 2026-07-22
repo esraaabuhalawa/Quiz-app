@@ -15,7 +15,7 @@ export interface NavItem {
 export const INSTRUCTOR_NAV_ITEMS: NavItem[] = [
   {
     label: 'Dashboard',
-    route: '/instructor',
+    route: 'instructor',
     icon: {
       default: '/images/dashboard-icon.svg',
       active: '/images/dashboard-icon-white.svg',
@@ -23,7 +23,15 @@ export const INSTRUCTOR_NAV_ITEMS: NavItem[] = [
   },
   {
     label: 'Students',
-    route: '/instructor/students',
+    route: 'instructor/students',
+    icon: {
+      default: '/images/groups-icon.svg',
+      active: '/images/groups-icon-white.svg',
+    },
+  },
+   {
+    label: 'Questions',
+    route: 'instructor/questions',
     icon: {
       default: '/images/groups-icon.svg',
       active: '/images/groups-icon-white.svg',
@@ -31,7 +39,7 @@ export const INSTRUCTOR_NAV_ITEMS: NavItem[] = [
   },
   {
     label: 'Quizzes',
-    route: '/instructor/quizzes',
+    route: 'instructor/quizzes',
     icon: {
       default: '/images/Quiz-icon.svg',
       active: '/images/Quiz-icon-white.svg',
@@ -39,7 +47,7 @@ export const INSTRUCTOR_NAV_ITEMS: NavItem[] = [
   },
   {
     label: 'Groups',
-    route: '/instructor/groups',
+    route: 'instructor/groups',
     icon: {
       default: '/images/groups-icon.svg',
       active: '/images/groups-icon-white.svg',

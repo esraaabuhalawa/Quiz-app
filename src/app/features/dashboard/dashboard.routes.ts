@@ -1,5 +1,4 @@
 import { Routes } from '@angular/router';
-import { authGuard } from '../../core/guards/auth-guard';
 import { roleGuard } from '../../core/guards/role-guard';
 import { RoleEnum } from '../../core/enum/role.enum';
 import { DashboardLayout } from '../../shared/layouts/dashboard-layout/dashboard-layout';

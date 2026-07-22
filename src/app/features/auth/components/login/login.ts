@@ -61,7 +61,7 @@ export class Login implements OnInit {
     console.log(this.form);
   }
   private redirectByRole(role: RoleEnum): void {
-    const destination = role === RoleEnum.Instructor ? '/instructor' : '/learner';
+    const destination = role === RoleEnum.Instructor ? 'dashboard/instructor' : 'dashboard/learner';
     this.router.navigate([destination]);
   }
 }
