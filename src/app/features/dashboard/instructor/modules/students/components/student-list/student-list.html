@@ -114,3 +114,9 @@
   [selectedStudent]="selectedStudent()"
   (submitForm)="saveStudent($event)"
 />
+
+<app-view-student
+  [visible]="viewDialog()"
+  (visibleChange)="viewDialog.set($event)"
+  [selectedStudent]="selectedViewStudent()">
+</app-view-student>

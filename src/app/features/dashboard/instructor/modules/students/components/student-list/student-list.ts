@@ -13,9 +13,10 @@ import { GroupsService } from '../../../group/services/groups.service';
 import { IGroupData } from '../../../group/interfaces/groups';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
 import { AddEditStudent } from "../add-edit-student/add-edit-student";
+import { ViewStudent } from '../view-student/view-student';
 @Component({
   selector: 'app-student-list',
-  imports: [PageLayout, Loader, EmptyStateComponent, Paginator, Button, Avatar, TranslatePipe, AddEditStudent],
+  imports: [PageLayout, Loader, EmptyStateComponent, Paginator, Button, Avatar, TranslatePipe, AddEditStudent ,ViewStudent],
   templateUrl: './student-list.html',
   styleUrl: './student-list.scss',
 })
@@ -41,6 +42,8 @@ export class StudentList {
   showDialog = signal(false);
 addEditLoad = signal(false);
 selectedStudent = signal<IStudents | null>(null);
+selectedViewStudent = signal<IStudents | null>(null);
+viewDialog = signal(false);
 
 
 
@@ -106,7 +109,10 @@ selectedStudent = signal<IStudents | null>(null);
     //  this.router.navigate();
   }
   //view student
-  viewStudent(student: IStudents): void {}
+  viewStudent(student: IStudents): void {
+    this.selectedViewStudent.set(student);
+  this.viewDialog.set(true);
+  }
 
   // remove student from group
   openDeleteDialog(student: IStudents): void {
