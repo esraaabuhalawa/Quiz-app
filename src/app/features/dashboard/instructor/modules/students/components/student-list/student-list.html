@@ -12,14 +12,6 @@
   } @else {
     <!-- Group Tabs -->
     <div class="flex gap-2 mb-4">
-      <p-button
-        [label]="'groups.all' | translate"
-        [rounded]="true"
-        [outlined]="selectedGroupId() !== null"
-        [severity]="selectedGroupId() === null ? 'contrast' : 'secondary'"
-        size="large"
-        (onClick)="selectAllGroups()"
-      />
       @for (group of groupsList(); track group._id) {
         <p-button
           [label]="group.name"
@@ -118,5 +110,6 @@
 <app-view-student
   [visible]="viewDialog()"
   (visibleChange)="viewDialog.set($event)"
-  [selectedStudent]="selectedViewStudent()">
+  [selectedStudent]="selectedViewStudent()"
+>
 </app-view-student>

@@ -8,7 +8,7 @@
   [dismissableMask]="true"
   styleClass="delete-confirm-dialog"
 >
-  <div class="delete-confirm-header flex align-items-center justify-content-between">
+  <!-- <div class="delete-confirm-header flex align-items-center justify-content-between">
     <span class="delete-confirm-title">{{ config().title }}</span>
     <div class="flex align-items-center gap-2">
       <button type="button" class="icon-btn" (click)="onConfirm()" aria-label="Confirm">
@@ -18,15 +18,24 @@
         <i class="pi pi-times"></i>
       </button>
     </div>
+  </div> -->
+  <div class="delete-confirm-header flex align-items-center justify-content-between">
+    <span class="delete-confirm-title">{{ config().title }}</span>
+    <div class="flex align-items-stretch icon-btn-border">
+      <button type="button" class="icon-btn" (click)="onConfirm()" aria-label="Confirm">
+        <i class="pi pi-check"></i>
+      </button>
+      <button type="button" class="icon-btn" (click)="onCancel()" aria-label="Close">
+        <i class="pi pi-times"></i>
+      </button>
+    </div>
   </div>
-
   <div class="delete-confirm-body text-center">
     <div class="delete-icon-circle">
       <i class="pi pi-trash"></i>
     </div>
 
     <p class="delete-confirm-message">{{ config().confirmMessage }}</p>
-    <p class="delete-confirm-subtext">This action cannot be undone.</p>
 
     <div class="delete-item-card flex align-items-center gap-3 text-left">
       @if (config().item.image) {
