@@ -15,7 +15,7 @@ export interface Quiz {
   difficulty?: 'easy' | 'medium' | 'hard' | string;
   createdAt?: string;
   updatedAt?: string;
-  enrolledStudents?: number;
+  participants: number;
 }
 
 export interface GroupInfo {

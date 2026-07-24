@@ -25,7 +25,7 @@
         </h3>
 
         <div class="flex flex-column gap-3">
-          @for (quiz of upcomingQuizzes; track quiz._id) {
+          @for (quiz of upcomingQuizzes(); track quiz._id) {
             <div
               class="quiz-card p-0 border-round-xl border-1 surface-border flex align-items-center justify-content-between overflow-hidden"
             >
@@ -41,7 +41,8 @@
                     {{ quiz.schadule | date: 'hh:mm a' }}
                   </p>
                   <p class="m-0 text-700 text-xs font-semibold">
-                    {{ 'QUIZZES.NO_STUDENTS' | translate }}: {{ quiz.enrolledStudents }}
+                    {{ 'QUIZZES.NO_STUDENTS' | translate }}:
+                    {{ quiz.participants || 0 }}
                   </p>
                 </div>
               </div>
@@ -102,7 +103,7 @@
           </a>
         </div>
 
-        <p-table [value]="completedQuizzes" styleClass="custom-p-table">
+        <p-table [value]="completedQuizzes()" styleClass="custom-p-table">
           <ng-template pTemplate="header">
             <tr>
               <th>{{ 'QUIZZES.TITLE' | translate }}</th>
@@ -114,9 +115,11 @@
           <ng-template pTemplate="body" let-quiz>
             <tr>
               <td class="font-semibold text-900">{{ quiz.title }}</td>
-              <td>{{ quiz.group }}</td>
-              <td>{{ quiz.enrolledStudents }} {{ 'QUIZZES.PERSONS' | translate }}</td>
-              <td>{{ quiz.schaduleDate || quiz.date }}</td>
+              <td>
+                {{ quiz.group?.name || quiz.group }}
+              </td>
+              <td>{{ quiz.participants || 0 }} {{ 'QUIZZES.PERSONS' | translate }}</td>
+              <td>{{ quiz.schadule | date: 'dd/MM/yyyy' }}</td>
             </tr>
           </ng-template>
           <ng-template pTemplate="emptymessage">

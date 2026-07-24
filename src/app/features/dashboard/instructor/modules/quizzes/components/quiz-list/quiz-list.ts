@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, computed, inject, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TableModule } from 'primeng/table';
 import { CardModule } from 'primeng/card';
@@ -10,7 +10,6 @@ import { QuizzesService } from '../../services/quizzes.service';
 import { MessageService } from 'primeng/api';
 import { Toast } from 'primeng/toast';
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
-
 @Component({
   selector: 'quiz-app-quiz-list',
   imports: [
@@ -31,8 +30,8 @@ export class QuizList implements OnInit {
   private messageService = inject(MessageService);
   private translateService = inject(TranslateService);
 
-  upcomingQuizzes: Quiz[] = [];
-  completedQuizzes: Quiz[] = [];
+  upcomingQuizzes = signal<Quiz[]>([]);
+  completedQuizzes = signal<Quiz[]>([]);
 
   ngOnInit(): void {
     this.getIncomingQuizzes();
@@ -40,9 +39,9 @@ export class QuizList implements OnInit {
   }
 
   getIncomingQuizzes(): void {
-    this.quizzesService.getIncomingQuizzes().subscribe({
+    this.quizzesService.getFirstFiveIncomming().subscribe({
       next: (res) => {
-        this.upcomingQuizzes = res;
+        this.upcomingQuizzes.set(res);
       },
       error: (err) => {
         this.messageService.add({
@@ -55,9 +54,12 @@ export class QuizList implements OnInit {
   }
 
   getCompletedQuizzes(): void {
-    this.quizzesService.getCompletedQuizzes().subscribe({
+    this.quizzesService.getLastFiveCompleted().subscribe({
       next: (res) => {
-        this.completedQuizzes = res;
+        console.log(res);
+        console.log(res[0].group);
+
+        this.completedQuizzes.set(res);
       },
       error: (err) => {
         this.messageService.add({
