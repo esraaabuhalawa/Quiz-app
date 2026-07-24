@@ -9,11 +9,11 @@ import { HttpClient } from '@angular/common/http';
 export class QuizzesService {
   private http = inject(HttpClient);
 
-  getIncomingQuizzes(): Observable<Quiz[]> {
-    return this.http.get<Quiz[]>(`/quiz/incomming`);
+  getFirstFiveIncomming(): Observable<Quiz[]> {
+    return this.http.get<Quiz[]>(`quiz/incomming`);
   }
 
-  getCompletedQuizzes(): Observable<Quiz[]> {
-    return this.http.get<Quiz[]>(`/quiz/completed`);
+  getLastFiveCompleted(): Observable<Quiz[]> {
+    return this.http.get<Quiz[]>(`quiz/completed`);
   }
 }
