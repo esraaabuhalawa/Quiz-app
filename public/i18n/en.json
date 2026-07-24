@@ -219,6 +219,20 @@
   "delete_success": "Question deleted successfully."
 
   },
+  "QUIZZES": {
+    "SET_UP_NEW": "Set up a new quiz",
+    "QUESTION_BANK": "Question Bank",
+    "UPCOMING_QUIZZES": "Upcoming quizzes",
+    "COMPLETED_QUIZZES": "Completed Quizzes",
+    "NO_STUDENTS": "No. of student's enrolled",
+    "OPEN": "Open",
+    "RESULTS": "Results",
+    "TITLE": "Title",
+    "GROUP_NAME": "Group name",
+    "PERSONS_COUNT": "No. of persons in group",
+    "DATE": "Date",
+    "PERSONS": "persons"
+  },
   "user_profile": {
     "title": "Profile",
     "country": "Country",

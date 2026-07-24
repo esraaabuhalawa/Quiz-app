@@ -221,6 +221,20 @@
   "delete_warning_note": "سيتم حذف السؤال نهائيًا من بنك الأسئلة ",
   "delete_success": "تم حذف السؤال بنجاح."
   },
+  "QUIZZES": {
+    "SET_UP_NEW": "إعداد اختبار جديد",
+    "QUESTION_BANK": "بنك الأسئلة",
+    "UPCOMING_QUIZZES": "الاختبارات القادمة",
+    "COMPLETED_QUIZZES": "الاختبارات المكتملة",
+    "NO_STUDENTS": "عدد الطلاب المسجلين",
+    "OPEN": "فتح",
+    "RESULTS": "النتائج",
+    "TITLE": "العنوان",
+    "GROUP_NAME": "اسم المجموعة",
+    "PERSONS_COUNT": "عدد الأشخاص في المجموعة",
+    "DATE": "التاريخ",
+    "PERSONS": "أشخاص"
+  },
   "user_profile": {
     "title": "الملف الشخصي",
     "country": "الدولة",
