@@ -97,8 +97,6 @@ export class GroupsList {
 
   openEditDialog(group: IGroupData): void {
     this.selectedGroup.set(structuredClone(group));
-    // this.selectedGroup.set({ ...group });
-    // this.selectedGroup.set(group)
     this.showDialog = true;
   }
 
