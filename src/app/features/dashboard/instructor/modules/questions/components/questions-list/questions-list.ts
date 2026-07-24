@@ -13,7 +13,7 @@ import { MessageService } from 'primeng/api';
 import { DeleteConfig } from '../../../../../../../shared/components/delete/interfaces/delete';
 import { AlertDeleteService } from '../../../../../../../shared/components/delete/services/alert-delete-sevice';
 import { DatePipe } from '@angular/common';
-
+import { ViewQuestion } from '../view-question/view-question';
 @Component({
   selector: 'app-questions-list',
   imports: [
@@ -25,7 +25,7 @@ import { DatePipe } from '@angular/common';
     FormsModule,
     EmptyStateComponent,
     TableModule,
-    //  AddEditQuestion,
+    ViewQuestion,
   ],
   templateUrl: './questions-list.html',
   styleUrl: './questions-list.scss',
@@ -41,8 +41,8 @@ export class QuestionsList {
   currentPage = signal<number>(1);
   pageSize = signal<number>(10);
   totalRecords = signal<number>(0);
-  selectedQuestion = signal<IQuestion | null>(null);
-  SelectedQuestion = signal<IQuestion | null>(null);
+  selectedQuestionForEdit = signal<IQuestion | null>(null);
+  selectedQuestionForView = signal<IQuestion | null>(null);
 
   questionLoading = signal(false);
   visible = signal(false);
@@ -78,13 +78,13 @@ export class QuestionsList {
   }
 
   viewQuestion(question: IQuestion) {
-    this.selectedQuestion.set(null);
+    this.visible.set(false);
+    this.selectedQuestionForView.set(null);
     this.questionLoading.set(true);
     this.visible.set(true);
-
     this.questionService.getQuestionDetails(question._id).subscribe({
       next: (res: IQuestion) => {
-        this.SelectedQuestion.set(res);
+        this.selectedQuestionForView.set(res);
         this.questionLoading.set(false);
       },
       error: () => {
@@ -94,13 +94,18 @@ export class QuestionsList {
     });
   }
 
+  onHideViewDialog() {
+    this.visible.set(false);
+    this.selectedQuestionForView.set(null);
+  }
+
   openEditDialog(question: IQuestion): void {
-    this.selectedQuestion.set(structuredClone(question));
+    this.selectedQuestionForEdit.set(structuredClone(question));
     this.showDialog = true;
   }
 
   openAddDialog() {
-    this.selectedQuestion.set(null);
+    this.selectedQuestionForEdit.set(null);
     this.showDialog = true;
   }
 

@@ -1,0 +1,116 @@
+<p-dialog
+  [(visible)]="visible"
+  [modal]="true"
+  [style]="{ width: '40rem', maxWidth: '95vw' }"
+  (onHide)="handleHide()"
+>
+  <!-- Header -->
+  <ng-template pTemplate="header">
+    <div class="flex align-items-center gap-2">
+      <i class="pi pi-question-circle text-xl text-primary"></i>
+      <span class="font-semibold text-lg">
+        {{ 'questions.details.title' | translate }}
+      </span>
+    </div>
+  </ng-template>
+
+  @if (loading) {
+    <app-loader></app-loader>
+  } @else if (selectedQuestion) {
+    <div class="flex flex-column gap-3 p-1">
+      <!--  Header -->
+      <div class="flex justify-content-between align-items-center gap-3">
+        <div class="flex gap-3 align-items-center">
+          <div>
+            <h3 class="m-0 text-lg font-bold text-900">
+              {{ selectedQuestion.title }}
+            </h3>
+            <span class="text-xs font-semibold text-500 uppercase tracking-wider">
+              {{ selectedQuestion.type }}
+            </span>
+          </div>
+        </div>
+
+        <div class="flex gap-2 align-items-center">
+          <p-tag
+            [value]="selectedQuestion.status | titlecase"
+            [severity]="selectedQuestion.status === 'active' ? 'success' : 'danger'"
+          ></p-tag>
+
+          <p-tag
+            [value]="selectedQuestion.difficulty | uppercase"
+            [severity]="
+              selectedQuestion.difficulty === 'hard'
+                ? 'danger'
+                : selectedQuestion.difficulty === 'medium'
+                  ? 'warn'
+                  : 'info'
+            "
+          ></p-tag>
+        </div>
+      </div>
+
+      <!-- Question Description  -->
+      @if (selectedQuestion.description) {
+        <div class="question-content-box p-3 border-round">
+          <p class="m-0 text-800 line-height-3 text-sm">
+            {{ selectedQuestion.description }}
+          </p>
+        </div>
+      }
+
+      <!-- Options Header  -->
+      <div class="options-card border-1 surface-border border-round p-3 mt-1">
+        <div class="flex align-items-center justify-content-between mb-3">
+          <h4 class="m-0 text-base font-semibold text-800">
+            {{ 'questions.details.options' | translate }}
+          </h4>
+
+          <div class="points-pill flex align-items-center gap-1-5 px-2-5 py-1 border-round-circle">
+            <i class="pi pi-award text-sm"></i>
+            <span class="text-xs font-bold">
+              {{ selectedQuestion.points }} {{ selectedQuestion.points === 1 ? 'Point' : 'Points' }}
+            </span>
+          </div>
+        </div>
+
+        <div class="flex flex-column gap-2">
+          @for (option of selectedQuestion.options | keyvalue; track option.key) {
+            @if (option.key !== '_id') {
+              <div
+                class="option-row flex align-items-center justify-content-between p-3 border-round border-1 transition-all"
+                [ngClass]="{
+                  'correct-option': option.key === selectedQuestion.answer,
+                  'normal-option': option.key !== selectedQuestion.answer,
+                }"
+              >
+                <div class="flex align-items-center gap-3">
+                  <span
+                    class="option-badge w-2rem h-2rem border-round-lg flex align-items-center justify-content-center font-bold text-sm"
+                    [ngClass]="{
+                      'correct-badge': option.key === selectedQuestion.answer,
+                      'normal-badge': option.key !== selectedQuestion.answer,
+                    }"
+                  >
+                    {{ option.key }}
+                  </span>
+
+                  <span class="text-sm font-medium">
+                    {{ option.value }}
+                  </span>
+                </div>
+
+                @if (option.key === selectedQuestion.answer) {
+                  <span class="flex align-items-center gap-1 text-green-600 font-semibold text-xs">
+                    <i class="pi pi-check-circle text-base"></i>
+                    {{ 'questions.details.correct' | translate }}
+                  </span>
+                }
+              </div>
+            }
+          }
+        </div>
+      </div>
+    </div>
+  }
+</p-dialog>

@@ -196,8 +196,8 @@
 
 
   },
-  "questions": {
-    "title": " بنك الأسئلة",
+ "questions": {
+    "title": "بنك الأسئلة",
     "add": "إضافة سؤال",
     "question": "سؤال",
     "view": "عرض",
@@ -216,10 +216,21 @@
       "actions": "الإجراءات"
     },
     "description": "وصف السؤال",
-    "delete_title": "حذف سؤال",
-  "delete_confirm_message": "هل أنت متأكد أنك تريد حذف هذا السؤال؟",
-  "delete_warning_note": "سيتم حذف السؤال نهائيًا من بنك الأسئلة ",
-  "delete_success": "تم حذف السؤال بنجاح."
+    "delete_title": "حذف السؤال",
+    "delete_confirm_message": "هل أنت تأكد من رغبتك في حذف هذا السؤال؟",
+    "delete_warning_note": "سيتم إزالة السؤال بشكل نهائي من بنك الأسئلة",
+    "delete_success": "تم حذف السؤال بنجاح.",
+    "details": {
+      "title": "تفاصيل السؤال",
+      "type": "النوع",
+      "description": "محتوى السؤال",
+      "points": "الدرجات",
+      "pts": "درجة",
+      "options": "الخيارات والإجابات",
+      "choices": "خيارات",
+      "correct": "الإجابة الصحيحة",
+      "no_options": "لا توجد خيارات متاحة لهذا السؤال."
+    }
   },
   "QUIZZES": {
     "SET_UP_NEW": "إعداد اختبار جديد",
