@@ -70,29 +70,42 @@
   border-radius: 0 12px 12px 0;
 }
 
-
-.action-btn {
-  border: none;
-  background: transparent;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  padding: 5px;
-  color:#FB7C19;
-  transition: all .3s ease-in-out;
-  i{
-    font-size: 18px;
-    transition: all .3s ease-in-out;
+:host ::ng-deep {
+  .action-btn.p-button {
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+    color: #fb7c19;
   }
-}
 
+  /* View */
+  .view-btn,.edit-btn,.delete-btn {
+    color: #fb7c19;
 
-.action-btn:hover {
-  border-radius: 2px;
-  color: #fff;
-  background-color: #FB7C19;;
-}
+    &:hover {
+      background: rgba(251, 124, 25, 0.12);
+      color: #fb7c19;
+    }
+  }
 
-:host ::ng-deep .action-btn:hover .pi {
-  color: #fff;
+  /* Edit */
+  // .edit-btn {
+  //   color: #1f2937;
+
+  //   &:hover {
+  //     background: rgba(31, 41, 55, 0.12);
+  //     color: #1f2937;
+  //   }
+  // }
+
+  /* Delete */
+  // .delete-btn {
+  //   color: #ef4444;
+
+  //   &:hover {
+  //     background: rgba(239, 68, 68, 0.12);
+  //     color: #ef4444;
+  //   }
+  // }
 }

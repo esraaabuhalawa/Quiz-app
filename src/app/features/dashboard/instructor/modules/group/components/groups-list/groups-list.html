@@ -32,7 +32,26 @@
               </div>
 
               <!-- Actions -->
-              <div class="flex flex-row gap-2">
+               <div class="flex gap-1">
+                <p-button
+                  icon="pi pi-pencil"
+                  [rounded]="true"
+                  [text]="true"
+                  size="large"
+                  styleClass="dark-edit-btn"
+                  (onClick)="$event.stopPropagation(); openEditDialog(group)"
+                />
+                <p-button
+                  icon="pi pi-trash"
+                  [rounded]="true"
+                  [size]="'large'"
+                  severity="danger"
+                  [text]="true"
+                  (onClick)="$event.stopPropagation(); openDeleteDialog(group)"
+                />
+              </div>
+
+              <!-- <div class="flex flex-row gap-2">
                 <button type="button" class="action-btn" (click)="openEditDialog(group)">
                   <i class="pi pi-pencil"></i>
                 </button>
@@ -44,7 +63,7 @@
                 >
                   <i class="pi pi-trash"></i>
                 </button>
-              </div>
+              </div> -->
             </div>
           </div>
         }

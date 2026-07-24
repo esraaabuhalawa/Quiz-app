@@ -14,6 +14,7 @@ import { DeleteConfig } from '../../../../../../../shared/components/delete/inte
 import { AlertDeleteService } from '../../../../../../../shared/components/delete/services/alert-delete-sevice';
 import { DatePipe } from '@angular/common';
 import { ViewQuestion } from '../view-question/view-question';
+import { Button } from 'primeng/button';
 @Component({
   selector: 'app-questions-list',
   imports: [
@@ -26,6 +27,7 @@ import { ViewQuestion } from '../view-question/view-question';
     EmptyStateComponent,
     TableModule,
     ViewQuestion,
+    Button
   ],
   templateUrl: './questions-list.html',
   styleUrl: './questions-list.scss',

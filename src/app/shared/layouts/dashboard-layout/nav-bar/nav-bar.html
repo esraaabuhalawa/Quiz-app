@@ -1,11 +1,12 @@
 <header class="app-header flex align-items-center justify-content-between">
   <h2 class="m-0">{{ pageTitle() }}</h2>
 
-  <div class="flex align-items-center gap-4 justify-content-between w-5">
+  <div class="flex align-items-center gap-4 justify-content-end w-5">
     <p-button label="New quiz" outlined (onClick)="onNewQuiz()">
       <ng-template pTemplate="icon">
         <img src="/images/new quiz icon.svg" alt="New Quiz" width="18" height="18" /> </ng-template
     ></p-button>
+    <app-language-switcher></app-language-switcher>
     <div class="w-3">
       <div
         class="flex align-items-center gap-2 cursor-pointer w=[100%]"

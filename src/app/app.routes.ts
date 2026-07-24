@@ -18,7 +18,6 @@ export const routes: Routes = [
       import('./features/dashboard/dashboard.routes').then((m) => m.DASHBOARD_ROUTES),
     canActivate: [authGuard],
   },
-  // { path: '**', redirectTo: 'auth/login' },
   {
     path: '**',
     title: 'Page Not Found',

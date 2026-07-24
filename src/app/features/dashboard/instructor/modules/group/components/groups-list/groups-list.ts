@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { ViewGroup } from '../view-group/view-group';
 import { DeleteConfig } from '../../../../../../../shared/components/delete/interfaces/delete';
 import { AlertDeleteService } from '../../../../../../../shared/components/delete/services/alert-delete-sevice';
+import { Button } from 'primeng/button';
 
 @Component({
   selector: 'app-groups-list',
@@ -25,6 +26,7 @@ import { AlertDeleteService } from '../../../../../../../shared/components/delet
     EmptyStateComponent,
     AddEditGroup,
     ViewGroup,
+    Button
   ],
   templateUrl: './groups-list.html',
   styleUrl: './groups-list.scss',

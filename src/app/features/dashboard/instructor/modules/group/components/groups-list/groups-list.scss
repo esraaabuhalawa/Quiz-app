@@ -23,30 +23,11 @@
   }
 }
 
-.action-btn {
-  border: none;
-  background: transparent;
-  display: inline-flex;
-  justify-content: center;
-  align-items: center;
-  padding: 5px;
-  transition: all .3s ease-in-out;
-}
+:host ::ng-deep .dark-edit-btn.p-button {
+  color: #1f2937;
 
-
-:host ::ng-deep .action-btn .pi {
-  color: #000;
-  font-size: 18px;
-  transition: all .3s ease-in-out;
-}
-
-.action-btn:hover {
-  border-radius: 2px;
-  border-color: #000;
-  color: #fff;
-  background-color: var(--ultra-color);
-}
-
-:host ::ng-deep .action-btn:hover .pi {
-  color: #fff;
+  &:hover {
+    background: rgba(31, 41, 55, 0.12);
+    color: #1f2937;
+  }
 }

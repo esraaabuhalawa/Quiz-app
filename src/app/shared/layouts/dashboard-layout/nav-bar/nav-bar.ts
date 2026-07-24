@@ -9,9 +9,10 @@ import { AuthService } from '../../../../features/auth/services/auth.service';
 import { Button } from 'primeng/button';
 import { MenuModule } from 'primeng/menu';
 import { filter } from 'rxjs';
+import { LanguageSwitcherComponent } from "../../../components/language-switcher/language-switcher.component";
 @Component({
   selector: 'app-nav-bar',
-  imports: [BadgeModule, AvatarModule, InputTextModule, CommonModule, Button, MenuModule],
+  imports: [BadgeModule, AvatarModule, InputTextModule, CommonModule, Button, MenuModule, LanguageSwitcherComponent],
   templateUrl: './nav-bar.html',
   styleUrl: './nav-bar.scss',
 })
