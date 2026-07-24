@@ -213,11 +213,21 @@
       "actions": "Actions"
     },
     "description": "Question Description",
-     "delete_title": "Delete Question",
-  "delete_confirm_message": "Are you sure you want to delete this question?",
-  "delete_warning_note": "The question will be permanently removed from the bank",
-  "delete_success": "Question deleted successfully."
-
+    "delete_title": "Delete Question",
+    "delete_confirm_message": "Are you sure you want to delete this question?",
+    "delete_warning_note": "The question will be permanently removed from the bank",
+    "delete_success": "Question deleted successfully.",
+    "details": {
+      "title": "Question Details",
+      "type": "Type",
+      "description": "Question Content",
+      "points": "Points",
+      "pts": "Pts",
+      "options": "Options / Choices",
+      "choices": "Choices",
+      "correct": "Correct Answer",
+      "no_options": "No options available for this question."
+    }
   },
   "QUIZZES": {
     "SET_UP_NEW": "Set up a new quiz",

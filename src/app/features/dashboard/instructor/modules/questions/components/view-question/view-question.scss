@@ -1,0 +1,52 @@
+.question-icon-wrapper {
+  width: 2.75rem;
+  height: 2.75rem;
+  background-color: var(--primary-50, #f0f3ff);
+  border-radius: 50%;
+}
+
+.question-content-box {
+  background-color: var(--surface-100, #f8f9fa);
+  border-left: 3px solid var(--primary-color, #6366f1);
+}
+
+.options-card {
+  background: var(--surface-card);
+}
+
+.points-pill {
+  background-color: var(--primary-50, #eef2ff);
+  color: var(--primary-700, #4338ca);
+  border: 1px solid var(--primary-100, #e0e7ff);
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+}
+
+.option-row {
+  cursor: default;
+
+  &.normal-option {
+    background-color: var(--surface-0);
+    border-color: var(--surface-200);
+
+    &:hover {
+      background-color: var(--surface-50);
+    }
+  }
+
+  &.correct-option {
+    background-color: #f0fdf4;
+    border-color: #86efac;
+    color: #14532d;
+  }
+}
+
+.normal-badge {
+  background-color: var(--surface-100);
+  color: var(--text-color-secondary);
+}
+
+.correct-badge {
+  background-color: #22c55e;
+  color: #ffffff;
+}

@@ -12,76 +12,76 @@
   } @else if (questionsList().length === 0) {
     <app-empty-state [elementName]="'questions.question'"></app-empty-state>
   } @else {
-  <!-- Questions Table -->
-  <div class="questions-table-wrapper w-full">
-    <p-table [value]="questionsList()" [tableStyle]="{ 'min-width': '50rem' }">
-      <ng-template pTemplate="header">
-        <tr>
-          <th>{{ 'questions.table.title' | translate }}</th>
-          <th>{{ 'questions.table.description' | translate }}</th>
-          <th>{{ 'questions.table.difficulty' | translate }}</th>
-          <th>{{ 'questions.table.date' | translate }}</th>
-          <th class="text-center">{{ 'questions.table.actions' | translate }}</th>
-        </tr>
-      </ng-template>
+    <!-- Questions Table -->
+    <div class="questions-table-wrapper w-full">
+      <p-table [value]="questionsList()" [tableStyle]="{ 'min-width': '50rem' }">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>{{ 'questions.table.title' | translate }}</th>
+            <th>{{ 'questions.table.description' | translate }}</th>
+            <th>{{ 'questions.table.difficulty' | translate }}</th>
+            <th>{{ 'questions.table.date' | translate }}</th>
+            <th class="text-center">{{ 'questions.table.actions' | translate }}</th>
+          </tr>
+        </ng-template>
 
-      <ng-template pTemplate="body" let-question>
-        <tr>
-          <td class="question-title">{{ question.title }}</td>
-          <td class="question-desc">{{ question.description }}</td>
-          <td>
-            <span class="difficulty-badge" [class]="'difficulty-' + question.difficulty">
-              {{ 'questions.difficulty.' + question.difficulty | translate }}
-            </span>
-          </td>
-          <td>{{ (question.createdAt | date: 'dd MMM yyyy') || '-' }}</td>
-          <td>
-            <div class="flex align-items-center justify-content-center gap-2">
-              <button
-                type="button"
-                class="action-btn"
-                [title]="'questions.view' | translate"
-                (click)="viewQuestion(question)"
-              >
-                <i class="pi pi-eye"></i>
-              </button>
+        <ng-template pTemplate="body" let-question>
+          <tr>
+            <td class="question-title">{{ question.title }}</td>
+            <td class="question-desc">{{ question.description }}</td>
+            <td>
+              <span class="difficulty-badge" [class]="'difficulty-' + question.difficulty">
+                {{ 'questions.difficulty.' + question.difficulty | translate }}
+              </span>
+            </td>
+            <td>{{ (question.createdAt | date: 'dd MMM yyyy') || '-' }}</td>
+            <td>
+              <div class="flex align-items-center justify-content-center gap-2">
+                <button
+                  type="button"
+                  class="action-btn"
+                  [title]="'questions.view' | translate"
+                  (click)="viewQuestion(question)"
+                >
+                  <i class="pi pi-eye"></i>
+                </button>
 
-              <button
-                type="button"
-                class="action-btn"
-                [title]="'questions.edit' | translate"
-                (click)="openEditDialog(question)"
-              >
-                <i class="pi pi-pencil"></i>
-              </button>
+                <button
+                  type="button"
+                  class="action-btn"
+                  [title]="'questions.edit' | translate"
+                  (click)="openEditDialog(question)"
+                >
+                  <i class="pi pi-pencil"></i>
+                </button>
 
-              <button
-                type="button"
-                class="action-btn"
-                [title]="'questions.delete' | translate"
-                (click)="openDeleteDialog(question)"
-              >
-                <i class="pi pi-trash"></i>
-              </button>
-            </div>
-          </td>
-        </tr>
-      </ng-template>
-    </p-table>
+                <button
+                  type="button"
+                  class="action-btn"
+                  [title]="'questions.delete' | translate"
+                  (click)="openDeleteDialog(question)"
+                >
+                  <i class="pi pi-trash"></i>
+                </button>
+              </div>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
 
-    <div class="flex mt-5 justify-content-center">
-      <!-- Paginator -->
-      <p-paginator
-        [first]="(currentPage() - 1) * pageSize()"
-        [rows]="pageSize()"
-        [totalRecords]="totalRecords()"
-        [showCurrentPageReport]="true"
-        [currentPageReportTemplate]="''"
-        (onPageChange)="onPageChange($event)"
-      >
-      </p-paginator>
+      <div class="flex mt-5 justify-content-center">
+        <!-- Paginator -->
+        <p-paginator
+          [first]="(currentPage() - 1) * pageSize()"
+          [rows]="pageSize()"
+          [totalRecords]="totalRecords()"
+          [showCurrentPageReport]="true"
+          [currentPageReportTemplate]="''"
+          (onPageChange)="onPageChange($event)"
+        >
+        </p-paginator>
+      </div>
     </div>
-  </div>
   }
 </app-page-layout>
 
@@ -91,3 +91,10 @@
   [groupData]="selectedQuestion()"
   (submitForm)="saveGroup($event)"
 /> -->
+<app-view-question
+  [(visible)]="visible"
+  [loading]="questionLoading()"
+  [selectedQuestion]="selectedQuestionForView()"
+  (onHide)="onHideViewDialog()"
+>
+</app-view-question>
