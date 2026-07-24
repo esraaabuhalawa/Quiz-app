@@ -1,0 +1,169 @@
+.open-icon-circle {
+  width: 16px;
+  height: 16px;
+  min-width: 16px;
+  min-height: 16px;
+  background-color: var(--ultra-color);
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    width: 10px;
+    height: 10px;
+  }
+
+  &:hover {
+    opacity: 0.85;
+  }
+}
+.ultra-icon {
+  color: var(--ultra-color);
+  width: 1rem;
+  height: 1rem;
+}
+
+.linker-card {
+  width: 200px;
+  height: 150px;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
+
+  .icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+    }
+  }
+
+  .card-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #000000;
+    text-align: center;
+  }
+
+  &:hover {
+    border-color: rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
+  }
+}
+
+.right-column {
+  width: 100%;
+  max-width: 550px;
+}
+
+.content-box {
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+}
+
+.completed-quizzes-box {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background-color: #ffffff;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.quiz-card {
+  background-color: #ffffff;
+  border-radius: 10px;
+
+  .quiz-img-box {
+    width: 120px;
+    height: 120px;
+    min-width: 120px;
+    min-height: 120px;
+    background-color: #ffeddf;
+    border-radius: 10px;
+
+    .quiz-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+}
+
+.open-btn {
+  color: #000000;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.results-link {
+  color: #000000;
+
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+::ng-deep .custom-p-table {
+  .p-datatable-table {
+    border-collapse: separate !important;
+    border-spacing: 3px 6px !important;
+    width: 100%;
+  }
+
+  .p-datatable-thead > tr > th {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 8px 12px;
+    border: none !important;
+    border-radius: 4px;
+    text-align: left;
+  }
+
+  .p-datatable-tbody > tr {
+    background-color: #ffffff;
+
+    > td {
+      padding: 8px 12px;
+      font-size: 11px;
+      color: #1e293b;
+      border-top: 1px solid #e2e8f0 !important;
+      border-bottom: 1px solid #e2e8f0 !important;
+      border-right: 1px solid #e2e8f0 !important;
+
+      &:first-child {
+        border-left: 1px solid #e2e8f0 !important;
+        border-top-left-radius: 6px;
+        border-bottom-left-radius: 6px;
+      }
+
+      &:last-child {
+        border-top-right-radius: 6px;
+        border-bottom-right-radius: 6px;
+      }
+    }
+
+    &:hover {
+      > td {
+        background-color: #f8fafc !important;
+      }
+    }
+  }
+}
