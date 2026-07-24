@@ -231,7 +231,8 @@
         "option_required": "هذا الخيار مطلوب.",
         "answer_required": "يرجى اختيار الإجابة الصحيحة.",
         "type_required": "يرجى اختيار نوع السؤال."
-      }
+      },
+      "dialog_title": "التفاصيل"
     },
     "description": "وصف السؤال",
     "delete_title": "حذف السؤال",

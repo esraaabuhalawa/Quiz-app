@@ -37,7 +37,7 @@
           <td>{{ (question.createdAt | date: 'dd MMM yyyy') || '-' }}</td>
           <td>{{ question.type}}</td>
           <td>
-            <div class="flex align-items-center justify-content-center gap-2">
+            <div class="flex align-items-center justify-content-center">
               <p-button icon="pi pi-eye" [rounded]="true" [text]="true" size="large" styleClass="action-btn view-btn"
                 [title]="'questions.view' | translate" (onClick)="viewQuestion(question)" />
 

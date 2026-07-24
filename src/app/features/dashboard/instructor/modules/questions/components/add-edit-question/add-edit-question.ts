@@ -34,9 +34,16 @@ export class AddEditQuestion {
 
   loadingStudents = false;
   questionTypes = [
-    { label: 'FrontEnd', value: QuestionType.FE },
-    { label: 'Backend', value: QuestionType.BE},
-    { label: 'Dev Ops', value: QuestionType.DO },
+    { label: QuestionType.FE, value: QuestionType.FE },
+    { label: QuestionType.BE, value: QuestionType.BE },
+    { label: QuestionType.DO, value: QuestionType.DO },
+  ];
+
+  answerOptions = [
+    { label: 'A', value: 'A' },
+    { label: 'B', value: 'B' },
+    { label: 'C', value: 'C' },
+    { label: 'D', value: 'D' },
   ];
 
   constructor() {
@@ -70,14 +77,18 @@ export class AddEditQuestion {
         C: ['', Validators.required],
         D: ['', Validators.required],
       }),
-      answer: ['', Validators.required],
+      answer: ['A', Validators.required],
       type: ['', Validators.required],
     });
   }
 
+  ngAfterViewInit(): void {
+    this.form.get('answer')?.setValue('A');
+    this.form.get('type')?.setValue(QuestionType.BE)
+  }
+
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['question']) {
-      //  this.currentQuestion.set(this.question);
       if (this.question) {
         this.form.patchValue({
           title: this.question.title,
@@ -110,11 +121,6 @@ export class AddEditQuestion {
   }
 
   close() {
-    this.form.reset({
-      name: '',
-      students: [],
-    });
-
     this.visibleChange.emit(false);
   }
 }

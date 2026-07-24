@@ -24,8 +24,11 @@
     </div>
   </div>
 
-  <form [formGroup]="form" class="flex flex-column gap-4 p-4">
+  <div class="px-4 py-2">
+      <h2> {{'questions.question_form.dialog_title' | translate}} </h2>
+  </div>
 
+  <form [formGroup]="form" class="flex flex-column gap-4 px-4 pb-4">
     <!-- Title -->
     <div class="form-field">
       <div class="input-group">
@@ -65,10 +68,7 @@
         <label class="input-label" for="description">
           {{ 'questions.question_form.description' | translate }}
         </label>
-        <input pInputText id="description"  formControlName="description">
-
-      <!-- <textarea id="description" pTextarea rows="4" formControlName="description">
-      </textarea> -->
+        <input pInputText id="description" formControlName="description">
       </div>
 
       @if (form.get('description')?.invalid &&
@@ -96,6 +96,16 @@
           <label class="input-label" for="optionA"> {{ 'questions.question_form.option_a' | translate }}</label>
           <input id="optionA" pInputText formControlName="A" />
         </div>
+
+        @if (form.get('options.A')?.invalid &&
+        (form.get('options.A')?.dirty || form.get('options.A')?.touched)) {
+
+        @if (form.get('options.A')?.hasError('required')) {
+        <small class="text-red-500">
+          {{ 'questions.question_form.validation.option_required' | translate }}
+        </small>
+        }
+        }
       </div>
 
       <div class="col-12 md:col-6">
@@ -103,6 +113,15 @@
           <label class="input-label" for="optionB"> {{ 'questions.question_form.option_b' | translate }}</label>
           <input id="optionB" pInputText formControlName="B" />
         </div>
+        @if (form.get('options.B')?.invalid &&
+        (form.get('options.B')?.dirty || form.get('options.B')?.touched)) {
+
+        @if (form.get('options.B')?.hasError('required')) {
+        <small class="text-red-500">
+          {{ 'questions.question_form.validation.option_required' | translate }}
+        </small>
+        }
+        }
       </div>
 
       <div class="col-12 md:col-6">
@@ -110,6 +129,15 @@
           <label class="input-label" for="optionC"> {{ 'questions.question_form.option_c' | translate }}</label>
           <input id="optionC" pInputText formControlName="C" />
         </div>
+        @if (form.get('options.C')?.invalid &&
+        (form.get('options.C')?.dirty || form.get('options.C')?.touched)) {
+
+        @if (form.get('options.C')?.hasError('required')) {
+        <small class="text-red-500">
+          {{ 'questions.question_form.validation.option_required' | translate }}
+        </small>
+        }
+        }
       </div>
 
       <div class="col-12 md:col-6">
@@ -117,54 +145,59 @@
           <label class="input-label" for="optionD"> {{ 'questions.question_form.option_d' | translate }}</label>
           <input id="optionD" pInputText formControlName="D" />
         </div>
+        @if (form.get('options.D')?.invalid &&
+        (form.get('options.D')?.dirty || form.get('options.D')?.touched)) {
+
+        @if (form.get('options.D')?.hasError('required')) {
+        <small class="text-red-500">
+          {{ 'questions.question_form.validation.option_required' | translate }}
+        </small>
+        }
+        }
       </div>
 
     </div>
 
-   <div class="grid">
-     <!-- Answer -->
-    <div class="col-12 md:col-4">
-      <div class="input-group">
-        <label class="input-label" for="answer">
-          {{ 'questions.question_form.answer' | translate }}
-        </label>
+    <div class="grid">
+      <!-- Answer -->
+      <div class="col-4 md:col-6">
+        <div class="input-group select-question">
+          <label class="input-label" for="answer">
+            {{ 'questions.question_form.answer' | translate }}
+          </label>
 
-        <p-select inputId="answer" formControlName="answer" [options]="[
-          { label: 'A', value: 'A' },
-          { label: 'B', value: 'B' },
-          { label: 'C', value: 'C' },
-          { label: 'D', value: 'D' }
-        ]" optionLabel="label" optionValue="value" appendTo="body" placeholder="Select Answer">
-        </p-select>
+          <p-select inputId="answer" formControlName="answer" [options]="answerOptions" optionLabel="label"
+            optionValue="value" appendTo="body" placeholder="Select Answer">
+          </p-select>
+        </div>
+
+        @if (form.get('answer')?.invalid &&
+        (form.get('answer')?.dirty || form.get('answer')?.touched)) {
+        <small class="text-red-500">
+          {{ 'questions.question_form.validation.answer_required' | translate }}
+        </small>
+        }
       </div>
 
-      @if (form.get('answer')?.invalid &&
-      (form.get('answer')?.dirty || form.get('answer')?.touched)) {
-      <small class="text-red-500">
-        {{ 'questions.question_form.validation.answer_required' | translate }}
-      </small>
-      }
-    </div>
+      <!-- Type -->
+      <div class="col-4 md:col-6">
+        <div class="input-group select-question">
+          <label class="input-label" for="type">
+            {{ 'questions.question_form.type' | translate }}
+          </label>
 
-    <!-- Type -->
-    <div class="col-12 md:col-4">
-      <div class="input-group">
-        <label class="input-label" for="type">
-          {{ 'questions.question_form.type' | translate }}
-        </label>
+          <p-select inputId="type" formControlName="type" [options]="questionTypes" optionLabel="label"
+            optionValue="value" appendTo="body" placeholder="BE">
+          </p-select>
+        </div>
 
-        <p-select inputId="type" formControlName="type" [options]="questionTypes" optionLabel="label"
-          optionValue="value" appendTo="body" placeholder="{{ 'questions.question_form.select_type' | translate }}">
-        </p-select>
+        @if (form.get('type')?.invalid &&
+        (form.get('type')?.dirty || form.get('type')?.touched)) {
+        <small class="text-red-500">
+          {{ 'questions.question_form.validation.type_required' | translate }}
+        </small>
+        }
       </div>
-
-      @if (form.get('type')?.invalid &&
-      (form.get('type')?.dirty || form.get('type')?.touched)) {
-      <small class="text-red-500">
-        {{ 'questions.question_form.validation.type_required' | translate }}
-      </small>
-      }
     </div>
-   </div>
   </form>
 </p-dialog>
