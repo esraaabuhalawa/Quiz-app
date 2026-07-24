@@ -18,6 +18,11 @@
   }
 }
 
+h2{
+  font-size: 18px;
+  font-weight: 500;
+  color: #000;
+}
 .group-dialog-header {
   background: var(--surface-color);
   border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
@@ -82,6 +87,8 @@
   }
 }
 
+
+
 .group-dialog-body {
   padding: 45px 40px 100px;
 }
@@ -113,20 +120,18 @@
     box-shadow: none;
     outline: none;
   }
+}
 
-  p-multiselect {
-    flex: 1;
-    min-width: 0;
-    display: flex;
-  }
+.p-select {
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
 
-  ::ng-deep .p-multiselect {
-    flex: 1;
-    width: 100%;
-    border: none;
-    border-radius: 0;
-    box-shadow: none;
-  }
+.select-question {
+  width: fit-content;
 }
 
 .form-field small {

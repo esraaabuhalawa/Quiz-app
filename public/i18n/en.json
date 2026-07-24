@@ -231,7 +231,8 @@
         "option_required": "This option is required.",
         "answer_required": "Please select the correct answer.",
         "type_required": "Please select the question type."
-      }
+      },
+      "dialog_title": "Details"
     },
     "description": "Question Description",
     "delete_title": "Delete Question",
