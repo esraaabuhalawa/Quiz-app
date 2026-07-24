@@ -35,7 +35,7 @@ export class AddEditGroup {
   filteredStudents = signal<IStudents[]>([]);
   private currentGroup = signal<IGroupData | null>(null);
   loadingStudents = false;
-  search = '';
+  //search = '';
 
   // Edit mode: current group members first, then students without a group
   studentOptions = computed(() => {

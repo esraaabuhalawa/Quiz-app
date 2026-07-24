@@ -159,44 +159,38 @@
     "edit": "تعديل الطالب",
     "group": "المجموعة",
     "not_assigned": "غير منضم",
-
     "remove_from_group_title": "إزالة الطالب من المجموعة",
-  "remove_from_group_confirm_message": "هل أنت متأكد من إزالة هذا الطالب من المجموعة؟",
-  "remove_from_group_warning_note": "سيتم إزالة الطالب من هذه المجموعة، وسيظل موجودًا في النظام كطالب غير منضم.",
-  "remove_from_group_success": "تمت إزالة الطالب من المجموعة بنجاح.",
-  "delete_title": "حذف الطالب",
-  "delete_confirm_message": "هل أنت متأكد من حذف هذا الطالب؟",
-  "delete_warning_note": "لا يمكن التراجع عن هذا الإجراء، سيتم حذف الطالب نهائيًا من النظام.",
-  "delete_success": "تم حذف الطالب بنجاح.",
+    "remove_from_group_confirm_message": "هل أنت متأكد من إزالة هذا الطالب من المجموعة؟",
+    "remove_from_group_warning_note": "سيتم إزالة الطالب من هذه المجموعة، وسيظل موجودًا في النظام كطالب غير منضم.",
+    "remove_from_group_success": "تمت إزالة الطالب من المجموعة بنجاح.",
+    "delete_title": "حذف الطالب",
+    "delete_confirm_message": "هل أنت متأكد من حذف هذا الطالب؟",
+    "delete_warning_note": "لا يمكن التراجع عن هذا الإجراء، سيتم حذف الطالب نهائيًا من النظام.",
+    "delete_success": "تم حذف الطالب بنجاح.",
     "already_in_group": "هذا الطالب مضاف بالفعل إلى مجموعة.",
-      "details": {
-    "title": "تفاصيل الطالب",
-    "student": "طالب",
-    "email": "البريد الإلكتروني",
-    "group": "المجموعة",
-    "role": "الدور",
-
-    "roles": {
-      "Student": "طالب",
-      "Instructor": "مدرب",
-      "Admin": "مدير"
+    "details": {
+      "title": "تفاصيل الطالب",
+      "student": "طالب",
+      "email": "البريد الإلكتروني",
+      "group": "المجموعة",
+      "role": "الدور",
+      "roles": {
+        "Student": "طالب",
+        "Instructor": "مدرب",
+        "Admin": "مدير"
+      },
+      "status": "الحالة",
+      "active": "نشط",
+      "inactive": "غير نشط"
     },
-
-  "status": "الحالة",
-    "active": "نشط",
-    "inactive": "غير نشط"
-  } ,
-   "validation": {
-    "student_required": "يرجى اختيار طالب.",
-  "group_required": "يرجى اختيار مجموعة."
+    "validation": {
+      "student_required": "يرجى اختيار طالب.",
+      "group_required": "يرجى اختيار مجموعة."
+    },
+    "create_success": "تمت إضافة الطالب إلى المجموعة بنجاح.",
+    "update_success": "تم تحديث مجموعة الطالب بنجاح."
   },
-
-  "create_success": "تمت إضافة الطالب إلى المجموعة بنجاح.",
-"update_success": "تم تحديث مجموعة الطالب بنجاح."
-
-
-  },
- "questions": {
+  "questions": {
     "title": "بنك الأسئلة",
     "add": "إضافة سؤال",
     "question": "سؤال",
@@ -213,7 +207,31 @@
       "description": "الوصف",
       "difficulty": "مستوى الصعوبة",
       "date": "تاريخ الإنشاء",
-      "actions": "الإجراءات"
+      "actions": "الإجراءات",
+      "type": "يكتب"
+    },
+    "question_form": {
+      "title": "العنوان",
+      "description": "الوصف",
+      "answer": "الإجابة الصحيحة",
+      "type": "نوع الفئة",
+      "select_type": "اختر نوع السؤال",
+      "option_a": "أ",
+      "option_b": "ب",
+      "option_c": " ج",
+      "option_d": "د",
+      "single_choice": "اختيار واحد",
+      "multiple_choice": "اختيار متعدد",
+      "validation": {
+        "title_required": "عنوان السؤال مطلوب.",
+        "title_minlength": "يجب ألا يقل عنوان السؤال عن 3 أحرف.",
+        "title_maxlength": "يجب ألا يزيد عنوان السؤال عن 100 حرف.",
+        "description_required": "الوصف مطلوب.",
+        "description_minlength": "يجب ألا يقل الوصف عن 5 أحرف.",
+        "option_required": "هذا الخيار مطلوب.",
+        "answer_required": "يرجى اختيار الإجابة الصحيحة.",
+        "type_required": "يرجى اختيار نوع السؤال."
+      }
     },
     "description": "وصف السؤال",
     "delete_title": "حذف السؤال",
@@ -264,5 +282,8 @@
   "empty_state": {
     "no_data": "لا توجد بيانات!",
     "message": "لا توجد بيانات لعرضها لـ"
+  },
+  "question": {
+    "search": "أسئلة البحث..."
   }
 }

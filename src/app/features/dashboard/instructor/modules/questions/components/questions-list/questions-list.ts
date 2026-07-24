@@ -7,7 +7,7 @@ import { Loader } from '../../../../../../../shared/components/loader/loader';
 import { TableModule } from 'primeng/table';
 import { PageLayout } from '../../../../../../../shared/layouts/page-layout/page-layout';
 import { AddEditQuestion } from '../add-edit-question/add-edit-question';
-import { IQuestion } from '../../interfaces/questions';
+import { ICreateQuestionData, IQuestion } from '../../interfaces/questions';
 import { QuestionsService } from '../../services/questions.service';
 import { MessageService } from 'primeng/api';
 import { DeleteConfig } from '../../../../../../../shared/components/delete/interfaces/delete';
@@ -15,6 +15,9 @@ import { AlertDeleteService } from '../../../../../../../shared/components/delet
 import { DatePipe } from '@angular/common';
 import { ViewQuestion } from '../view-question/view-question';
 import { Button } from 'primeng/button';
+import { finalize } from 'rxjs';
+import { QuestionType } from '../../../../../../../shared/enums/question.enum';
+//import { Select } from 'primeng/select';
 @Component({
   selector: 'app-questions-list',
   imports: [
@@ -27,7 +30,8 @@ import { Button } from 'primeng/button';
     EmptyStateComponent,
     TableModule,
     ViewQuestion,
-    Button
+    Button,
+    AddEditQuestion,
   ],
   templateUrl: './questions-list.html',
   styleUrl: './questions-list.scss',
@@ -41,7 +45,7 @@ export class QuestionsList {
   questionsList = signal<IQuestion[]>([]);
   isLoading = signal<boolean>(true);
   currentPage = signal<number>(1);
-  pageSize = signal<number>(10);
+  pageSize = signal<number>(3);
   totalRecords = signal<number>(0);
   selectedQuestionForEdit = signal<IQuestion | null>(null);
   selectedQuestionForView = signal<IQuestion | null>(null);
@@ -54,6 +58,16 @@ export class QuestionsList {
   showDeleteDialog = signal(false);
   deleteConfig = signal<DeleteConfig | null>(null);
   deleteLoading = signal(false);
+  searchValue = signal('');
+  selectedType = signal<QuestionType | null>(null);
+  filteredQuestions = signal<IQuestion[]>([]);
+
+  questionTypes = [
+    { label: 'FrontEnd', value: QuestionType.FE },
+    { label: 'Backend', value: QuestionType.BE },
+    { label: 'Dev Ops', value: QuestionType.DO },
+  ];
+
   ngOnInit(): void {
     this.fetchQuestionsData();
   }
@@ -63,8 +77,9 @@ export class QuestionsList {
     this.questionService.getAllQuestions().subscribe({
       next: (res: IQuestion[]) => {
         this.allQuestions.set(res);
+        this.filteredQuestions.set(this.allQuestions())
+        this.totalRecords.set(this.filteredQuestions().length);
         this.updateDisplayedQuestions();
-        this.totalRecords.set(res.length);
         this.isLoading.set(false);
       },
       error: (err) => {
@@ -77,6 +92,24 @@ export class QuestionsList {
         console.log(err);
       },
     });
+  }
+
+  onSearch(value: string): void {
+    this.searchValue.set(value);
+
+    const search = value.trim().toLowerCase();
+
+    if (!search) {
+      this.filteredQuestions.set(this.allQuestions());
+      return;
+    }
+
+    this.filteredQuestions.set(
+      this.allQuestions().filter(question =>
+        question.title.toLowerCase().includes(search) ||
+        question.description.toLowerCase().includes(search)
+      )
+    );
   }
 
   viewQuestion(question: IQuestion) {
@@ -112,38 +145,37 @@ export class QuestionsList {
   }
 
   //Emit Add And Edit requests to Dialog
-  // saveGroup(data: IGroupFormData) {
-  //   this.addEditLoad.set(true);
-  //   const isEdit = !!this.selectedQuestion();
-  //   const request$ = isEdit
-  //     ? this.GroupsService.updateGroup(this.selectedQuestion()!._id, data)
-  //     : this.GroupsService.createGroup(data);
+  saveQuestion(data: ICreateQuestionData) {
+    this.addEditLoad.set(true);
+    const isEdit = !!this.selectedQuestionForEdit();
+    const request$ = isEdit
+      ? this.questionService.updateQuestion(this.selectedQuestionForEdit()!._id, data)
+      : this.questionService.createQuestion(data);
 
-  //   request$.pipe(finalize(() => this.addEditLoad.set(false))).subscribe({
-  //     next: () => {
-  //       this.showDialog = false;
-  //       this.fetchQuestionsData();
-  //       this.messageService.add({
-  //         severity: 'success',
-  //         summary: this.translate.instant('common.success'),
-  //         detail: this.translate.instant(
-  //           isEdit ? 'groups.update_success' : 'groups.create_success',
-  //         ),
-  //       });
-  //     },
-  //     error: (err) => {
-  //       this.messageService.add({
-  //         severity: 'error',
-  //         summary: this.translate.instant('common.error'),
-  //         detail: err.error.message || this.translate.instant('common.something_went_wrong'),
-  //       });
-  //       console.error(err);
-  //     },
-  //   });
-  // }
+    request$.pipe(finalize(() => this.addEditLoad.set(false))).subscribe({
+      next: () => {
+        this.showDialog = false;
+        this.fetchQuestionsData();
+        this.messageService.add({
+          severity: 'success',
+          summary: this.translate.instant('common.success'),
+          detail: this.translate.instant(
+            isEdit ? 'groups.update_success' : 'groups.create_success',
+          ),
+        });
+      },
+      error: (err) => {
+        this.messageService.add({
+          severity: 'error',
+          summary: this.translate.instant('common.error'),
+          detail: err.error.message || this.translate.instant('common.something_went_wrong'),
+        });
+        console.error(err);
+      },
+    });
+  }
 
   //Delete Question
-
   openDeleteDialog(question: IQuestion): void {
     this.deleteService.open({
       config: {
@@ -167,8 +199,7 @@ export class QuestionsList {
   private updateDisplayedQuestions() {
     const start = (this.currentPage() - 1) * this.pageSize();
     const end = start + this.pageSize();
-
-    this.questionsList.set(this.allQuestions().slice(start, end));
+    this.questionsList.set(this.filteredQuestions().slice(start, end));
   }
 
   onPageChange(event: PaginatorState) {

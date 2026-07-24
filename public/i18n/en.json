@@ -159,39 +159,36 @@
     "edit": "Update Student",
     "group": "Group",
     "not_assigned": "Not Assigned",
-
-  "remove_from_group_title": "Remove From Group",
-  "remove_from_group_confirm_message": "Are you sure you want to remove this student from the group?",
-  "remove_from_group_warning_note": "The student will be removed from this group, but will remain in the system as not assigned.",
-  "remove_from_group_success": "Student removed from group successfully.",
+    "remove_from_group_title": "Remove From Group",
+    "remove_from_group_confirm_message": "Are you sure you want to remove this student from the group?",
+    "remove_from_group_warning_note": "The student will be removed from this group, but will remain in the system as not assigned.",
+    "remove_from_group_success": "Student removed from group successfully.",
     "delete_title": "Delete Student",
-  "delete_confirm_message": "Are you sure you want to delete this student?",
-  "delete_warning_note": "This action cannot be undone. The student will be permanently deleted from the system.",
-  "delete_success": "Student deleted successfully.",
+    "delete_confirm_message": "Are you sure you want to delete this student?",
+    "delete_warning_note": "This action cannot be undone. The student will be permanently deleted from the system.",
+    "delete_success": "Student deleted successfully.",
     "already_in_group": "This student is already assigned to a group.",
-  "details": {
-    "title": "Student Details",
-    "student": "Student",
-    "email": "Email Address",
-    "group": "Group",
-    "role": "Role",
-    "roles": {
-     "Student": "Student",
-  "Instructor": "Instructor",
-  "Admin": "Admin"
-  },
-    "status": "Status",
-    "active": "Active",
-    "inactive": "Inactive"},
-
-
-     "validation": {
-    "student_required": "Please select a student.",
-    "group_required": "Please select a group."
-  },
+    "details": {
+      "title": "Student Details",
+      "student": "Student",
+      "email": "Email Address",
+      "group": "Group",
+      "role": "Role",
+      "roles": {
+        "Student": "Student",
+        "Instructor": "Instructor",
+        "Admin": "Admin"
+      },
+      "status": "Status",
+      "active": "Active",
+      "inactive": "Inactive"
+    },
+    "validation": {
+      "student_required": "Please select a student.",
+      "group_required": "Please select a group."
+    },
     "create_success": "Student added to group successfully.",
     "update_success": "Student group updated successfully."
-    
   },
   "questions": {
     "title": "Bank Of Questions",
@@ -210,7 +207,31 @@
       "description": "Description",
       "difficulty": "Difficulty",
       "date": "Created Date",
-      "actions": "Actions"
+      "actions": "Actions",
+      "type": "Type"
+    },
+    "question_form": {
+      "title": "Title",
+      "description": "Description",
+      "answer": "Right Answer",
+      "type": "Category Type",
+      "select_type": "Select Question Type",
+      "option_a": "A",
+      "option_b": "B",
+      "option_c": "C",
+      "option_d": "D",
+      "single_choice": "Single Choice",
+      "multiple_choice": "Multiple Choice",
+      "validation": {
+        "title_required": "Question title is required.",
+        "title_minlength": "Question title must be at least 3 characters.",
+        "title_maxlength": "Question title cannot exceed 100 characters.",
+        "description_required": "Description is required.",
+        "description_minlength": "Description must be at least 5 characters.",
+        "option_required": "This option is required.",
+        "answer_required": "Please select the correct answer.",
+        "type_required": "Please select the question type."
+      }
     },
     "description": "Question Description",
     "delete_title": "Delete Question",
@@ -227,7 +248,8 @@
       "choices": "Choices",
       "correct": "Correct Answer",
       "no_options": "No options available for this question."
-    }
+    },
+    "search": "Search questions..."
   },
   "QUIZZES": {
     "SET_UP_NEW": "Set up a new quiz",
@@ -261,5 +283,8 @@
   "empty_state": {
     "no_data": "No Data!",
     "message": "There is no data to show for"
+  },
+  "question": {
+    "search": "Search questions..."
   }
 }

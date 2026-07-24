@@ -37,21 +37,21 @@ interface IQuestionDocument extends IQuestion {
 }
 export interface ICreateQuestionData {
   title: string;
-  description: string;
+  description?: string;
   options: ICreateOptions;
   answer: QuestionAnswer;
   difficulty: QuestionDifficulty;
   type: string;
 }
 
-export interface IQuestionUpdateForm {
-  answer?: QuestionAnswer;
-  title?: string;
-  description?: string;
-  options?: ICreateOptions;
-  difficulty?: QuestionDifficulty;
-  type?: string;
-}
+// export interface IQuestionUpdateForm {
+//   answer?: QuestionAnswer;
+//   title?: string;
+//   description?: string;
+//   options?: ICreateOptions;
+//   difficulty?: QuestionDifficulty;
+//   type?: string;
+// }
 
 // ---- API Response Types -----
 export type IQuestionDetailsResponse = IApiResponse<IQuestion>;
